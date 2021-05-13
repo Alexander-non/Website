@@ -1,5 +1,5 @@
 body {
-    overflow-x: hidden;
+    overflow: hidden;
     background-image: url(Fotok/background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -21,11 +21,11 @@ table {
     border: 2px solid black;
     background-color: lightskyblue;
     text-align: center;
-    line-height: 5vw;
+    line-height: 10vh;
     color: black;
     font-family: 'Fira Sans', sans-serif;
     font-weight: 700;
-    border-radius: 7%;
+    border: none;
     transition-duration: 1s;
 }
 :hover.buttons{
@@ -44,7 +44,7 @@ table {
 }
 
 .csoport_kép_mobile {
-    width: 35%;
+    width: 100%;
     height: auto;
     border: 5px solid black;
     position: relative;
@@ -59,10 +59,9 @@ table {
 
 .cim {
     font-family: 'RocknRoll One', sans-serif;
-    font-size: 60px;
+    font-size: 350%;
     position: absolute;
-    float: right;
-    margin-left: 70vw;
+    margin-left: 70%;
 }
 
 a:any-link {
@@ -73,7 +72,7 @@ a:any-link {
 @media screen and (max-width:1000px) {
     .kep {display: none}
     .cim {display: none}
-    .buttons {width: 100%; padding-top: 5%; border-radius: 0px;}
+    .buttons {width: 100%; padding-top: 5%; border-radius: 0px; padding: 3%;}
     :hover.buttons {transform: scale(1.00);}
     .button {width: 100vw;}
     html, body {overflow: visible;}
