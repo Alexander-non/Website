@@ -72,41 +72,75 @@ a:any-link {
 }
 
 
-@keyframes wawes {
+@keyframes waves {
     from {left: -50%; bottom: -3%;}
-    to {left: 3%; bottom: -3%;}
+    to {left: 0%; bottom: -3%;}
 }
-@keyframes wawes1 {
-    from {left: 43%; bottom: -3%;}
+@keyframes waves2 {
+    from {left: -75%; bottom: -3%;}
+    to {left: -25%; bottom: -3%;}
+}
+@keyframes waves3 {
+    from {left: 20%; bottom: -3%;}
+    to {left: 70%; bottom: -3%;}
+}
+@keyframes waves4 {
+    from {left: 45%; bottom: -3%;}
     to {left: 95%; bottom: -3%;}
 }
 
-.wawe {
-    height: 100px;
+.wave {
+    height: 120px;
     width: 100%;
-    bottom: -3%;
+    top: 88%;
     background-size: contain;
     background-image: url(Fotok/Wave.png);
-    animation-name: wawes;
+    animation-name: waves;
     animation-iteration-count: infinite;
     animation-duration: 6s;
     position: absolute;
 }
-.wawe1 {
-    height: 100px;
+.wave2 {
+    height: 120px;
     width: 100%;
-    bottom: -3%;
+    top: 88%;
     background-size: contain;
     background-image: url(Fotok/Wave.png);
-    animation-name: wawes1;
+    animation-name: waves2;
+    animation-iteration-count: infinite;
+    animation-duration: 6s;
+    position: absolute;
+}
+.wave3 {
+    height: 120px;
+    width: 100%;
+    top: 88%;
+    background-size: contain;
+    background-image: url(Fotok/Wave.png);
+    animation-name: waves3;
+    animation-iteration-count: infinite;
+    animation-duration: 6s;
+    position: absolute;
+}
+.wave4 {
+    height: 120px;
+    width: 100%;
+    top: 88%;
+    background-size: contain;
+    background-image: url(Fotok/Wave.png);
+    animation-name: waves4;
     animation-iteration-count: infinite;
     animation-duration: 6s;
     position: absolute;
 }
 
+
 @media screen and (max-width:1000px) {
-    .wawe{display: none}
-    .wawe1{display: none}
+    .wave{display: none}
+    .wave2{display: none}
+    .wave3{display: none}
+    .wave4{display: none}
+
     body {overflow: visible}
     .buttons {
     
