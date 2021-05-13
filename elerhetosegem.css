@@ -1,6 +1,6 @@
 .icon {
     height: auto; 
-    width: 70px;
+    width: 3.5vw;
     position: relative;
 }
 
@@ -13,22 +13,22 @@
 }
 
 .tart {
-    margin-top: 3%;
-    margin-left: 20%;
-    margin-right: 30%;
+    margin-top: 5vw;
+    margin-left: 20vw;
+    margin-right: 30vw;
 }
 
 .list {
     list-style-type: none;
 }
 .gomb {
-    height: 110px;
-    width: 1000px;
+    height: 10vh;
+    width: 50vw;
     border: none;
     color: white;
     padding: 5px 10px;
     margin: 4px 2px;
-    transition-duration: 0.4s;
+    transition-duration: 1s;
 }
 .discord {
     background-color: white;
