@@ -3,6 +3,43 @@ canvas.height = window.innerHeight;
 canvas.width = window.innerWidth;
 
 var c = canvas.getContext('2d');
+
+/* DOBOZ
+c.fillStyle = 'rgba(255, 0, 0, 0.5)';
+c.fillRect(0, 0, 200, 200);
+*/
+
+/* VONAL
+c.beginPath();
+c.moveTo(100, 500);
+c.lineTo(300, 100);
+c.strokeStyle = 'blue';
+c.stroke();
+*/
+
+// KARIKA
+/*
+c.beginPath();
+c.arc(600, 300, 200, 0, Math.PI*2, false);
+c.strokeStyle = 'green';
+c.stroke();
+*/
+// SOK RANDOM KÖR
+/*
+for (var i = 0; i < 30000; i++) {
+    var x = Math.random() * window.innerWidth;
+    var y = Math.random() * window.innerHeight;
+    c.beginPath();
+    c.arc(x, y, 10, 0, Math.PI*2, false);
+    c.fillStyle = "rgba(" + 
+        Math.random() * 255 + "," +
+        Math.random() * 255 + "," +
+        Math.random() * 255 + "," + 
+        Math.random() + ")";
+        
+    c.fill();
+}
+*/
 var mouse = {
     x : undefined,
     y: undefined
@@ -19,8 +56,8 @@ var colorArray = [
 ];
 
 
-var maxRad = 10;
-var minRad = 25;
+var maxRad = 50;
+var minRad = 15;
 
 
 window.addEventListener('mousemove', 
@@ -78,13 +115,13 @@ function Circle(x, y, vx, vy, rad){
 
 var circleArray = [];
 
-for(var i = 0; i < 2000; i++){
-    var x = Math.random()*(innerWidth - rad * 2) + rad;
-    //var x = innerWidth / 2;
-    var vx = (Math.random() - 0.5) * 3;
-    var y = Math.random()*(innerHeight - rad * 2) + rad;
-    //var y = innerHeight / 2;
-    var vy = (Math.random() - 0.5) * 3;
+for(var i = 0; i < 1000; i++){
+    //var x = Math.random()*(innerWidth - rad * 2) + rad;
+    var x = innerWidth / 2;
+    var vx = (Math.random() - 0.5) * 10;
+    //var y = Math.random()*(innerHeight - rad * 2) + rad;
+    var y = innerHeight / 2;
+    var vy = (Math.random() - 0.5) * 10;
     var rad = 15;
     circleArray.push(new Circle(x, y, vx, vy, rad));
     
@@ -94,7 +131,7 @@ for(var i = 0; i < 2000; i++){
 
 function anim(){
     requestAnimationFrame(anim);
-    //c.clearRect(0, 0, innerWidth, innerHeight);
+     c.clearRect(0, 0, innerWidth, innerHeight);
     for (var i = 0; i < circleArray.length; i++){
         circleArray[i].update();
     }
@@ -102,4 +139,3 @@ function anim(){
 }
 
 anim();
-

@@ -1,0 +1,30 @@
+body {
+    overflow: hidden;
+}
+
+#canv {
+    opacity: 50%;
+    z-index: 0;
+    
+}
+
+.GameSquare {
+    opacity: 70%;
+    position: absolute;
+    background-color: black;
+    z-index: 1;
+
+    height: 25vh;
+    width: 25vw;
+    
+    
+}
+
+.game {
+    margin-top: 10vh;
+    margin-left: 10vw;
+}
+.game2 {
+    margin-top: 10vh;
+    margin-left: 60vw;
+}
