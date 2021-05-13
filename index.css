@@ -27,7 +27,6 @@ table {
     font-weight: 700;
     border-radius: 7%;
     transition-duration: 1s;
-    text-decoration: none;
 }
 :hover.buttons{
     transition-duration: 1s;
@@ -68,6 +67,7 @@ table {
 
 a:any-link {
     color: black;
+    text-decoration: none;
 }
 
 @media screen and (max-width:1000px) {
