@@ -1,0 +1,155 @@
+body {
+    background-color: skyblue;
+    overflow: hidden;
+}
+
+.assignment-container {
+    margin-top: 50px;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    display: flex;
+    color: white;
+}
+.assignment-container2 {
+    margin-top: 50px;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    display: flex;
+    color: white;
+}
+.assignment-container3 {
+    margin-top: 50px;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    display: flex;
+    color: white;
+}
+.assignment-container4 {
+    margin-top: 50px;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    display: flex;
+    color: white;
+}
+
+.comment-on-work {
+    font-family: sans-serif;
+    width: 120px;
+    height: 30px;
+    text-align: center;
+    line-height: 180%;
+    position: absolute;
+    background-color: lightgoldenrodyellow;
+    border: solid 4px sandybrown;
+}
+
+#content {
+    margin-top: 20px;
+    margin-left: 140px;
+    font-family: sans-serif;
+}
+
+.buttons {
+    
+    line-height: 340%;
+    text-align: center;
+    font-size: 30px;
+    
+    width: 300;
+    height: 100px;
+    
+    background-image: url("Fotok/sand.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    color: white;
+    font-family: sans-serif;
+}
+
+a:any-link {
+    text-decoration: none;
+}
+
+
+@keyframes wawes {
+    from {left: -50%; bottom: -3%;}
+    to {left: 3%; bottom: -3%;}
+}
+@keyframes wawes1 {
+    from {left: 43%; bottom: -3%;}
+    to {left: 95%; bottom: -3%;}
+}
+
+.wawe {
+    height: 100px;
+    width: 100%;
+    bottom: -3%;
+    background-size: contain;
+    background-image: url(Fotok/Wave.png);
+    animation-name: wawes;
+    animation-iteration-count: infinite;
+    animation-duration: 6s;
+    position: absolute;
+}
+.wawe1 {
+    height: 100px;
+    width: 100%;
+    bottom: -3%;
+    background-size: contain;
+    background-image: url(Fotok/Wave.png);
+    animation-name: wawes1;
+    animation-iteration-count: infinite;
+    animation-duration: 6s;
+    position: absolute;
+}
+
+@media screen and (max-width:1000px) {
+    .wawe{display: none}
+    .wawe1{display: none}
+    body {overflow: visible}
+    .buttons {
+    
+    line-height: 280%;
+    text-align: center;
+    font-size: 25px;
+    
+    margin-top: 30px;
+    margin-left: 40px;
+    margin-right: 40px;
+        
+    width: auto;
+    height: 70px;
+    
+    background-image: url("Fotok/sand.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    color: white;
+    font-family: sans-serif;}
+    .assignment-container {
+        margin-top: 0px;
+    flex-direction: column;
+    flex-flow: column;
+    display: flex;
+    height: auto;}
+    .assignment-container2 {
+    margin-top: 0px;
+    flex-direction: column;
+    flex-flow: column;
+    display: flex;
+    height: auto;}
+    .assignment-container3 {
+        margin-top: 0px;
+        flex-direction: column;
+        flex-flow: column;
+        display: flex;
+        height: auto;}
+    .assignment-container4 {
+    margin-top: 0px;
+    flex-direction: column;
+    flex-flow: column;
+    display: flex;
+    height: auto;}
+}

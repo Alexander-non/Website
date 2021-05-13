@@ -1,0 +1,40 @@
+#tovabb{
+	position:relative;
+	top:-39px;
+	left:580px;
+	width:120px;
+	background-color: orange;
+	opacity: 60%;
+	color: white;
+	margin: -35px;
+	padding: 15px;
+}
+
+h1 {
+	border-bottom: 1px solid lightgrey;
+}
+
+p {
+	text-align: justify;
+}
+
+#tartalom {
+	width: 600px;
+	margin: 0 auto 0 auto;
+}
+
+table {
+	width: 500px;
+}
+td {
+	text-align: center;
+	width: 75px;
+}
+
+#tovabb:hover{
+	background-color: black;
+}
+
+a:any-link {
+	text-decoration: none;
+}

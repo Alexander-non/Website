@@ -1,0 +1,104 @@
+.icon {
+    height: auto; 
+    width: 70px;
+    position: relative;
+}
+
+.icon1 {
+    height: auto; 
+    width: 70px;
+    position: absolute;
+    left: 46.69%;
+    display: grid;
+}
+
+.tart {
+    margin-top: 3%;
+    margin-left: 20%;
+    margin-right: 30%;
+}
+
+.list {
+    list-style-type: none;
+}
+.gomb {
+    height: 110px;
+    width: 1000px;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+}
+.discord {
+    background-color: white;
+}
+.discord:hover {
+  background-color: #8C9EFF;
+}
+
+.viber {
+    background-color: white; 
+}
+.viber:hover {
+  background-color: #7D3DAF;
+}
+
+.messenger {
+    background-color: white; 
+}
+.messenger:hover {
+  background-color: #007FFF;
+}
+
+.skype {
+    background-color: white; 
+}
+.skype:hover {
+  background-color: #00A9E8;
+}
+
+.phone {
+    background-color: white; 
+}
+.phone:hover {
+  background-color: #1D1D1B;
+}
+
+body {
+    background-image: url(Fotok/Backgroundelerhetoseg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#button1 {
+    color: black;
+    font-size: 25px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+#button2 {
+    color: black;
+    font-size: 25px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+#button3 {
+    color: black;
+    font-size: 25px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+#button4 {
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+#button5 {
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}

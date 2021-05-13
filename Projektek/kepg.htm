@@ -1,0 +1,61 @@
+<SCRIPT LANGUAGE="JavaScript1.2">
+<!-- 
+x=1; //A "x" változó egyenlő 1-el
+s=false; //Az "s" változó hamis
+max=221; //A "max" változó egyenlő 221-el
+function stsor() 
+{
+if (s==true) //Ha az "s" változó igaz a program 4 tized másodpercenként meg keresei a képet amit az "x" változó jelől ezután kiírja az "x" változót, hozzáad 1-et  az "x" változóhoz, illetve ha az "x" változó 221-el egyenlő meg változtatja az "x" változót 1-re
+	{
+	window.setTimeout("stsor()", 400);
+	document.images[0].src=x+".jpg";
+	indit.value="      "+x+"      ";
+	szam.value=x;
+	x++;
+	if (x==221) x=1;
+	}
+}
+
+function slide() //A függvény ellentétetessé teszi a "s" változót,  leelenőrzi hogy ha az "s" változó igaz vagy hamis. Ha igaz akkor meghívja az "stsor" függvényt, ha hamis a bizonyos dolgot ami az "indít" névvel rendelkezik át nevezi "Start"-ra
+{
+s=!s;
+
+if (s==true) {x=szam.value;stsor();}
+if (s==false) {indit.value=" Start ";szam.value=x;}
+}
+
+
+function valtoztat(y) //Függvény aminek a változója "y", a parseInt megváltoztatja az "x" valtozót hogy számként kezelje a rendszer, hozzádja az "y" változót. Leelenőrzi hogy az "x" változó egyenlő nullával ha igen akkor meg változtatja az értékét a "max" értékre, ha a szám nagyobb akarna lenni mint a max érték a függvény átállítja az "x" értékét 1-re, kiírja az "x" értékét, megkeresi a képet ami az "x" változóval rendelkezik + a  .jpg formátummal, megváltoztja a linket egy olyan linkre ami "x" változóval rendelkezik plusz a .jpg formátummal.
+{
+
+x=parseInt(szam.value);
+x=x+y;
+if (x==0)
+    {x=max;}
+if (x==max+1)
+    {x=1;}
+szam.value=x;
+document.kep.src=x+".jpg";
+klink.href=x+".jpg";
+
+} 
+
+
+-->
+</SCRIPT>
+
+
+
+<body topmargin="0" leftmargin="0">
+<center>
+
+<input type=button value=" Start " name=indit onclick="slide()"><br>
+
+
+<input type=button value=" < " name=vissza onclick="valtoztat(-1)">
+<input id="szam" size=4 value="5" style="text-align: center;">
+<input type=button value=" > " name=elore onclick="valtoztat(1)"><br>
+
+<input type=button value="OK" onClick="valtoztat(0)"><br>
+
+<a href="1.jpg" id="klink"><img src="1.jpg" Height="600" name="kep"></a> 

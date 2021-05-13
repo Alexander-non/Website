@@ -1,0 +1,82 @@
+body {
+    overflow-x: hidden;
+    background-image: url(Fotok/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+tr {
+    height: 20%;
+} 
+td {
+    height: 10%;
+    line-height: 10%;
+}
+table {
+    height: 100%;
+}
+
+.buttons {
+    height: 55%;
+    width: 250%;
+    border: 2px solid black;
+    background-color: lightskyblue;
+    text-align: center;
+    line-height: 5vw;
+    color: black;
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 700;
+    border-radius: 7%;
+    transition-duration: 1s;
+}
+:hover.buttons{
+    transition-duration: 1s;
+    transform: scale(1.05);
+    background-color: skyblue;
+}
+
+.csoport_kép_PC {
+    width: 35%;
+    height: auto;
+    border: 5px solid black;
+    position: relative;
+    float: right;
+    top: 10vw;
+}
+
+.csoport_kép_mobile {
+    width: 35%;
+    height: auto;
+    border: 5px solid black;
+    position: relative;
+    float: right;
+}
+
+.kep_1000 {
+    display: none;
+    position: relative;
+    padding: 15%;
+}
+
+.cim {
+    font-family: 'RocknRoll One', sans-serif;
+    font-size: 60px;
+    position: absolute;
+    float: right;
+    margin-left: 70vw;
+}
+
+a:any-link {
+    color: black;
+}
+
+@media screen and (max-width:1000px) {
+    .kep {display: none}
+    .cim {display: none}
+    .buttons {width: 100%; padding-top: 5%; border-radius: 0px;}
+    :hover.buttons {transform: scale(1.00);}
+    .button {width: 100vw;}
+    html, body {overflow: visible;}
+    table {height: auto}
+    .kep_1000 {display: block;}
+    body {overflow-x: hidden;}
+}

@@ -1,0 +1,12 @@
+<script>
+    function fordít(lap){
+        a=lap.src.substring(lap.src.length-5);
+        switch (a) {
+                
+         case "0.jpg"; lap.src="1.jpg";
+         case "1.jpg"; lap.src="0.jpg";        
+                
+        }
+    }
+</script>
+<img width="200" src="0.jpg" onMouseover="fordít(this)">

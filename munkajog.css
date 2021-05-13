@@ -1,0 +1,48 @@
+body {
+    background-image: url(Fotok/munkajog-background.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+.button {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    border: none;
+    outline: none;
+    width: 90%;
+    height: 20%;
+    margin: 5% 0 3% 5%;
+    padding: 5%;
+    background-color: silver;
+}
+
+.button-container {
+    margin: 1%;
+    background-color: grey;
+    width: 20%;
+    height: 30%;
+}
+
+.fogalom-button {
+    margin: 1%;
+    width: 15%;
+    height: 10%;
+    background-color: grey;
+    transition-duration: 2s;
+}
+
+.fogalom-button:hover {
+    transform: translateY(-10px);
+    transition-duration: 2s;
+}
+
+.fogalmak {
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    margin-left: 2%;
+}

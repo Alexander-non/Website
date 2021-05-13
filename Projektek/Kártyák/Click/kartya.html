@@ -1,0 +1,16 @@
+<script>
+    function fordit(kártya) {
+        a=kártya.src.substring(kártya.src.length-5);
+        switch (a)
+            {
+                case "0.jpg": kártya.src="1.jpg"; break;
+                case "1.jpg": kártya.src="2.jpg"; break;
+                case "2.jpg": kártya.src="3.jpg"; break;
+                case "3.jpg": kártya.src="0.jpg"; break;            
+                    
+            }
+    }
+</script>
+    <img width="300px" src="0.jpg" onClick="fordit(this)">
+    <img width="300px" src="0.jpg" onClick="fordit(this)">
+    <img width="300px" src="0.jpg" onClick="fordit(this)">
