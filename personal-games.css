@@ -2,22 +2,26 @@ body {
     overflow: hidden;
 }
 
+p {
+    color: white;
+    text-align: center;
+    font-size: 40;
+    font-family: 'Courier New', Courier, monospace;
+}
+
 #canv {
     opacity: 50%;
     z-index: 0;
-    
 }
 
 .GameSquare {
-    opacity: 70%;
+    opacity: 75%;
     position: absolute;
     background-color: black;
     z-index: 1;
 
-    height: 25vh;
+    height: 65vh;
     width: 25vw;
-    
-    
 }
 
 .game {
@@ -27,4 +31,24 @@ body {
 .game2 {
     margin-top: 10vh;
     margin-left: 60vw;
+}
+
+.GameIcon {
+    width: 75%;
+    margin-left: 10%;
+}
+
+.PlayButton {
+    height: 10%;
+    width: 50%;
+    margin-left: 25%;
+    color: black;
+    background-color: white;
+    transition-duration: 1s;
+}
+
+.PlayButton:hover {
+    transition-duration: 0.75s;
+    background-color: green;
+    color: white;
 }
