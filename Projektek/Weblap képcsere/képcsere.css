@@ -1,0 +1,17 @@
+body {
+    background-image:' hátter.jpg';
+}
+
+img {
+    margin-left: 10%;
+    margin-top: 2%;
+    margin-bottom: 5%;
+    width: 20%;
+    height: auto;
+    border: 5px solid black;
+}
+
+h1 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}

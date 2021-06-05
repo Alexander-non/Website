@@ -31,6 +31,13 @@ body {
     display: flex;
     color: white;
 }
+.assignment-container5 {
+    margin-top: 50px;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    display: flex;
+    color: white;
+}
 
 .comment-on-work {
     font-family: sans-serif;
@@ -186,4 +193,10 @@ a:any-link {
     flex-flow: column;
     display: flex;
     height: auto;}
+    .assignment-container5 {
+        margin-top: 0px;
+        flex-direction: column;
+        flex-flow: column;
+        display: flex;
+        height: auto;}
 }

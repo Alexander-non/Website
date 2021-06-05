@@ -1,0 +1,60 @@
+body {
+    background-color: thistle;
+    background-image: url("https://www.onlygfx.com/wp-content/uploads/2015/12/simple-old-paper-1-transparent.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.alt_navigation_panel {
+    text-align: center;
+    list-style-type: none;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 5%;
+    width: 10vw;
+    
+    border: 1px black solid;
+    border-radius: 7%;
+    background-color: black;
+}
+
+.button {
+    margin: auto 0 auto 0;
+    position: relative;
+}
+
+.main_navigation_panel {
+    position: sticky;
+    top: 0px;
+    background-color: lightgray;
+    height: 7vh;
+    display: flex;
+    flex-wrap: nowrap;
+
+    border: solid 1px black;
+}
+
+h1 {
+    margin-left: 5%;
+    font-family: 'Dancing Script', cursive;
+    font-size: 5vh;
+}
+p {
+    margin-left: 10%;
+    font-family: 'Dancing Script', cursive;
+    font-size: 3vh;
+}
+
+.pictureone {
+    position: relative;
+    margin-left: 7%;
+    float: left;
+}
+
+.textone {
+    float: right;
+}
