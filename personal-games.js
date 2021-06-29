@@ -4,42 +4,6 @@ canvas.width = window.innerWidth;
 
 var c = canvas.getContext('2d');
 
-/* DOBOZ
-c.fillStyle = 'rgba(255, 0, 0, 0.5)';
-c.fillRect(0, 0, 200, 200);
-*/
-
-/* VONAL
-c.beginPath();
-c.moveTo(100, 500);
-c.lineTo(300, 100);
-c.strokeStyle = 'blue';
-c.stroke();
-*/
-
-// KARIKA
-/*
-c.beginPath();
-c.arc(600, 300, 200, 0, Math.PI*2, false);
-c.strokeStyle = 'green';
-c.stroke();
-*/
-// SOK RANDOM KÖR
-/*
-for (var i = 0; i < 30000; i++) {
-    var x = Math.random() * window.innerWidth;
-    var y = Math.random() * window.innerHeight;
-    c.beginPath();
-    c.arc(x, y, 10, 0, Math.PI*2, false);
-    c.fillStyle = "rgba(" + 
-        Math.random() * 255 + "," +
-        Math.random() * 255 + "," +
-        Math.random() * 255 + "," + 
-        Math.random() + ")";
-        
-    c.fill();
-}
-*/
 var mouse = {
     x : undefined,
     y: undefined
