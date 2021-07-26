@@ -3,43 +3,6 @@ canvas.height = window.innerHeight;
 canvas.width = window.innerWidth;
 
 var c = canvas.getContext('2d');
-
-/* DOBOZ
-c.fillStyle = 'rgba(255, 0, 0, 0.5)';
-c.fillRect(0, 0, 200, 200);
-*/
-
-/* VONAL
-c.beginPath();
-c.moveTo(100, 500);
-c.lineTo(300, 100);
-c.strokeStyle = 'blue';
-c.stroke();
-*/
-
-// KARIKA
-/*
-c.beginPath();
-c.arc(600, 300, 200, 0, Math.PI*2, false);
-c.strokeStyle = 'green';
-c.stroke();
-*/
-// SOK RANDOM KÖR
-/*
-for (var i = 0; i < 30000; i++) {
-    var x = Math.random() * window.innerWidth;
-    var y = Math.random() * window.innerHeight;
-    c.beginPath();
-    c.arc(x, y, 10, 0, Math.PI*2, false);
-    c.fillStyle = "rgba(" + 
-        Math.random() * 255 + "," +
-        Math.random() * 255 + "," +
-        Math.random() * 255 + "," + 
-        Math.random() + ")";
-        
-    c.fill();
-}
-*/
 var mouse = {
     x : undefined,
     y: undefined
@@ -77,7 +40,7 @@ function Circle(x, y, vx, vy, rad){
     this.color = colorArray[Math.floor(Math.random() * colorArray.length)];
     this.draw = function() {
         c.beginPath();
-        c.arc(this.x, this.y, this.rad, 0, Math.PI*2, false);
+        c.arc(this.x, this.y, this.rad, 0, Math.PI*2, false); //Kör méreteinek megadása
         c.fillStyle = this.color
         c.fill();
     }
@@ -85,11 +48,11 @@ function Circle(x, y, vx, vy, rad){
     this.update = function(){
         if(this.x > innerWidth - this.rad || this.x < 0 + this.rad){
             this.vx = -this.vx;
-        }
+        } //Vissza pattanás az X kördináta rendszeren
     
         if(this.y > innerHeight - this.rad || this.y < 0 + this.rad){
             this.vy = -this.vy;
-        }
+        }//Vissza pattanás az Y kördináta rendszeren
     
         this.x += this.vx;
         this.y += this.vy;
@@ -115,27 +78,25 @@ function Circle(x, y, vx, vy, rad){
 
 var circleArray = [];
 
-for(var i = 0; i < 1000; i++){
-    //var x = Math.random()*(innerWidth - rad * 2) + rad;
-    var x = innerWidth / 2;
-    var vx = (Math.random() - 0.5) * 10;
-    //var y = Math.random()*(innerHeight - rad * 2) + rad;
-    var y = innerHeight / 2;
-    var vy = (Math.random() - 0.5) * 10;
-    var rad = 15;
+for(var i = 0; i < 750 /**A 10 arra utal mennyi kör jelenik meg.*/; i++){
+    var x = innerWidth / 2; //A terület ahol a körök pattoghatnak (X)
+    var vx = (Math.random() - 0.5) * 10; //X-kördináta rendszer sebessége.
+    var y = innerHeight / 2; //A terület ahol a körök pattoghatnak (Y)
+    var vy = (Math.random() - 0.5) * 10; //Y-kördináta rendszer sebessége.
+    var rad = 20; //A körök nagysága
     circleArray.push(new Circle(x, y, vx, vy, rad));
     
 }
 
 
 
-function anim(){
-    requestAnimationFrame(anim);
-     c.clearRect(0, 0, innerWidth, innerHeight);
+function animation(){
+    requestAnimationFrame(animation);
+     c.clearRect(0, 0, innerWidth, innerHeight); //Törli a körök elöző pozicióját hogy ugy látszodjon mozognak (A zárojelben a terület van amit töröl)
     for (var i = 0; i < circleArray.length; i++){
-        circleArray[i].update();
+        circleArray[i].update(); //Folyamatos circleArray vagyis kicsit kör updateje
     }
 
 }
 
-anim();
+animation();

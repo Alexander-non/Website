@@ -1,15 +1,8 @@
 .icon {
     height: auto; 
     width: 3.5vw;
+    
     position: relative;
-}
-
-.icon1 {
-    height: auto; 
-    width: 70px;
-    position: absolute;
-    left: 46.69%;
-    display: grid;
 }
 
 .tart {
@@ -27,7 +20,8 @@
     border: none;
     color: white;
     padding: 5px 10px;
-    margin: 4px 2px;
+    margin-left: auto;
+    margin-right: auto;
     transition-duration: 1s;
 }
 .discord {
@@ -66,7 +60,7 @@
 }
 
 body {
-    background-image: url(Fotok/Backgroundelerhetoseg.jpg);
+    background-image: url(/Fotok/Backgroundelerhetoseg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

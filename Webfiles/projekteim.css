@@ -10,34 +10,6 @@ body {
     display: flex;
     color: white;
 }
-.assignment-container2 {
-    margin-top: 50px;
-    justify-content: space-around;
-    flex-wrap: nowrap;
-    display: flex;
-    color: white;
-}
-.assignment-container3 {
-    margin-top: 50px;
-    justify-content: space-around;
-    flex-wrap: nowrap;
-    display: flex;
-    color: white;
-}
-.assignment-container4 {
-    margin-top: 50px;
-    justify-content: space-around;
-    flex-wrap: nowrap;
-    display: flex;
-    color: white;
-}
-.assignment-container5 {
-    margin-top: 50px;
-    justify-content: space-around;
-    flex-wrap: nowrap;
-    display: flex;
-    color: white;
-}
 
 .comment-on-work {
     font-family: sans-serif;
@@ -56,27 +28,22 @@ body {
     font-family: sans-serif;
 }
 
-.buttons {
-    
+.buttons { 
     line-height: 340%;
     text-align: center;
     font-size: 30px;
-    
     width: 300;
     height: 100px;
-    
-    background-image: url("Fotok/sand.jpg");
+    background-image: url("/Fotok/sand.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    
     color: white;
-    font-family: sans-serif;
-}
+    font-family: sans-serif;}
 
 a:any-link {
-    text-decoration: none;
-}
+    text-decoration: none;}
+
 
 
 @keyframes waves {
@@ -101,7 +68,7 @@ a:any-link {
     width: 100%;
     top: 88%;
     background-size: contain;
-    background-image: url(Fotok/Wave.png);
+    background-image: url(/Fotok/Wave.png);
     animation-name: waves;
     animation-iteration-count: infinite;
     animation-duration: 6s;
@@ -112,7 +79,7 @@ a:any-link {
     width: 100%;
     top: 88%;
     background-size: contain;
-    background-image: url(Fotok/Wave.png);
+    background-image: url(/Fotok/Wave.png);
     animation-name: waves2;
     animation-iteration-count: infinite;
     animation-duration: 6s;
@@ -123,7 +90,7 @@ a:any-link {
     width: 100%;
     top: 88%;
     background-size: contain;
-    background-image: url(Fotok/Wave.png);
+    background-image: url(/Fotok/Wave.png);
     animation-name: waves3;
     animation-iteration-count: infinite;
     animation-duration: 6s;
@@ -134,7 +101,7 @@ a:any-link {
     width: 100%;
     top: 88%;
     background-size: contain;
-    background-image: url(Fotok/Wave.png);
+    background-image: url(/Fotok/Wave.png);
     animation-name: waves4;
     animation-iteration-count: infinite;
     animation-duration: 6s;
@@ -147,7 +114,6 @@ a:any-link {
     .wave2{display: none}
     .wave3{display: none}
     .wave4{display: none}
-
     body {overflow: visible}
     .buttons {
     
@@ -162,7 +128,7 @@ a:any-link {
     width: auto;
     height: 70px;
     
-    background-image: url("Fotok/sand.jpg");
+    background-image: url("/Fotok/sand.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -174,29 +140,4 @@ a:any-link {
     flex-direction: column;
     flex-flow: column;
     display: flex;
-    height: auto;}
-    .assignment-container2 {
-    margin-top: 0px;
-    flex-direction: column;
-    flex-flow: column;
-    display: flex;
-    height: auto;}
-    .assignment-container3 {
-        margin-top: 0px;
-        flex-direction: column;
-        flex-flow: column;
-        display: flex;
-        height: auto;}
-    .assignment-container4 {
-    margin-top: 0px;
-    flex-direction: column;
-    flex-flow: column;
-    display: flex;
-    height: auto;}
-    .assignment-container5 {
-        margin-top: 0px;
-        flex-direction: column;
-        flex-flow: column;
-        display: flex;
-        height: auto;}
-}
+    height: auto;}}

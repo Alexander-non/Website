@@ -3,19 +3,20 @@ body {
 }
 
 p {
+    position: relative;
     color: white;
     text-align: center;
-    font-size: 40;
+    font-size: 35;
     font-family: 'Courier New', Courier, monospace;
 }
 
 #canv {
-    opacity: 50%;
+    opacity: 60%;
     z-index: 0;
 }
 
-.GameSquare {
-    opacity: 75%;
+.GameHolder {
+    opacity: 80%;
     position: absolute;
     background-color: black;
     z-index: 1;
@@ -24,18 +25,25 @@ p {
     width: 25vw;
 }
 
-.game {
+.Game {
     margin-top: 10vh;
     margin-left: 10vw;
+    z-index: 1;
 }
-.game2 {
+.Game_2 {
     margin-top: 10vh;
     margin-left: 60vw;
+    z-index: 1;
 }
 
-.GameIcon {
+.GameIcon{
     width: 75%;
-    margin-left: 10%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    border-radius: 10%;
+    z-index: 1;
 }
 
 .PlayButton {
