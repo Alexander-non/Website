@@ -68,7 +68,7 @@ a:any-link {
     width: 100%;
     top: 88%;
     background-size: contain;
-    background-image: url(/Fotok/Wave.png);
+    background-image: url(../Fotok/Wave.png);
     animation-name: waves;
     animation-iteration-count: infinite;
     animation-duration: 6s;
@@ -79,7 +79,7 @@ a:any-link {
     width: 100%;
     top: 88%;
     background-size: contain;
-    background-image: url(/Fotok/Wave.png);
+    background-image: url(../Fotok/Wave.png);
     animation-name: waves2;
     animation-iteration-count: infinite;
     animation-duration: 6s;
@@ -90,7 +90,7 @@ a:any-link {
     width: 100%;
     top: 88%;
     background-size: contain;
-    background-image: url(/Fotok/Wave.png);
+    background-image: url(../Fotok/Wave.png);
     animation-name: waves3;
     animation-iteration-count: infinite;
     animation-duration: 6s;
@@ -101,7 +101,7 @@ a:any-link {
     width: 100%;
     top: 88%;
     background-size: contain;
-    background-image: url(/Fotok/Wave.png);
+    background-image: url(../Fotok/Wave.png);
     animation-name: waves4;
     animation-iteration-count: infinite;
     animation-duration: 6s;
