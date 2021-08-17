@@ -34,7 +34,7 @@ body {
     font-size: 30px;
     width: 300;
     height: 100px;
-    background-image: url("//Fotok/sand.jpg");
+    background-image: url("../Fotok/sand.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
