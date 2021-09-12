@@ -46,6 +46,7 @@ table {
     transform: scale(1.05);
     background-color: #7C88FD;
     border: solid 2px black;
+    z-index: 2;
 }
 
 .csoport_kép_PC {

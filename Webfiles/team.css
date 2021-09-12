@@ -1,0 +1,32 @@
+.team_one{
+    position: relative;
+    border: 10px black solid;
+    width: 30%;
+    left: 10%;
+    top: 25%;
+}
+
+.team_two{
+    position: absolute;
+    border: 10px black solid;
+    width: 30%;
+    left: 60%;
+    top: 25%;
+}
+
+
+.team_name_one {
+    position: absolute;
+    left: 18%;
+    top: 15%;
+}
+
+.team_name_two {
+    position: absolute;
+    left: 75%;
+    top: 15%;
+}
+
+.csoport_kép_PC {
+    width: 100%;
+}
