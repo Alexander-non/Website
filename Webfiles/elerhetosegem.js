@@ -11,36 +11,36 @@ function button() {
 }
 
 function changeover() {
-    document.images['discord'].src='../Fotok/Inverted-discord.png';
+    document.images['discord'].src='../Pictures/Inverted-discord.png';
 }
 function changeout() {
-    document.images['discord'].src='../Fotok/Discord.png';
+    document.images['discord'].src='../Pictures/Discord.png';
 }
 
 function changeover1() {
-    document.images['viber'].src='../Fotok/Inverted-viber.png';
+    document.images['viber'].src='../Pictures/Inverted-viber.png';
 }
 function changeout1() {
-    document.images['viber'].src='../Fotok/Viber.png';
+    document.images['viber'].src='../Pictures/Viber.png';
 }
 
 function changeover2() {
-    document.images['messenger'].src='../Fotok/Inverted-messenger.png';
+    document.images['messenger'].src='../Pictures/Inverted-messenger.png';
 }
 function changeout2() {
-    document.images['messenger'].src='../Fotok/Messenger.png';
+    document.images['messenger'].src='../Pictures/Messenger.png';
 }
 
 function changeover3() {
-    document.images['skype'].src='../Fotok/Inverted-skype.png';
+    document.images['skype'].src='../Pictures/Inverted-skype.png';
 }
 function changeout3() {
-    document.images['skype'].src='../Fotok/Skype.png';
+    document.images['skype'].src='../Pictures/Skype.png';
 }
 
 function changeover4() {
-    document.images['phone'].src='../Fotok/Inverted-phone.png';
+    document.images['phone'].src='../Pictures/Inverted-phone.png';
 }
 function changeout4() {
-    document.images['phone'].src='../Fotok/Phone.png';
+    document.images['phone'].src='../Pictures/Phone.png';
 }
