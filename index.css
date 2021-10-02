@@ -31,22 +31,31 @@ table {
 .menu-button-close {
     font-size: 100%;
     height: 5%;
-    width: 7.5%;
+    width: 10%;
     position: relative;
     top: 1%;
-    left: 91%;
+    left: 88%;
     border-radius: 5%;
 }
 
 .menu-sidepage {
+    top: 0.01%;
+    left: 0.01%;
     z-index: 3;
-    display: none;
-    background-color: lightgray;
+    display: block;
+    background-color: #00B7D6;
     position: absolute;
     height: 99%;
-    width: 35%;
+    width: 25%;
 }
-
+.menu-sidepage-text {
+    position: relative;
+    height: 40px;
+    width: 120px;
+    left: 2.5%;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 25px;
+}
 
 
 
