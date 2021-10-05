@@ -71,16 +71,17 @@ table {
     height: auto;
     width: 150px;
     left: 10%;
-    /*border: black 2px solid;*/
 }
 
 .menu-sidepage-buttons {
+    position: relative;
     padding: 10px;
     border: none;
     font-family: 'Fira Sans', sans-serif;
     font-size: 25px;
     background-color: #00B7D6;
     text-align: center;
+    transition-duration: 0.5s;
     cursor: pointer;
 }
 
@@ -93,10 +94,10 @@ table {
     animation-name: language-appear;
     animation-iteration-count: initial;
     animation-duration: 1s;
-    position: absolute;
+    position: relative;
     list-style: none;
     display: none;}
-#language-select {
+.language-select {
     position: relative;
     border: none;
     background-color: #00B7D6;
@@ -105,7 +106,7 @@ table {
     width: 100px;
     font-family: 'Fira Sans', sans-serif;
     transition-duration: 0.5s;}
-:hover#language-select {
+:hover.language-select {
     transition-duration: 0.5s;
     background-color: #00a3c0;}
 
@@ -113,10 +114,12 @@ table {
     animation-name: theme-appear;
     animation-iteration-count: initial;
     animation-duration: 1s;
-    position: absolute;
+    top: -10px;
+    left: -10%;
+    position: relative;
     list-style: none;
     display: none;}
-#theme-select {
+.theme-select {
     position: relative;
     border: none;
     background-color: #00B7D6;
@@ -125,7 +128,7 @@ table {
     width: 100px;
     font-family: 'Fira Sans', sans-serif;
     transition-duration: 0.5s;}
-:hover#theme-select {
+:hover.theme-select {
     transition-duration: 0.5s;
     background-color: #00a3c0;}
     
@@ -193,7 +196,7 @@ table {
     padding: 15%;
 }
 
-.groupProjectTitle {
+.csoportMunkaCim {
     font-family: 'RocknRoll One', sans-serif;
     font-size: 300%;
     position: absolute;
