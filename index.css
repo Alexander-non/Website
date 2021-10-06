@@ -91,9 +91,6 @@ table {
 }
 
 #language-select-holder {
-    animation-name: language-appear;
-    animation-iteration-count: initial;
-    animation-duration: 1s;
     position: relative;
     list-style: none;
     display: none;}
@@ -111,9 +108,6 @@ table {
     background-color: #00a3c0;}
 
 #theme-select-holder {
-    animation-name: theme-appear;
-    animation-iteration-count: initial;
-    animation-duration: 1s;
     top: -10px;
     left: -10%;
     position: relative;
@@ -159,6 +153,7 @@ table {
     line-height: 10vh;
     cursor: default;
     color: black;
+    font-size: 22px;
     font-family: 'Fira Sans', sans-serif;
     font-weight: 700;
     border: none;
@@ -173,35 +168,29 @@ table {
     z-index: 2;
 }
 
-.csoport_kép_PC {
-    width: 20%;
-    height: auto;
-    border: 5px solid black;
-    position: absolute;
-    float: right;
-    left: 50px;
-    top: 30.5vw;
-}
-.csoport_kép_mobile {
-    width: 100%;
-    height: auto;
-    border: 5px solid black;
-    position: absolute;
-    float: right;
-}
-
-.kep_1000 {
-    display: none;
+#group-work-holder {
     position: relative;
-    padding: 15%;
-}
-
-.csoportMunkaCim {
+    top: 14vw;
+    height: 60%;
+    width: 30%;}
+.group-picture {
+    width: 90%;
+    height: auto;
+    top: 6vw;
+    margin-right: 5%;
+    margin-left: 5%;
+    border: .2vw black solid;
+    position: absolute;}
+.group-work-title {
+    text-align: center;
     font-family: 'RocknRoll One', sans-serif;
     font-size: 300%;
+    height: 25%;
+    width: 60%;
+    line-height: 100px;
     position: absolute;
-    top: 47.5%;
-    margin-left: 2.75%;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 a:any-link {
@@ -209,13 +198,11 @@ a:any-link {
 }
 
 @media screen and (max-width:1000px) {
-    .kep {display: none}
-    .groupProjectTitle {display: none}
+    #group-work-holder {display: none;}
     .buttons {width: 100%; padding-top: 5%; border-radius: 0px; padding: 3%;}
     :hover.buttons {transform: scale(1.00);}
     .button {width: 100vw;}
     html, body {overflow: visible;}
     table {height: auto}
-    .kep_1000 {display: block;}
     body {overflow-x: hidden;}
 }

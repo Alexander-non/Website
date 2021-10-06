@@ -60,54 +60,34 @@ document.getElementById("theme").onclick = function themeChangeAppear() {
         document.getElementById("theme-select-holder").style.display = "block";
     }
 }
+var selectedID = ''
 
-document.getElementsByClassName("theme-select").onclick = function languageChange() {
-    document.getElementsByClassName("theme-select").innerHTML = key
-    switch (key) {
-        case "Normal":
-            alert("Normalzed")
-            break;
-        case "Light":
-            alert("Light mode!")
-            break;
-        case "Dark":
-            alert("Light mode!")
-            break;
-        case "Ocean":
-            
-            break;
-        case "Old":
-            
-            break;
-        case "Apocalips":
-            
-            break;
-        case "Console":
-            
-            break;
-        case "Minecraft":
-            
-            break;
-        case "Terraria":
-            
-            break;
-        case "Undertale":
-    
-        default:
-            alert("ALERT")
-            break;
-    }
+function themeChange(){
+
 }
 
-/*function englishTranslate() {
+// LANGUAGE CHANGES
+
+function english(){
     //Gombok leforditása a főoldalon
-    document.getElementById("szorakozas").innerHTML = "ENTERTAINMENT";
-    document.getElementById("munkajog").innerHTML = "LABOR LAW";
-    document.getElementById("elerhetosegem").innerHTML = "MY CONTACT";
-    document.getElementById("projekteim").innerHTML = "PROJECTS";
-    document.getElementById("csoport_munka").innerHTML = "GROUPWORK";
-    document.getElementById("iskolam").innerHTML = "SCHOOL";
-    document.getElementById("cspc").innerHTML = "Group Work"; //cspc = Csoport Projekt Cim
-    document.getElementById("theme").innerHTML = "Theme";
-    document.getElementById("language").innerHTML = "Language";
-}*/
+    document.getElementById("szorakozas").innerHTML = "ENTERTAINMENT"
+    document.getElementById("munkajog").innerHTML = "LABOR LAW"
+    document.getElementById("elerhetosegem").innerHTML = "MY CONTACT"
+    document.getElementById("projekteim").innerHTML = "PROJECTS"
+    document.getElementById("csoport_munka").innerHTML = "GROUPWORK"
+    document.getElementById("iskolam").innerHTML = "SCHOOL"
+    document.getElementById("cim").innerHTML = "Group Work"
+    document.getElementById("theme").innerHTML = "Theme"
+    document.getElementById("language").innerHTML = "Language"
+}
+function hungarian(){
+    document.getElementById("szorakozas").innerHTML = "SZÓRAKOZÁS"
+    document.getElementById("munkajog").innerHTML = "MUNKA JOG"
+    document.getElementById("elerhetosegem").innerHTML = "ELÉRHETŐSÉGEM"
+    document.getElementById("projekteim").innerHTML = "PROJEKTEIM"
+    document.getElementById("csoport_munka").innerHTML = "CSOPORT MUNKA"
+    document.getElementById("iskolam").innerHTML = "ISKOLÁM"
+    document.getElementById("cim").innerHTML = "Csoport Munka"
+    document.getElementById("theme").innerHTML = "Téma"
+    document.getElementById("language").innerHTML = "Nyelv"
+}
