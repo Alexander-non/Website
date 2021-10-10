@@ -1,11 +1,34 @@
 <html>
     <head>
+        <title>Trash Adventure</title>
         <link rel="stylesheet" href="webpage_game.css">
     </head>
     <body>
-        <div id="ground">
-            <div id="character"><img id="characterSkin" src="slime.gif" alt=""></div>
+        <div id="menu-sidepage"> 
+            <div id="menu-sidepage-buttons-holder">
+                <button class="menu-sidepage-buttons">Volume</button>
+                <button class="menu-sidepage-buttons">Language</button>
+                <button class="menu-sidepage-buttons">Display</button>
+                <button class="menu-sidepage-buttons">Graphics</button>
+            </div>
         </div>
+        <div id="blackscreen"></div>
+            <section id="ground">
+                <div id="grass"></div>
+                <div id="character"><img id="characterSkin" src="slimeIdleRight.gif" alt=""></div>
+                <div id="forestPart1">
+                    <div id="tree" class="treePlacement frontTrees"><img id="treePicture" src="Tree.gif" alt=""></div>
+                    <div id="tree2" class="treePlacement backgroundTrees"><img id="treePicture" src="Tree.gif" alt=""></div>
+                    <div id="tree3" class="treePlacement middleTrees"><img id="treePicture" src="Tree2.gif" alt=""></div>
+                    <div id="tree4" class="treePlacement backgroundTrees"><img id="treePicture" src="Tree2.gif" alt=""></div>
+                </div>
+                <div id="forestPartX">
+                    <div id="tree" class="treePlacement frontTrees"><img id="treePicture" src="Tree.gif" alt=""></div>
+                    <div id="tree2" class="treePlacement backgroundTrees"><img id="treePicture" src="Tree.gif" alt=""></div>
+                    <div id="tree3" class="treePlacement middleTrees"><img id="treePicture" src="Tree2.gif" alt=""></div>
+                    <div id="tree4" class="treePlacement backgroundTrees"><img id="treePicture" src="Tree2.gif" alt=""></div>
+                </div>
+            </section>  
         <script src="webpage_game.js"></script>
     </body>
 </html>

@@ -10,6 +10,12 @@ p {
     font-family: 'Courier New', Courier, monospace;
 }
 
+#proba {
+    top: -100px;
+    left: -25%;
+    position: absolute;
+}
+
 #canv {
     opacity: 60%;
     z-index: 0;

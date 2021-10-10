@@ -1,22 +1,176 @@
-#ground {
-    border: green 1px solid;
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
-    background-color: blanchedalmond;
-    width: 100%;
-    height: 50%;
+
+
+
+
+body {
+    background-color: #23A2C5;
+    overflow: hidden;
 }
+
+#blackscreen {
+    transition: 10s;
+    display: none;
+    position: absolute;
+    z-index: 999;
+    background-color: black;
+    top: -10px;
+    left: -10px;
+    width: 120%;
+    height: 120%;
+    opacity: 60%;}
+
+#menu-sidepage {
+    transform: rotate(10deg);
+    top: -20%;
+    left: -25%;
+    z-index: 1000;
+    background-color: gainsboro;
+    position: absolute;
+    height: 130%;
+    width: 0px;
+    transition: 0.5s;}
+#menu-sidepage-buttons-holder {
+    transform: rotate(-10deg);
+    transition: 1s;
+    display: none;
+    position: relative;
+    height: auto;
+    width: 150px;
+    top: 15%;
+    left: 60%;}
+.menu-sidepage-buttons {
+    position: relative;
+    margin-top: 50%;
+    border: none;
+    font-family: 'Permanent Marker', cursive;
+    padding: 5vh;
+    font-size: 3vh;
+
+    background-size: 110%;
+    background-position: center;
+    background-color: transparent;
+    background-image: url("./BUTTON-BG.png");
+    color: white;
+    text-align: center;
+    transition-duration: 0.5s;
+    cursor: pointer;}
+:hover.menu-sidepage-buttons {
+    transition-duration: 0.5s;
+    background-color: transparent;
+    background-image: url("./BUTTON-BG-Phase2.png");
+    color: black;}
+
+#language-select-holder {
+    position: relative;
+    list-style: none;
+    display: none;}
+.language-select {
+    position: relative;
+    border: none;
+    background-color: #00B7D6;
+    padding: 10px;
+    height: auto;
+    width: 100px;
+    font-family: 'Fira Sans', sans-serif;
+    transition-duration: 0.5s;}
+
+#theme-select-holder {
+    top: -10px;
+    left: -10%;
+    position: relative;
+    list-style: none;
+    display: none;}
+.theme-select {
+    position: relative;
+    border: none;
+    background-color: #00B7D6;
+    padding: 10px;
+    height: auto;
+    width: 100px;
+    font-family: 'Fira Sans', sans-serif;
+    transition-duration: 0.5s;}
+
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
+/*--------------------------------------------------------------------------------     GAME CONTENT    ------------------------------------------------------------------------- */
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
+#ground {
+    display: block;
+    z-index: 998;
+    position: relative;
+    background-color: #0A4E2B;
+    
+    top: 90%;
+    left: -5%;
+    width: 110%;
+    height: 25%;}
+#grass {
+    position: absolute;
+    background-color: #0e5e34;
+    width: 100%;
+    height: 30%;}
+
 
 #character {
-    border: blue 1px solid;
-    
+    z-index: 997;
     position: absolute;
+    
+    left: 500px;
+    top: -100px;
     width: 100px;
-    height: 100px;
-}
-
+    height: 100px;}
 #characterSkin {
     position: relative;
+    -webkit-user-drag: none;
+    user-select: none;
     left: -50px;
     top: -50px;
-    width: 200%;
-}
+    width: 200%;}
+
+
+
+.treePlacement {
+    /*border: black 1px solid;*/
+
+    width: 550px;
+    height: 630px;
+    margin-left: 400px;
+    top: -630px;}
+.backgroundTrees {
+    z-index: 0;
+    filter: brightness(70%);  
+    position: absolute;}
+.middleTrees {
+    z-index: 1;
+    filter: brightness(90%);
+    position: absolute;}
+.frontTrees {
+    z-index: 2;
+    opacity: 100%;
+    position: absolute;}
+#treePicture {
+    position: relative;
+    /*display: none;*/
+    top: -190px;
+    left: -265px;
+    -webkit-user-drag: none;
+    user-select: none;}
+
+#forestPart1 {
+    position: relative;
+    left: -500px;}
+#forestPartX {
+    position: absolute;
+    left: 100px;
+    top: 0px;}
+#tree {
+    position: relative;}
+#tree2 {
+    left: 150px;}
+#tree3 {
+    transform: scaleX(-1);
+    left: 250px;}
+#tree4 {
+    left: 450px;}
