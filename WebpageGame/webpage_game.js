@@ -32,7 +32,7 @@ document.addEventListener("keydown", function (event) {
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 var ForestPosition = [];
-var ForstXD = [];
+var ForestList = [];
 
 var MovementRight = function() {
     if(MovementRight.done) return;
@@ -50,11 +50,11 @@ var MovementLeft = function() {
 };
 
 function BackgroundMoving() {
-    document.getElementById("forestPart1").style.marginLeft = -xPlayerPosition; //First tree moving
-    document.getElementById("forestPartX").style.marginLeft = -xPlayerPosition; //Second tree moving
+    document.getElementById("forestPart1").style.marginLeft = -xPlayerPosition; //First forest moving
+    document.getElementById("forestPartX").style.marginLeft = -xPlayerPosition; //Second forest moving
     for (let index = 1; index < ForestPosition.length + 1; index++) {
-        for (let indx = 0; indx < ForstXD.length; indx++) {
-            document.getElementById("forestPartX" + index).style.marginLeft = ForstXD[indx] -xPlayerPosition;            
+        for (let indx = 0; indx < ForestList.length; indx++) {
+            document.getElementById("forestPartX" + index).style.marginLeft = ForestList[indx] -xPlayerPosition;            
         }
     }
     
@@ -68,7 +68,7 @@ switch (event.key) {
         xPosition += 10;
         xPlayerPosition = xPosition;
         document.getElementById("character").style.marginLeft = xPlayerPosition; //Movement
-        BackgroundMoving()
+        BackgroundMoving();
         
         
         //console.log(gmh)
@@ -82,6 +82,7 @@ switch (event.key) {
         xPosition -= 10;
         xPlayerPosition = xPosition;
         document.getElementById("character").style.marginLeft = xPlayerPosition; //Movement
+        BackgroundMoving();
 
 
         console.log('The "x" position is equal to: ', xPosition)
@@ -118,13 +119,13 @@ document.addEventListener("keyup", function (event) {
 
 window.onload = function() {
     //Generator 2 more forest after each other
-    for (let index = 0; index < numberOfForests; index++) {
+    for (let index = 0; index < 1; index++) {
 
     // Create a clone of element with the selected id:
-    let clone = document.querySelector('#forestPart1').cloneNode( true );
+    let clone = document.querySelector('#forestPartX').cloneNode( true );
 
     // Change the id attribute of the newly created element:
-    number = index + 1
+    number = index + 2
     clone.setAttribute('id', 'forestPartX' + number);
 
     // Append the newly created element on element you select 
@@ -133,10 +134,10 @@ window.onload = function() {
     //Aligning the newly generated trees
     clone.style.top = "0px";
     clone.style.marginLeft = mL;
-    ForstXD.push(mL)
-    ForestPosition.push(clone)
+    ForestPosition.push(mL)
+    ForestList.push(clone)
     mL = mL + 600;
     console.log(ForestPosition)
-    console.log(ForstXD)
+    console.log(ForestList)
 }}
     
