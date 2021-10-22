@@ -2,7 +2,7 @@ var xPosition = 0;
 var yPosition = 0;
 var xPlayerPosition = 0;
 var yPlayerPosition = 0;
-var mL = 700;
+var mL = 500;
 var langClicked = 0;
 var themeClicked = 0;
 var pressed = 0;
@@ -52,9 +52,9 @@ var MovementLeft = function() {
 function BackgroundMoving() {
     document.getElementById("forestPart1").style.marginLeft = -xPlayerPosition; //First forest moving
     document.getElementById("forestPartX").style.marginLeft = -xPlayerPosition; //Second forest moving
-    for (let index = 1; index < ForestPosition.length + 1; index++) {
-        for (let indx = 0; indx < ForestList.length; indx++) {
-            document.getElementById("forestPartX" + index).style.marginLeft = ForestList[indx] -xPlayerPosition;            
+    for (let index = 1; index < ForestList.length + 1; index++) {
+        for (let x = 0; x < ForestList.length; x++) {
+            document.getElementById("forestPartX" + index).style.marginLeft = ForestPosition[x] -xPlayerPosition;            
         }
     }
     
@@ -119,24 +119,29 @@ document.addEventListener("keyup", function (event) {
 
 window.onload = function() {
     //Generator 2 more forest after each other
-    for (let index = 0; index < 1; index++) {
+    for (let index = 0; index < numberOfForests; index++) {
 
     // Create a clone of element with the selected id:
     let clone = document.querySelector('#forestPartX').cloneNode( true );
 
     // Change the id attribute of the newly created element:
     number = index + 2
-    clone.setAttribute('id', 'forestPartX' + number);
+    clone.setAttribute('id', 'forestPartX');
+    clone.setAttribute('id', 'forestPartX' + number)
 
     // Append the newly created element on element you select 
     document.querySelector('section').appendChild(clone);
 
     //Aligning the newly generated trees
-    clone.style.top = "0px";
+    clone.style.top = "-500px";
     clone.style.marginLeft = mL;
+    clone.border = "1px solid black";
+    clone.style.position = "absolute";
+    clone.style.height = "500px";
+    clone.style.width = "500px";
     ForestPosition.push(mL)
     ForestList.push(clone)
-    mL = mL + 600;
+    mL = mL + 250;
     console.log(ForestPosition)
     console.log(ForestList)
 }}
