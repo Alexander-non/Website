@@ -35,6 +35,17 @@ var xPlayerPosition = 0;
 var yPlayerPosition = 0;
 var BackgroundMovement = 0;
 
+window.onload = function() {
+    GeneratingTrees();
+}
+
+
+
+
+
+
+/*------------------------------------------------------------------   CHARACTER MOVEMENTS   -------------------------------------------------------------*/
+
 var MovementRight = function() {
     //Limiting movement between 1000 and -300px
     if (xPlayerPosition > 1000) {
@@ -46,9 +57,11 @@ var MovementRight = function() {
         document.getElementById("character").style.marginLeft = xPlayerPosition; //Movement
         xPosition += 10;
     };
+
     //Making the background move even tho the charcter stops
     BackgroundMovement +=10;
     console.log(BackgroundMovement)
+
     //Charcter animation for running
     if (MovementRight.done) return;
     setTimeout(() => {
@@ -66,9 +79,13 @@ var MovementLeft = function() {
         document.getElementById("character").style.marginLeft = xPlayerPosition; //Movement
         xPosition -= 10;
     };
+
+
     //Making the background move even tho the charcter stops
-    BackgroundMovement -=10;
+    BackgroundMovement -= 10;
     console.log(BackgroundMovement)
+
+
     //Charcter animation for running
     if(MovementLeft.done) return;
     setTimeout(() => {
@@ -87,8 +104,6 @@ function BackgroundMoving() {
     }
     
 };
-
-/*------------------------------------------------------------------   CHARACTER MOVEMENTS   -------------------------------------------------------------*/
 
 document.addEventListener("keydown", function (event) {
 switch (event.keyCode) {
@@ -133,7 +148,7 @@ document.addEventListener("keyup", function (event) {
 
 /*---------------------------------------------------------------------   GENERATING TREES   ----------------------------------------------------------------*/
 marginLeftInPx = 300;
-window.onload = function() {
+function GeneratingTrees() {
     //Generator more forest after each other
     for (let index = 0; index < numberOfForests; index++) {
 
@@ -164,4 +179,6 @@ window.onload = function() {
     ForestPosition.push(marginLeftInPx)
     marginLeftInPx = marginLeftInPx + 250;
 }};
-    
+
+
+/*-------------------------------------------------------------------------   ENEMIES   ---------------------------------------------------------------------*/
