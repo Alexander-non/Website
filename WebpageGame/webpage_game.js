@@ -28,38 +28,59 @@ document.addEventListener("keydown", function (event) {
 
 var ForestPosition = [];
 var ForestList = [];
-var numberOfForests = 2;
+var numberOfForests = 100;
 var xPosition = 0;
 var yPosition = 0;
 var xPlayerPosition = 0;
 var yPlayerPosition = 0;
+var BackgroundMovement = 0;
 
 var MovementRight = function() {
-    xPlayerPosition = xPosition;
-    document.getElementById("character").style.marginLeft = xPlayerPosition; //Movement
-    xPosition += 10;
-    if(MovementRight.done) return;
+    //Limiting movement between 1000 and -300px
+    if (xPlayerPosition > 1000) {
+        xPlayerPosition = xPosition;
+        document.getElementById("character").style.marginLeft = xPlayerPosition; //Movement
+        xPosition += 0;
+    } else {
+        xPlayerPosition = xPosition;
+        document.getElementById("character").style.marginLeft = xPlayerPosition; //Movement
+        xPosition += 10;
+    };
+    //Making the background move even tho the charcter stops
+    BackgroundMovement +=10;
+    console.log(BackgroundMovement)
+    //Charcter animation for running
+    if (MovementRight.done) return;
     setTimeout(() => {
         document.getElementById("characterSkin").src = "slimeAttackRight.gif";}, 500);
     MovementRight.done = true;
 };
 var MovementLeft = function() {
-    //Moving the character
-    xPlayerPosition = xPosition;
-    document.getElementById("character").style.marginLeft = xPlayerPosition; //Movement
-    xPosition -= 10;
-    //Giving the character his moving animation
+    //Limiting movement between 1000 and -300px
+    if (xPlayerPosition < -300) {
+        xPlayerPosition = xPosition;
+        document.getElementById("character").style.marginLeft = xPlayerPosition; //Movement
+        xPosition -= 0;
+    } else {
+        xPlayerPosition = xPosition;
+        document.getElementById("character").style.marginLeft = xPlayerPosition; //Movement
+        xPosition -= 10;
+    };
+    //Making the background move even tho the charcter stops
+    BackgroundMovement -=10;
+    console.log(BackgroundMovement)
+    //Charcter animation for running
     if(MovementLeft.done) return;
     setTimeout(() => {
         document.getElementById("characterSkin").src = "slimeAttackLeft.gif";}, 500);
     MovementLeft.done = true;
 };
 function BackgroundMoving() {
-    document.getElementById("forestPart1").style.marginLeft = -xPlayerPosition;     //First forest moving
-    document.getElementById("forestPartX").style.marginLeft = -xPlayerPosition;     //Second forest moving
+    document.getElementById("forestPart1").style.marginLeft = -BackgroundMovement;     //First forest moving
+    document.getElementById("forestPartX").style.marginLeft = -BackgroundMovement;     //Second forest moving
     for (let index = 0; index < numberOfForests; index++) {
             ForestPart = "forestPartX" + (index + 2);                               //Grabbing all of the Trees
-            ForestCurrentPosition = ForestPosition[index] - xPlayerPosition;        //Making a current position tracking variable
+            ForestCurrentPosition = ForestPosition[index] - BackgroundMovement;        //Making a current position tracking variable
             
             document.getElementById(ForestPart).style.marginLeft = ForestCurrentPosition;       //Moving generated forests
             /*console.log(ForestPart, "'s x-position is", ForestCurrentPosition, "and the its staring position is:", ForestPosition[index]) //Loging the position of trees*/
@@ -74,12 +95,12 @@ switch (event.keyCode) {
     case 68:
         MovementRight();
         BackgroundMoving();
-        console.log('The "x" position is equal to: ', xPlayerPosition)
+        //console.log('The "x" position is equal to: ', xPlayerPosition)
         break;
     case 65:
         MovementLeft();
         BackgroundMoving();
-        console.log('The "x" position is equal to: ', xPosition)
+        //console.log('The "x" position is equal to: ', xPosition)
         break;
     case 83:
         yPosition += 10;
