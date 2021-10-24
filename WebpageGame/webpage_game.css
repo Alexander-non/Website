@@ -6,7 +6,7 @@
 
 body {
     background-color: #23A2C5;
-    /*overflow: hidden;*/
+    overflow: hidden;
 }
 
 #blackscreen {
@@ -149,24 +149,24 @@ body {
     height: 100%;
     width: 100%;
     /*border: black 1px solid;
-    /*display: none;*/
+    display: none;*/
     -webkit-user-drag: none;
     user-select: none;}
 
 #forestPart1 {
     border: black 1px solid;
-    position: absolute;
-    left: 0px;
-    top: -500px;
-    width: 500px;
-    height: 500px;}
+    position: relative;
+    left: -200px;
+    top: -910px;
+    width: 1000px;
+    height: 1000px;}
 #forestPartX {
     border: black 1px solid;
     position: absolute;
-    left: 250px;
-    top: -500px;
-    width: 500px;
-    height: 500px;}
+    left: 50px;
+    top: -910px;
+    width: 1000px;
+    height: 1000px;}
 
 
 
