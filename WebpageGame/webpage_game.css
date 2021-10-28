@@ -104,7 +104,7 @@ body {
     
     top: 90%;
     left: -5%;
-    width: 130%;
+    width: 1300%;
     height: 25%;}
 #grass {
     position: absolute;
@@ -168,8 +168,6 @@ body {
     width: 1000px;
     height: 1000px;}
 
-
-
 #tree {
     left: -150px;
     position: absolute;}
@@ -183,3 +181,8 @@ body {
 #tree4 {
     left: 75px;
     position: absolute;}
+
+
+#enemySkin {
+    width: 100px;
+}
