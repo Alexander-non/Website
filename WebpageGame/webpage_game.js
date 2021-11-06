@@ -30,11 +30,7 @@ document.addEventListener("keydown", function (event) {
 var xPlayerPosition = 0;
 var xPlayerVelocity = 0;
 var BackgroundMovement = 0;
-
-window.onload = function() {
-    GeneratingTrees(); 
-    EnemyGeneration();
-};
+var movementToggle = true;
 
 
 
@@ -42,7 +38,6 @@ window.onload = function() {
 
 
 /*------------------------------------------------------------------   CHARACTER MOVEMENTS   -------------------------------------------------------------*/
-
 var MovementRight = function() {
     xPlayerPosition += 10;
     document.getElementById("character").style.marginLeft = xPlayerVelocity; //Movement
@@ -68,6 +63,7 @@ var MovementLeft = function() {
         document.getElementById("characterSkin").src = "Textures/Character/slimeAttackLeft.gif";}, 500);
     MovementLeft.done = true;
 };
+
 function BackgroundMoving() {
     //Moving generated trees
     document.getElementById("forestPart1").style.marginLeft = -BackgroundMovement;      //First forest moving
@@ -92,15 +88,21 @@ function BackgroundMoving() {
 document.addEventListener("keydown", function (event) {
 switch (event.keyCode) {
     case 68:
-        MovementRight();
-        BackgroundMoving();
-        Collision();
+        if (movementToggle == true) {
+            MovementRight();
+            BackgroundMoving();
+            Collision();
+        } else {
+            console.log("You cannot move!")
+        };
         //console.log('The "x" position is equal to: ', xPlayerVelocity)
         break;
     case 65:
-        MovementLeft();
-        BackgroundMoving();
-        Collision();
+        if (movementToggle == true) {
+            MovementLeft();
+            BackgroundMoving();
+            Collision();
+        };
         //console.log('The "x" position is equal to: ', xPosition)
         break;
     case 83:
@@ -133,7 +135,13 @@ document.addEventListener("keyup", function (event) {
 
 
 
+/*---------------------------------------------------------------------     GENERATING GAME ASSETS     ----------------------------------------------------------------*/
+/*---------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
+window.onload = function() {
+    GeneratingTrees(); 
+    EnemyGeneration();
+};
 
 
 var ForestPosition = [];
@@ -143,7 +151,7 @@ var numberOfEnemiesForests = 5;
 
 
 
-/*---------------------------------------------------------------------   GENERATING TREES   ----------------------------------------------------------------*/
+/*---------------------------------------------------------------------     TREES     ----------------------------------------------------------------*/
 marginLeftInPx = 300;
 function GeneratingTrees() {
     //Generator more forest after each other
@@ -232,28 +240,28 @@ function ForestEnemies() {
         EnemyMovablePosition += RandomSpacing;
 }};
 
-function EnemyGeneration() {
-    ForestEnemies();
-    ForestBoss();
-    
-};
-
-
-
 function ForestBoss() {};
 
+function EnemyGeneration() {
+    ForestEnemies();
+    ForestBoss();    
+};
+
+function Battle() {
+    movementToggle = false;
+    window.open("battle.html", '_blank');
+}
 
 function Collision() {
     for (let index = 0; index < numberOfEnemiesForests; index++) {
-        Enemy = "enemy-hitbox" + (index + 1);                                                  //Grabbing all of the enemies
-        EnemiesCurrentPosition = EnemyPosition[index] - 580;                                        //Making a current position tracking variable
+        Enemy = "enemy-hitbox" + (index + 1);                                                        //Grabbing all of the enemies
+        EnemiesCurrentPosition = EnemyPosition[index] - 580;                                        //Making a variable to check there current position
         
         if (BackgroundMovement == EnemiesCurrentPosition) {
             //Battle
-            alert("SHEEESH")
-            console.log("Reached enemy")
+            Battle();
+            console.log("Reached enemy");
         };
-        console.log(EnemyPosition, xPlayerPosition, RandomSpacing);
         //console.log(Enemy, "'s x-position is", EnemiesCurrentPosition, "and the its staring position is:", EnemyPosition[index])
     };    
 };
