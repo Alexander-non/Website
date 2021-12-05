@@ -1,5 +1,5 @@
 body {
-    background-image: url(../Pictures/munkajog-background.webp);
+    background-image: url(../Pictures/munkajog-background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -9,15 +9,38 @@ h1 {
     text-align: center;
 }
 
-.button {
+h3 {
+    /*border: 3px solid black;*/
+    position: relative;
+    width: 50%;
+    height: 40%;
+    background-color: grey;
+    filter: brightness(90%);
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+    top: -20%;
+    left: 25%;
+}
+
+.button:hover {
+    transform: translateY(10px);
+    box-shadow: 5px -10px;
+}
+
+h2 {
+    position: relative;
     font-family: 'Poppins', sans-serif;
+    font-size: large;
+    top: -20%;
+}
+
+.button {
     text-align: center;
     border: none;
     outline: none;
     width: 90%;
-    height: 20%;
+    height: 23%;
     margin: 5% 0 3% 5%;
-    padding: 5%;
     background-color: silver;
 }
 
@@ -25,7 +48,7 @@ h1 {
     margin: 1%;
     background-color: grey;
     width: 20%;
-    height: 30%;
+    height: 40%;
 }
 
 .fogalom-button {
@@ -33,12 +56,13 @@ h1 {
     width: 15%;
     height: 10%;
     background-color: grey;
-    transition-duration: 2s;
+    transition-duration: 1s;
 }
 
 .fogalom-button:hover {
     transform: translateY(-10px);
-    transition-duration: 2s;
+    transition-duration: 1s;
+    filter: invert(100%);
 }
 
 .fogalmak {

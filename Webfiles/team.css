@@ -1,5 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@700&display=swap');
+
+.bullet-board-inner{
+    height: 95%;
+    width: 100%;
+    background-image: url("https://us.123rf.com/450wm/thawats/thawats1209/thawats120900276/15456710-panneau-de-fibres-panneaux-de-bois-press%C3%A9-la-texture.jpg?ver=6");
+    filter: brightness(50%);
+}
+.bullet-board-outer{
+    border: 20px solid transparent;
+    border-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3SuC8nvdySnJpQ8Dx8-AdThM_ql1vKPlBEg&usqp=CAU") 20 round;
+}
+
 .team_one{
-    position: relative;
+    position: absolute;
     border: 10px black solid;
     width: 30%;
     left: 10%;
@@ -16,12 +29,14 @@
 
 
 .team_name_one {
+    font-family: 'Fuzzy Bubbles', cursive;
     position: absolute;
     left: 18.5%;
     top: 15%;
 }
 
 .team_name_two {
+    font-family: 'Fuzzy Bubbles', cursive;
     position: absolute;
     left: 68.5%;
     top: 15%;
