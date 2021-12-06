@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@700&display=swap');
 
+body {
+    background-color: beige;}
+img {
+    width: 100%;}
+
 .bullet-board-inner{
     height: 95%;
     width: 100%;
@@ -11,37 +16,57 @@
     border-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3SuC8nvdySnJpQ8Dx8-AdThM_ql1vKPlBEg&usqp=CAU") 20 round;
 }
 
-.team_one{
-    position: absolute;
-    border: 10px black solid;
+.pin {
     width: 30%;
+    height: 60%;
+    position: absolute;
+    top: 20%;
+    filter: drop-shadow(0px 10px 2px black);}
+#pin1 {
+    transform: rotate(2deg);
     left: 10%;
-    top: 25%;
-}
+    background-color: pink;}
+#pin2 {
+    transform: rotate(-2deg);
+    right: 10%;
+    background-color: yellow;}
 
-.team_two{
-    position: absolute;
-    border: 10px black solid;
-    width: 30%;
-    left: 60%;
-    top: 25%;
-}
-
-
-.team_name_one {
+.team_names {
     font-family: 'Fuzzy Bubbles', cursive;
-    position: absolute;
-    left: 18.5%;
-    top: 15%;
-}
+    position: relative;
+    width: 70%;
+    left: 15%;
+    top: 5%;
+    text-align: center;
+    /*border: 1px black solid;*/}
+#drawing-pin {
+    position: relative;
+    left: 45%;
+    top: 5%;
+    width: 10%;
+    height: 10%;
+    background-color: red;
+    filter: drop-shadow(-5px 5px 10px grey) brightness(70%);
+    border-radius: 50%;}
+#drawing-pin-top {
+    position: relative;
+    width: 60%;
+    height: 60%;
+    left: 40%;
+    box-shadow: -5px 5px red;
+    background-color: crimson;
+    filter: brightness(80%);
+    border-radius: 50%;}
 
-.team_name_two {
-    font-family: 'Fuzzy Bubbles', cursive;
-    position: absolute;
-    left: 68.5%;
-    top: 15%;
-}
 
-.csoport_kép_PC {
-    width: 100%;
-}
+
+.team_pictures {
+    position: relative;
+    border: 5px black solid;
+    top: 5%;}
+#team_one{
+    width: 60%;
+    left: 20%;}
+#team_two{
+    width: 80%;
+    left: 10%;}

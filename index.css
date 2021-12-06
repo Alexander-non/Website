@@ -32,15 +32,29 @@ table {
 }
 
 #menu-button-open {
-    top: 25px;
-    left: 15px;
     position: absolute;
-    width: 100px;
-    height: 75px;
-    border-radius: 5%;}
+    top: 2%;
+    left: 2%;
+    width: 5%;
+    height: 10%;
+    border: none;
+    background-color: #009eb9;
+    box-shadow: 2px 5px black;
+    transition-duration: 1s;
+    border-radius: 10%;}
+#menu-button-open:hover {
+    transition-duration: 1s;
+    border-radius: 25%;
+    box-shadow: 5px 10px black;
+}
 .menu-button-open-icon {
-    width: 50%;
-    height: 2.5px;
+    position: relative;
+    width: 70%;
+    left: 15%;
+    height: 7.5%;
+    margin-bottom: 10%;
+    border: none;
+    outline: none;
     background-color: black;}
 #menu-button-close {
     display: none;
@@ -169,8 +183,8 @@ table {
 }
 
 #group-work-holder {
-    position: relative;
-    top: 14vw;
+    position: absolute;
+    top: 20vw;
     height: 60%;
     width: 30%;}
 .group-picture {
