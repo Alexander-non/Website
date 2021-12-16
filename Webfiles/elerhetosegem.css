@@ -1,63 +1,4 @@
-.icon {
-    height: auto; 
-    width: 3.5vw;
-    
-    position: relative;
-}
-
-.tart {
-    margin-top: 5vw;
-    margin-left: 20vw;
-    margin-right: 30vw;
-}
-
-.list {
-    list-style-type: none;
-}
-.gomb {
-    height: 10vh;
-    width: 50vw;
-    border: none;
-    color: white;
-    padding: 5px 10px;
-    margin-left: auto;
-    margin-right: auto;
-    transition-duration: 1s;
-}
-.discord {
-    background-color: white;
-}
-.discord:hover {
-  background-color: #8C9EFF;
-}
-
-.viber {
-    background-color: white; 
-}
-.viber:hover {
-  background-color: #7D3DAF;
-}
-
-.messenger {
-    background-color: white; 
-}
-.messenger:hover {
-  background-color: #007FFF;
-}
-
-.skype {
-    background-color: white; 
-}
-.skype:hover {
-  background-color: #00A9E8;
-}
-
-.phone {
-    background-color: white; 
-}
-.phone:hover {
-  background-color: #1D1D1B;
-}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 
 body {
     background-image: url(../Pictures/Backgroundelerhetoseg.jpg);
@@ -66,33 +7,56 @@ body {
     background-position: center;
 }
 
-#button1 {
-    color: black;
+table {
+    height: 100%;
+    width: 25%;
+}
+
+button {
+    position: relative;
+    height: 10vh;
+    width: 25vw;
+    right: 70%;
+    border: none;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    padding: 5px 10px;
+    transition-duration: 1s;
+    background-color: white;
+
     font-size: 25px;
+    color: transparent;
     text-align: center;
     font-family: 'Poppins', sans-serif;
 }
-#button2 {
-    color: black;
-    font-size: 25px;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-}
-#button3 {
-    color: black;
-    font-size: 25px;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-}
-#button4 {
+
+button:hover {
+    line-height: -10%;
+    right: 20%;
     color: white;
-    font-size: 25px;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
+}   
+
+.icon {
+    left: 35%;
+    top: 15%;
+    height: auto; 
+    width: 3vw;
+    position: relative;
 }
-#button5 {
-    color: white;
-    font-size: 25px;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
+
+
+.discord:hover {
+  background-color: #8C9EFF;
+}
+.viber:hover {
+  background-color: #7D3DAF;
+}
+.messenger:hover {
+  background-color: #007FFF;
+}
+.skype:hover {
+  background-color: #00A9E8;
+}
+.phone:hover {
+  background-color: #1D1D1B;
 }

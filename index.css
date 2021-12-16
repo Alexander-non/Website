@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap");
+
 body {
     overflow: hidden;
     background-image: url(Pictures/background.jpg);
@@ -5,6 +8,11 @@ body {
     background-size: cover;
     transition: 1s;
 }
+
+a:any-link {
+    text-decoration: none;
+}
+
 tr {
     height: 20%;
     width: 80%;
@@ -79,7 +87,7 @@ table {
 }
 
 #menu-sidepage-buttons-holder {
-    transition: 12s;
+    transition: 0.1s;
     display: none;
     position: relative;
     height: auto;
@@ -99,7 +107,7 @@ table {
     cursor: pointer;
 }
 
-:hover.menu-sidepage-buttons {
+.menu-sidepage-buttons:hover {
     transition-duration: 0.5s;
     background-color: #00a3c0;
 }
@@ -117,7 +125,7 @@ table {
     width: 100px;
     font-family: 'Fira Sans', sans-serif;
     transition-duration: 0.5s;}
-:hover.language-select {
+.language-select:hover {
     transition-duration: 0.5s;
     background-color: #00a3c0;}
 
@@ -136,7 +144,7 @@ table {
     width: 100px;
     font-family: 'Fira Sans', sans-serif;
     transition-duration: 0.5s;}
-:hover.theme-select {
+.theme-select:hover {
     transition-duration: 0.5s;
     background-color: #00a3c0;}
     
@@ -150,7 +158,7 @@ table {
 .button-contanier {
     position: relative;
     top: 10px;
-    margin-left: 37.5%;
+    left: 37.5%;
     width: 62%;
     display: flex;
     flex-direction: row;
@@ -174,49 +182,47 @@ table {
     transition-duration: 1s;
     position: relative;
 }
-:hover.buttons{
+.buttons:hover{
     transition-duration: 1s;
-    transform: scale(1.05);
+    transform: scale(1.25);
     background-color: #7C88FD;
-    border: solid 2px black;
     z-index: 2;
 }
 
 #group-work-holder {
     position: absolute;
-    top: 20vw;
+    bottom: 5%;
     height: 60%;
     width: 30%;}
 .group-picture {
     width: 90%;
     height: auto;
-    top: 6vw;
+    bottom: 0%;
     margin-right: 5%;
     margin-left: 5%;
-    border: .2vw black solid;
+    border: 5px black solid;
     position: absolute;}
 .group-work-title {
-    text-align: center;
     font-family: 'RocknRoll One', sans-serif;
-    font-size: 270%;
+    font-size: 250%;
     height: 25%;
     width: 60%;
     line-height: 100px;
-    position: absolute;
-    margin-left: 20%;
-    margin-right: 20%;
+    position: relative;
+    margin: 5% 20% auto 20%;
 }
 
-a:any-link {
-    text-decoration: none;
-}
+
 
 @media screen and (max-width:1000px) {
     #group-work-holder {display: none;}
-    .buttons {width: 100%; padding-top: 5%; border-radius: 0px; padding: 3%;}
-    :hover.buttons {transform: scale(1.00);}
-    .button {width: 100vw;}
-    html, body {overflow: visible;}
+    .buttons {width: 100%; padding-top: 5%; border-radius: 0px; padding: 2%;font-size: x-small;}
+    .buttons:hover {transform: scale(1.00);}
+    .button-contanier {left: -1vw; top: 15vw; width: 100vw; position: relative;}
+    #menu-button-open {left:0%;width: 100%; box-shadow: 1px 2.5px black;border-radius: 0%;top:0%}
+    #menu-button-open:hover {transition-duration: 1s;border-radius: 25%; box-shadow: 2.5px 5px black;border-radius: 0%;}
+    .menu-button-open-icon {margin-bottom: 1%;}
+    #blackscreen {width: 100%;height: 100%;left: 0%;top:0%}
     table {height: auto}
     body {overflow-x: hidden;}
 }

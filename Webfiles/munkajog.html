@@ -1,10 +1,5 @@
 <html>
     <head lang="HU">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-
         <link rel="stylesheet" href="munkajog.css">
         <link rel="icon" href="../Pictures/WebpageIcons/labor-law-icon.png">
         <meta charset="UTF-8">
@@ -13,12 +8,22 @@
     </head>
     <body>
         <div class="button-container">
-            <a href="https://www.linkedin.com/"><button class="button"><h3></h3><h2>LinkedIn</h2></button></a> <br >
-            <a href="https://www.dologido.hu/munkaltatoknak"><button class="button"><h3></h3><h2>Magyar munkaközvetítők</h2></button></a> <br >
-            <a href="https://kginternational.hu/"><button class="button"><h3></h3><h2>Külföldi munkaközvetítők</h2></button></a> 
+            <a href="https://www.linkedin.com/"><button class="button">
+                <h3></h3>
+                <h2>LinkedIn</h2></button>
+            </a>
+            <a href="https://www.dologido.hu/munkaltatoknak"><button class="button"><h3></h3>
+                <h2>Magyar munkaközvetítők</h2></button>
+            </a>
+            <a href="https://kginternational.hu/"><button class="button">
+                <h3></h3>
+                <h2>Külföldi munkaközvetítők</h2></button>
+            </a> 
         </div>
-        <div>
-            <button class="fogalom-button" onclick="fogalom()"><h1>Fogalmak</h1></button>
+
+        <button class="fogalom-button" onclick="ShowHide('fogalmak')"><h1>Fogalmak</h1></button>
+
+        <div id="fogalom-holder"> 
             <p id="probaido" class="fogalmak"></p>
             <p id="gyakornok" class="fogalmak"></p>
             <p id="felmondasi-ido" class="fogalmak"></p>

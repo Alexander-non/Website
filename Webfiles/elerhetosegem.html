@@ -1,25 +1,31 @@
 <html>
     <head lang="HU">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
-
         <link rel="stylesheet" href="elerhetosegem.css">
         <link rel="icon" href="../Pictures/WebpageIcons/accessibility-icon.png">
         <title>Elérhetőségem</title>
         <meta charset="UTF-8">
+        <script src="elerhetosegem.js"></script>
     </head>
         <body>
-            <ul class="tart">
-                <li class="list"><button type="button" class="gomb discord" onclick="button()" onmouseover="changeover()" onmouseout="changeout()"><img id="discord" class="icon" src="../Pictures/Discord.png"></button> <p id="button1"></p></li>
-                
-                <li class="list"><button type="button" class="gomb viber" onclick="button1()" onmouseover="changeover1()" onmouseout="changeout1()"><img class="icon" id="viber" src="../Pictures/Viber.png"></button> <p id="button2"></p></li>
-                
-                <li class="list"><button type="button" class="gomb messenger" onclick="button2()" onmouseover="changeover2()" onmouseout="changeout2()"><img class="icon" id="messenger" src="../Pictures/Messenger.png"></button> <p id="button3"></p></li>
-                
-                <li class="list"><button type="button" class="gomb skype" onclick="button3()" onmouseover="changeover3()" onmouseout="changeout3()"><img class="icon" id="skype" src="../Pictures/Skype.png"></button> <p id="button4"></p></li>
-                
-                <li class="list"><button type="button" class="gomb phone" onclick="button4()" onmouseover="changeover4()" onmouseout="changeout4()"><img class="icon" id="phone" src="../Pictures/Phone.png"></button> <p id="button5"></p></li>
-            </ul>
-    <script src="elerhetosegem.js"></script>
+            <table>
+                <tr>
+                    <td><button type="button" class="discord" onmouseover="MouseOver('discord', 'Inverted-')" onmouseout="MouseOut('discord', 'Discord')"><img id="discord" class="icon" src="../Pictures/Discord.png"><p>Taxes Red#6862</p></button> </td>
+                </tr>
+                <tr>
+                    <td><button type="button" class="viber" onmouseover="MouseOver('viber', 'Inverted-')" onmouseout="MouseOut('viber', 'Viber')"><img class="icon" id="viber" src="../Pictures/Viber.png"><p>+36202710104</p></button> </td>
+                </tr>
+                <tr>
+                    <td><button type="button" class="messenger" onmouseover="MouseOver('messenger', 'Inverted-')" onmouseout="MouseOut('messenger', 'Messenger')"><img class="icon" id="messenger" src="../Pictures/Messenger.png"><p>Bozóki Alexander</p></button></td>
+                </tr>
+                <tr>
+                    <td><button type="button" class="skype" onmouseover="MouseOver('skype', 'Inverted-')" onmouseout="MouseOut('skype', 'Skype')"><img class="icon" id="skype" src="../Pictures/Skype.png"><p>+36202710104</p></button> </td>
+                </tr>
+                <tr>
+                    <td><button type="button" class="phone" onmouseover="MouseOver('phone', 'Inverted-')" onmouseout="MouseOut('phone', 'Phone')"><img class="icon" id="phone" src="../Pictures/Phone.png"> <p>+36202710104</p></button></td>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+            </table>
         </body>
 </html>

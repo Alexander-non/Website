@@ -1,10 +1,5 @@
 <html>
     <head lang="HU">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap" rel="stylesheet">
-
         <link rel="stylesheet" href="index.css">
         <link rel="icon" href="Pictures/WebpageIcons/home-page-icon.png">
         <meta name="webpage_main" content="width=device-width, initial-scale=1.0" charset="UTF-8">
@@ -37,14 +32,14 @@
                 </ul>
                 <button id="language" class="menu-sidepage-buttons">Nyelv</button>
                 <ul id="language-select-holder">
-                    <li><button class="language-select" id="en" onclick="english()">Angol</button></li>
-                    <li><button class="language-select" id="hu" onclick="hungarian()">Magyar</button></li>
-                    <li><button class="language-select" id="fr" onclick="french()">Francia</button></li>
-                    <li><button class="language-select" id="gr" onclick="german()">Német</button></li>
-                    <li><button class="language-select" id="es" onclick="spainish()">Spanyol</button></li>
-                    <li><button class="language-select" id="ru" onclick="russian()">Orosz</button></li>
-                    <li><button class="language-select" id="zh" onclick="korean()">Kínai</button></li>
-                    <li><button class="language-select" id="ja" onclick="japanese()">Japán</button></li>
+                    <li><button class="language-select" onclick="Translate('ENTERTAINMENT', 'LABOR LAW', 'CONTACTS', 'MY PROJECTS', 'GROUP WORK', 'SCHOOL', 'Group Work', 'Theme', 'Language')">Angol</button></li>
+                    <li><button class="language-select" onclick="Translate('SZÓRAKOZÁS', 'MUNKA JOG', 'ELÉRHETŐSÉGEM', 'PROJEKTEIM', 'CSOPORT MUNKA', 'ISKOLÁM', 'Csoport Munka', 'Téma', 'Nyelv')">Magyar</button></li>
+                    <li><button class="language-select" onclick="Translate()">Francia</button></li>
+                    <li><button class="language-select" onclick="Translate()">Német</button></li>
+                    <li><button class="language-select" onclick="Translate()">Spanyol</button></li>
+                    <li><button class="language-select" onclick="Translate()">Orosz</button></li>
+                    <li><button class="language-select" onclick="Translate()">Kínai</button></li>
+                    <li><button class="language-select" onclick="Translate()">Japán</button></li>
                 </ul>
                 
                 <button id="none" class="menu-sidepage-buttons">None</button>
@@ -65,9 +60,9 @@
             <div id="group-work-holder">
         <div class="group-work-title" id="cim">Csoport Munka</div>
         <div class="kep">
-            <img class="group-picture" src="Pictures/Csoport_Munka.jpg" usemap="#csoport_kep">
-            <map name="csoport_kep">
-                <area shape="rect" coords="0,0,610,610" href="https://frozenhillswave.github.io/WebPage/">
+            <img class="group-picture" src="Pictures/Csoport_Munka.jpg" usemap="#new_team">
+            <map name="new_team">
+                <area shape="rect" coords="0,0,1000,1000" href="https://frozenhillswave.github.io/WebPage/">
             </map>
         </div>
             </div>
