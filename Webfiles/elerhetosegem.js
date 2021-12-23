@@ -1,7 +1,7 @@
 function MouseOver(currentPictureID, changedPictureSRC) {
-  changedPicture = '../Pictures/' + changedPictureSRC
+  changedPicture = '../Pictures/' + changedPictureSRC + currentPictureID + '.png';
   document.getElementById(currentPictureID).src = changedPicture;
-}
-function MouseOut(currentPicture, keyword) {
-    document.getElementById(currentPicture).src= '../Pictures/' + keyword + '.png';
-}
+};
+function MouseOut(currentPicture, currentPictureID) {
+    document.getElementById(currentPicture).src= '../Pictures/' + currentPictureID + '.png';
+};
