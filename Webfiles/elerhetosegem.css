@@ -1,12 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 
-body {
-    background-image: url(../Pictures/Backgroundelerhetoseg.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-
 table {
     height: 100%;
     width: 25%;
@@ -35,6 +28,27 @@ button:hover {
     right: 20%;
     color: white;
 }   
+
+p {
+  position: relative;
+  top: 10%;
+}
+
+
+#background {
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  
+  filter: brightness(70%);
+  background-image: url("https://img.besthqwallpapers.com/Uploads/13-11-2020/144337/blue-technology-background-communication-social-network-background-communication-background-earth-blue-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
 
 .icon {
     left: 35%;
