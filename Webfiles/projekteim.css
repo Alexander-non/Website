@@ -14,6 +14,7 @@ body {
 #assignment-container-container {
     /*background-color: black;*/
     position: relative;
+    z-index: 10;
     width: 90%;
     height: 80%;
     top: 5%;
@@ -41,9 +42,40 @@ body {
     font-family: sans-serif;
 }
 
+#island {
+    position: absolute;
+    z-index: 1;
+    height: 30%;
+    width: 110%;
+    bottom: 0%;
+    left: -5%;
+    background-color: sandybrown;
+    filter: blur(1px) brightness(90%);
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+}
+
+
+#palm-tree {
+    position: relative;
+    z-index: 1;
+    height: 200%;
+    width: 30%;
+    left: 10%;
+    bottom: 180%;
+}
+#coconuts {
+    position: relative;
+    z-index: 1;
+    height: 200%;
+    width: 30%;
+    left: 30%;
+    bottom: 110%;
+}
+
 a:any-link {
     width: 20%;
-    height: 100%;
+    height: 100px;
     text-decoration: none;}
 
 .comment-on-work {
@@ -81,57 +113,39 @@ a:any-link {
     to {left: 95%; bottom: -3%;}
 }
 
-.wave {
+.waves {
     height: 120px;
     width: 100%;
     top: 88%;
+    z-index: 9;
     background-size: contain;
     background-image: url(../Pictures/Wave.png);
+    position: absolute;
+}
+
+#wave {
     animation-name: waves;
     animation-iteration-count: infinite;
     animation-duration: 6s;
-    position: absolute;
 }
-.wave2 {
-    height: 120px;
-    width: 100%;
-    top: 88%;
-    background-size: contain;
-    background-image: url(../Pictures/Wave.png);
+#wave2 {
     animation-name: waves2;
     animation-iteration-count: infinite;
     animation-duration: 6s;
-    position: absolute;
 }
-.wave3 {
-    height: 120px;
-    width: 100%;
-    top: 88%;
-    background-size: contain;
-    background-image: url(../Pictures/Wave.png);
+#wave3 {
     animation-name: waves3;
     animation-iteration-count: infinite;
     animation-duration: 6s;
-    position: absolute;
 }
-.wave4 {
-    height: 120px;
-    width: 100%;
-    top: 88%;
-    background-size: contain;
-    background-image: url(../Pictures/Wave.png);
+#wave4 {
     animation-name: waves4;
     animation-iteration-count: infinite;
     animation-duration: 6s;
-    position: absolute;
 }
 
 
 @media screen and (max-width:1000px) {
-    .wave{display: none}
-    .wave2{display: none}
-    .wave3{display: none}
-    .wave4{display: none}
     body {overflow: visible}
 
     a:any-link {
@@ -160,7 +174,6 @@ a:any-link {
     ::-webkit-scrollbar {
         display: none;
     }
-    
     #assignment-container-container {
         width: 100%;
         height: 100%;
@@ -170,4 +183,6 @@ a:any-link {
         flex-flow: column;
         display: flex;
     }
+    .waves{display: none}
+    #island {display: none}
 }
