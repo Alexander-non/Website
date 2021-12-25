@@ -3,13 +3,48 @@ body {
     overflow: hidden;
 }
 
+::-webkit-scrollbar {
+    width: 20px;}
+::-webkit-scrollbar-thumb {
+    background-color: sandybrown;
+    border-radius: 5px;
+    border: 3px dashed yellow;}
+
+
+#assignment-container-container {
+    /*background-color: black;*/
+    position: relative;
+    width: 90%;
+    height: 80%;
+    top: 5%;
+    left: 5%;
+    padding-bottom: 1%;
+    overflow-x: none;
+    overflow-y: scroll;}
 .assignment-container {
-    margin-top: 50px;
+    margin-top: 2%;
     justify-content: space-around;
     flex-wrap: nowrap;
     display: flex;
+    color: white;}
+
+
+.buttons {
+    line-height: 340%;
+    text-align: center;
+    font-size: 30px;
+    background-image: url("../Pictures/sand.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     color: white;
+    font-family: sans-serif;
 }
+
+a:any-link {
+    width: 20%;
+    height: 100%;
+    text-decoration: none;}
 
 .comment-on-work {
     font-family: sans-serif;
@@ -27,26 +62,6 @@ body {
     margin-left: 140px;
     font-family: sans-serif;
 }
-
-.buttons {
-    line-height: 340%;
-    text-align: center;
-    font-size: 30px;
-    width: 300;
-    height: 100px;
-    background-image: url("../Pictures/sand.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    color: white;
-    font-family: sans-serif;
-    
-
-}
-
-a:any-link {
-    text-decoration: none;}
-
 
 
 @keyframes waves {
@@ -118,29 +133,41 @@ a:any-link {
     .wave3{display: none}
     .wave4{display: none}
     body {overflow: visible}
+
+    a:any-link {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 2%;}
+
     .buttons {
-    
-    line-height: 280%;
-    text-align: center;
-    font-size: 25px;
-    
-    margin-top: 30px;
-    margin-left: 40px;
-    margin-right: 40px;
+        line-height: 280%;
+        text-align: center;
+        font-size: 25px;
         
-    width: auto;
-    height: 70px;
-    
-    background-image: url("../Pictures/sand.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    
-    color: white;
-    font-family: sans-serif;}
+        background-image: url("../Pictures/sand.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        
+        color: white;
+        font-family: sans-serif;}
     .assignment-container {
-        margin-top: 0px;
-    flex-direction: column;
-    flex-flow: column;
-    display: flex;
-    height: auto;}}
+        flex-direction: column;
+        flex-flow: column;
+        display: flex;
+        width: 100%;
+        height: 100%;}
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    
+    #assignment-container-container {
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        top: 0px;
+        flex-direction: column;
+        flex-flow: column;
+        display: flex;
+    }
+}
