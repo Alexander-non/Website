@@ -55,7 +55,7 @@ h3 {
     background-color: grey;
     transition-duration: 1s;}
 .fogalom-button:hover {
-    transform: translateY(-10px);
+    transform: translateY(0px);
     transition-duration: 1s;
     filter: invert(100%);}
 .fogalmak {
