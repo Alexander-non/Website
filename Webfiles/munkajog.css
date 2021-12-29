@@ -50,15 +50,24 @@ h3 {
 
 .fogalom-button {
     margin: 1%;
+    padding-bottom: 1%;
     width: 15%;
     height: 10%;
+    filter: opacity(80%);
+    border: none;
     background-color: grey;
-    transition-duration: 1s;}
+    transition-duration: 0.5s;}
 .fogalom-button:hover {
     transform: translateY(0px);
-    transition-duration: 1s;
-    filter: invert(100%);}
-.fogalmak {
+    transition-duration: 0.5s;
+    filter: opacity(100%);}
+#fogalmak {
+    width: 70%;
     font-size: 18px;
     font-family: 'Roboto', sans-serif;
     margin-left: 2%;}
+.fogalom-dropdown {
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    margin-left: 2%;
+}

@@ -24,24 +24,19 @@
 
         <button class="fogalom-button">
             <h1>Fogalmak</h1>
-            <select onchange="Fogalom(this)" id="fogalom-holder">
-                <option selected disabled hidden>Choose here</option>
-                <option id="probaido" class="fogalmak">probaido</option>
-                <option id="gyakornok" class="fogalmak">gyakornok</option>
-                <option id="felmondasi-ido" class="fogalmak">felmondasi-ido</option>
-                <option id="beteg-szabadsag" class="fogalmak">beteg-szabadsag</option>
-                <option id="cafeteria" class="fogalmak">cafeteria</option>
-                <option id="kollektiv-szerzodes" class="fogalmak">kollektiv-szerzodes</option>
-                <option id="igenyes-munka" class="fogalmak">Igényes munka</option>
+            <select onchange="Fogalom(this, 'fogalmak')" id="fogalom-holder">
+                <option selected disabled hidden>Válassz egy fogalmat</option>
+                <option id="probaido" class="fogalom-dropdown">Próbaidő</option>
+                <option id="gyakornok" class="fogalom-dropdown">Gyakornok</option>
+                <option id="felmondasi-ido" class="fogalom-dropdown">Felmondási idő</option>
+                <option id="betegszabadsag" class="fogalom-dropdown">Betegszabadság</option>
+                <option id="cafeteria" class="fogalom-dropdown">Cafetéria</option>
+                <option id="kollektiv-szerzodes" class="fogalom-dropdown">Kollektív szerződés</option>
+                <option disabled class="fogalom-dropdown">-------------------------</option>
+                <option id="igenyes-munka" class="fogalom-dropdown">Igényes munka</option>
             </select>
         </button>
 
-        <!--
-            function igmun() {
-                    document.getElementById("content").innerHTML = ''
-                }
-    
-    
-    -->
+        <p id="fogalmak"></p>
     </body>
 </html>
