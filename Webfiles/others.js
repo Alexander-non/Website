@@ -1,10 +1,10 @@
 done = false;
 
-function HG(spin) {
+function Rotate(spin) {
     element = document.getElementById(spin);
     done = true;
     if (done == true) {
-        element.style.animationName = "example";
+        element.style.animationName = "spin";
         setTimeout(() => {
             done = false;
             console.log(done)

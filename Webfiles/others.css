@@ -1,6 +1,8 @@
+
 iframe {
-    width: 30%;
-    height: 80%;
+    visibility: visible;
+    height: 100%;
+    width: 100%;
 }
 
 img {
@@ -12,13 +14,20 @@ img {
     animation-timing-function: linear;
 }
 
+div {
+    position: relative;
+    width: 50%;
+    height: 500px;
+    border: 10px solid black;
+}
+
 button {
     position: relative;
     width: 3%;
     height: 5%;
 }
 
-@keyframes example {
+@keyframes spin {
     0%   {transform: rotate(0deg);}
     25%  {transform: rotate(90deg);}
     50%  {transform: rotate(180deg);}
