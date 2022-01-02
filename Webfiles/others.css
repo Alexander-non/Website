@@ -1,8 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap');
+
+body {
+    background-color: yellow;
+}
+
 
 iframe {
-    visibility: visible;
+    position: absolute;
     height: 100%;
     width: 100%;
+    user-select: none;
+    border: none;
+    outline: none;
 }
 
 img {
@@ -10,21 +19,55 @@ img {
     width: 100%;
     height: 100%;
     animation-name: none;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
     animation-timing-function: linear;
+    -webkit-user-drag: none;
+    user-select: none;
 }
 
-div {
+h1 {
+    font-family: 'Roboto Mono', monospace;
     position: relative;
-    width: 50%;
-    height: 500px;
-    border: 10px solid black;
+    cursor: pointer;
+    margin-left: 20%;
+    -webkit-user-drag: none;
+    user-select: none;
 }
 
-button {
+#reload {
     position: relative;
     width: 3%;
+    height: 3%;
+    margin-top: 0.75%;
+    left: 2%;
+}
+#header {
+    justify-content: inherit;
+    flex-wrap: nowrap;
+    display: flex;
+    left: 0%;
     height: 5%;
+    width: 100%;
+}
+#inner {
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    height: 70%;
+    width: 80%;
+}
+
+#time-table {
+    visibility: visible;
+    z-index: 1;
+}
+#calculator {
+    visibility: hidden;
+    z-index: 0;
+}
+#clock {
+    visibility: hidden;
+    z-index: 0;
 }
 
 @keyframes spin {
