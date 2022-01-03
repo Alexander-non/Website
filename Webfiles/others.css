@@ -1,9 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap');
 
 body {
-    background-color: yellow;
+    background-image: url("https://etc.usf.edu/clipart/41600/41619/hex_41619_lg.gif");
+    background-size: 20%;
 }
 
+button {
+    border: none;
+    background: none;
+}
 
 iframe {
     position: absolute;

@@ -5,8 +5,49 @@
     <body>
         <style>
             body {
-                background-color: black;
+                background-color: rgb(58, 115, 190);
             }
+            #clock-main {
+                position: relative;
+                background-color: white;
+                left: 30%;
+                top: 5%;
+                width: 600px;
+                height: 600px;
+                border-radius: 50%;
+            }
+            .clock-tick {
+                position: absolute;
+                background-color: black;
+                border-radius: 10px;
+                height: 50%;
+                width: 2%;
+                left: 49%;
+                transform-origin: bottom;
+            }
+            /*#hour-tick {}
+            #min-tick {}
+            #sec-tick {}*/
         </style>
+        <div id="clock-main">
+            <div class="clock-tick" id="hour-tick"></div>
+            <div class="clock-tick" id="min-tick"></div>
+            <div class="clock-tick" id="sec-tick"></div>
+        </div>
+        
+        <script>
+            const hour = document.getElementById("hour-tick");
+            const minute = document.getElementById("min-tick");
+            const seconds = document.getElementById("sec-tick");
+            setInterval(() => {
+                date = new Date();
+                hourDegree = 30 * date.getHours(); + date.getMinutes() / 2;
+                minuteDegree = 6 * date.getMinutes();
+                secondsDegree = 6 * date.getSeconds();
+                hour.style.transform = `rotate(`+hourDegree+`deg)`
+                minute.style.transform = `rotate(`+minuteDegree+`deg)`
+                seconds.style.transform = `rotate(`+secondsDegree+`deg)`
+            }, 1000);
+        </script>
     </body>
 </html>

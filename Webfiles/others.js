@@ -34,7 +34,6 @@ function Switch(element) {
             document.getElementById(others[0]).style.visibility = "hidden";
             document.getElementById(others[1]).style.visibility = "hidden";
             break;
-        
         default:
             break;
     }
