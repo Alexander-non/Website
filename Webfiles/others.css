@@ -63,16 +63,16 @@ h1 {
 }
 
 #time-table {
-    visibility: visible;
-    z-index: 1;
+    visibility: hidden;
+    z-index: 0;
 }
 #calculator {
     visibility: hidden;
     z-index: 0;
 }
 #clock {
-    visibility: hidden;
-    z-index: 0;
+    visibility: visible;
+    z-index: 1;
 }
 
 @keyframes spin {
