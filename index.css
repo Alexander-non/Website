@@ -46,6 +46,7 @@ table {
     width: 5%;
     height: 10%;
     border: none;
+    outline: none;
     background-color: #009eb9;
     box-shadow: 2px 5px black;
     transition-duration: 1s;
@@ -190,7 +191,7 @@ table {
 }
 
 #group-work-holder {
-    position: absolute;   
+    position: absolute;
     bottom: 5%;
     left: 2%;
     height: 60%;
@@ -211,13 +212,13 @@ table {
     border: 3px black solid;
     position: absolute;}
 .group-work-title {
+    position: relative;
     font-family: 'RocknRoll One', sans-serif;
     font-size: 250%;
-    height: 25%;
+    height: 10%;
     width: 60%;
-    line-height: 100px;
-    position: relative;
-    margin: 5% 20% auto 20%;
+    text-align: center;
+    margin: 10% 20% auto 20%;
 }
 
 

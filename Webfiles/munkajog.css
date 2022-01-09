@@ -7,6 +7,13 @@ body {
     background-size: cover;
 }
 
+select {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 800;
+    background-color: #bbbbbb;
+    border: none;
+    outline: none;}
+
 h1 {
     font-family: 'Roboto', sans-serif;
     text-align: center;}
@@ -28,7 +35,7 @@ h3 {
     left: 25%;
 }
 
-.button {
+.file-compartment {
     text-align: center;
     border: none;
     outline: none;
@@ -37,11 +44,11 @@ h3 {
     margin: 5% 0 3% 5%;
     background-color: silver;
     transition-duration: 1s;}
-.button:hover {
+.file-compartment:hover {
     transition-duration: 1s;
-    transform: translateY(10px);
+    transform: translateY(10px) translateX(-5px);
     box-shadow: 5px -10px;}
-.button-container {
+.file-container {
     margin: 1%;
     background-color: grey;
     width: 20%;

@@ -77,15 +77,25 @@ function themeChange(){
 
 // LANGUAGE CHANGES
 
-function Translate(mainButton1, mainButton2, mainButton3, mainButton4, mainButton5, mainButton6, groupWorkTitle, Theme, Language){
+function Translate(language){
+    transElement = ['szorakozas', 'munkajog', 'elerhetosegem', 'projekteim', 'csoport_munka', 'egyebek', 'iskolam', 'cim', 'theme', 'language'];
+    engList = ['ENTERTAINMENT', 'LABOR LAW', 'CONTACTS', 'MY PROJECTS', 'GROUP WORK', 'OTHERS', 'SCHOOL', 'Group Work', 'Theme', 'Language'];
+    hunList = ['SZÓRAKOZÁS', 'MUNKA JOG', 'ELÉRHETŐSÉGEM', 'PROJEKTEIM', 'CSOPORT MUNKA', 'EGYEBEK', 'ISKOLÁM', 'Csoport Munka', 'Téma', 'Nyelv'];
     //Gombok leforditása a főoldalon
-    document.getElementById("szorakozas").innerHTML = mainButton1;
-    document.getElementById("munkajog").innerHTML = mainButton2;
-    document.getElementById("elerhetosegem").innerHTML = mainButton3;
-    document.getElementById("projekteim").innerHTML = mainButton4;
-    document.getElementById("csoport_munka").innerHTML = mainButton5;
-    document.getElementById("iskolam").innerHTML = mainButton6;
-    document.getElementById("cim").innerHTML = groupWorkTitle;
-    document.getElementById("theme").innerHTML = Theme;
-    document.getElementById("language").innerHTML = Language;
+    switch (language) {
+        case 'eng':
+            for (let x = 0; x < transElement.length; x++) {
+                document.getElementById(transElement[x]).innerHTML = engList[x];
+            }
+            break;
+        case 'hun':
+            for (let x = 0; x < transElement.length; x++) {
+                document.getElementById(transElement[x]).innerHTML = hunList[x];
+            }
+            break;
+    
+        default:
+            console.log('Failure')
+            break;
+    }
 };
