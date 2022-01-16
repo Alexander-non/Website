@@ -1,8 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 
+body {overflow: hidden;}
 table {
+  position: absolute;
     height: 100%;
-    width: 25%;
+    width: 25%;}
+#left {
+  right: 0;
+  top: 0;
 }
 
 button {
@@ -20,21 +25,28 @@ button {
     font-size: 25px;
     color: transparent;
     text-align: center;
-    font-family: 'Poppins', sans-serif;
-}
-
+    font-family: 'Poppins', sans-serif;}
 button:hover {
     line-height: -10%;
     right: 20%;
-    color: white;
-}   
+    color: white;}
+#left-part {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  width: 30vw;
+  left: 70%;}
+#left-part:hover {
+  left: 5%;
+}
 
 p {
   position: relative;
   top: 10%;
 }
 
-
+ 
 #background {
   z-index: 0;
   position: absolute;
@@ -51,26 +63,26 @@ p {
 }
 
 .icon {
+  position: relative;
     left: 35%;
     top: 15%;
     height: auto; 
-    width: 3vw;
-    position: relative;
+    width: 3vw;}
+.icon-left {
+  left: -35%;
 }
 
 
 .discord:hover {
-  background-color: #8C9EFF;
-}
+  background-color: #8C9EFF;}
 .viber:hover {
-  background-color: #7D3DAF;
-}
+  background-color: #7D3DAF;}
 .messenger:hover {
-  background-color: #007FFF;
-}
+  background-color: #007FFF;}
 .skype:hover {
-  background-color: #00A9E8;
-}
+  background-color: #00A9E8;}
 .phone:hover {
-  background-color: #1D1D1B;
+  background-color: #1D1D1B;}
+.email:hover {
+  background-color: #ff0000;
 }
