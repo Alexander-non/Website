@@ -40,7 +40,7 @@ body {
     background-position: center;
     color: white;
     font-family: sans-serif;
-}
+    filter: drop-shadow(0px 0px 5px #000000);}
 
 #island {
     position: absolute;
@@ -78,71 +78,46 @@ a:any-link {
     height: 100px;
     text-decoration: none;}
 
-.comment-on-work {
-    font-family: sans-serif;
-    width: 120px;
-    height: 30px;
-    text-align: center;
-    line-height: 180%;
-    position: absolute;
-    background-color: lightgoldenrodyellow;
-    border: solid 4px sandybrown;
-}
-
-#content {
-    margin-top: 20px;
-    margin-left: 140px;
-    font-family: sans-serif;
-}
-
 
 @keyframes waves {
-    from {left: -50%; bottom: -3%;}
-    to {left: 0%; bottom: -3%;}
+    from {left: -50%; bottom: 0%;}
+    to {left: 0%; bottom: 0%;}
 }
 @keyframes waves2 {
-    from {left: -75%; bottom: -3%;}
-    to {left: -25%; bottom: -3%;}
+    from {left: 0%; bottom: 0%;}
+    to {left: 50%; bottom: 0%;}
 }
 @keyframes waves3 {
-    from {left: 20%; bottom: -3%;}
-    to {left: 70%; bottom: -3%;}
+    from {left: -42.5%; bottom: 0%;}
+    to {left: 7.5%; bottom: 0%;}
 }
 @keyframes waves4 {
-    from {left: 45%; bottom: -3%;}
-    to {left: 95%; bottom: -3%;}
+    from {left: 57.5%; bottom: 0%;}
+    to {left: 107.5%; bottom: 0%;}
 }
 
 .waves {
-    height: 120px;
+    height: 15%;
     width: 100%;
-    top: 88%;
-    z-index: 9;
+    top: 85.5%;
+    z-index: 10;
     background-size: contain;
     background-image: url(../Pictures/Wave.png);
     position: absolute;
+
+    animation-iteration-count: infinite; 
+    animation-timing-function: linear;
+    animation-duration: 4s;
 }
 
 #wave {
-    animation-name: waves;
-    animation-iteration-count: infinite;
-    animation-duration: 6s;
-}
+    animation-name: waves;}
 #wave2 {
-    animation-name: waves2;
-    animation-iteration-count: infinite;
-    animation-duration: 6s;
-}
+    animation-name: waves2;}
 #wave3 {
-    animation-name: waves3;
-    animation-iteration-count: infinite;
-    animation-duration: 6s;
-}
+    animation-name: waves3;}
 #wave4 {
-    animation-name: waves4;
-    animation-iteration-count: infinite;
-    animation-duration: 6s;
-}
+    animation-name: waves4;}
 
 
 @media screen and (max-width:1000px) {

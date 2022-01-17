@@ -1,26 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@700&display=swap');
 
 body {
-    background-color: beige;}
+    background-color: beige;
+    overflow: hidden;}
 img {
     width: 100%;}
 
-.bullet-board-inner{
+#bullet-board-inner{
     height: 95%;
     width: 100%;
     background-image: url("https://us.123rf.com/450wm/thawats/thawats1209/thawats120900276/15456710-panneau-de-fibres-panneaux-de-bois-press%C3%A9-la-texture.jpg?ver=6");
     filter: brightness(50%);
 }
-.bullet-board-outer{
+#bullet-board-outer{
     border: 20px solid transparent;
     border-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3SuC8nvdySnJpQ8Dx8-AdThM_ql1vKPlBEg&usqp=CAU") 20 round;
 }
 
 .pin {
+    position: absolute;
     width: 30%;
     height: 60%;
-    position: absolute;
     top: 20%;
+    user-select: none;
+    -webkit-user-drag: none;
     filter: drop-shadow(0px 10px 2px black);}
 #pin1 {
     transform: rotate(2deg);

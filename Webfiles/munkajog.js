@@ -23,7 +23,6 @@ function Fogalom(element, text) {
             document.getElementById(text).innerHTML = '<b> Igényes munka: </b> Az igényes munka fontos egy ember számára hisz az mutatja be az embert saját maga helyett bár az igényes munka nem tud beszélni mégis tökéletesen mutatja készítőjének hozzáállását és belefektetett idejét tehát egy munka minél igényesebb annál jobb.';
             break;
         default:
-
             break;
     };
 };
