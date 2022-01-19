@@ -18,8 +18,7 @@
                 width: 500px;
                 height: 500px;
                 border-radius: 50%;
-                border: 10px solid rgb(163, 139, 0);
-            }
+                border: 10px solid rgb(163, 139, 0);}
             #clock-middle {
                 position: absolute;
                 width: 5%;
@@ -27,34 +26,45 @@
                 margin: 47.5%;
                 border-radius: 25%;
                 background-color: gold;
-                filter: brightness(90%);
-            }
+                filter: brightness(90%);}
             .clock-tick {
                 position: absolute;
                 background-color: black;
                 border-radius: 10px;
                 width: 2%;
                 left: 49%;
-                transform-origin: bottom;
+                transform-origin: bottom;}
+            .clock-tick::after {
+                content: '';
+                position: absolute;
+                width: 20%;
+                height: 20%;
+                left: -62%;
+                top: -2%;
+                border-right: 10px solid black;
+                border-bottom-right-radius: 25px;
+                border-top: 10px solid transparent;
+                background-color: transparent;}
+            .clock-tick::before {
+                content: '';
+                position: absolute;
+                width: 20%;
+                height: 20%;
+                left: 55%;
+                top: -2%;
+                border-left: 10px solid black;
+                border-bottom-left-radius: 25px;
+                border-top: 10px solid transparent;
+                background-color: transparent;
             }
+
+            
 
             #hour-tick {
                 top: 10%;
                 height: 40%;}
-            #hour-tick::after {
-                content: '';
-                position: absolute;
-                width: 10%;
-                height: 10%;
-                background-color: black;
-            }
-            #hour-tick::before {
-                content: '';
-                position: absolute;
-                width: 10%;
-                height: 10%;
-                background-color: black;
-            }
+            
+            
             #min-tick {
                 top: 5%;
                 height: 45%;
@@ -64,7 +74,11 @@
                 height: 48%;
             }
 
-
+            h3 {
+                top: 5%;
+                left: 50%;
+                position: absolute;
+            }
 
             h1 {
                 position: absolute;
@@ -138,6 +152,7 @@
             <input>
             <button onclick="Check()">Ellenőrzés</button>
         </h1>
+        
         <script>
             const hour = document.getElementById("hour-tick");
             const minute = document.getElementById("min-tick");

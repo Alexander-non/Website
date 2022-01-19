@@ -3,6 +3,88 @@
         <title>Battle</title>
     </head>
     <body>
-        
+        <style>
+            #character{position:absolute;top:35%;left:5%;width:10%;height:10%;}
+            #characterSkin{position:absolute;width:100%;background-color:transparent;top:0;left:0;}
+            #ground{position: absolute;width:100%;height:50%;bottom:0;left:0;background-image:url("https://i.pinimg.com/originals/30/08/a7/3008a7d97a44a792f4db44ae235c8905.jpg");background-size: contain;}
+            #grass{position: absolute;width:100%;height:20%;top:0;left:0;background-color: green;}
+            #sky{position: absolute;width:100%;height:50%;top:0;left:0;background-color:#3779a5cc;}
+            img{z-index:10;position:absolute;width:60%;top:15%;left:20%;filter:drop-shadow(0 0 10px black);}
+            #deck{position:relative;width:80%;height:35%;left:10%;top:65%;background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkCkMZDjJ4Q4tAML28YlgnTHTH5n3Uz0t2ZA&usqp=CAU");background-size: contain;filter: brightness(90%);}
+            #deck::before{content:"";position:absolute;left:calc(-5%/2);top:-10%;width:5%;height:110%;background-image:url("https://i.pinimg.com/originals/d6/b3/55/d6b355ff908d50997ba679550c597944.jpg");background-size: contain;filter: brightness(90%);}
+            #deck::after{content:"";position:absolute;right:calc(-5%/2);top:-10%;width:5%;height:110%;background-image:url("https://i.pinimg.com/originals/d6/b3/55/d6b355ff908d50997ba679550c597944.jpg");background-size: contain;filter: brightness(90%);}
+            .cards{position:absolute;width:calc(100%/5);height:90%;top:5%;transform-style:preserve-3d;transition-duration:1s;border-radius:5%;}
+            .cards:hover{transition-duration:1s;transform:rotateY(180deg);}
+            .card-front{position:absolute;width:60%;height:90%;top:5%;left:20%;transform:rotateY(180deg);background-color:yellow;backface-visibility:hidden;}
+            #melee{background-color:#a5201b;}
+            #mage{background-color:#1c5e8a;}
+            #range{background-color:#0d6b0d;}
+            #priest{background-color:#b4b400;}
+            #assassin{background-color:#414141;}
+        </style>
+        <div id="sky"></div>
+        <div id="character"><img id="characterSkin" src="Textures/Character/slimeIdleRight.gif"></div>
+        <div id="ground"><div id="grass"></div></div>
+
+        <div id="deck">
+            <div class="cards"><img class="class-icon"><div class="card-front"></div></div>
+            <div class="cards"><img class="class-icon"><div class="card-front"></div></div>
+            <div class="cards"><img class="class-icon"><div class="card-front"></div></div>
+            <div class="cards"><img class="class-icon"><div class="card-front"></div></div>
+            <div class="cards"><img class="class-icon"><div class="card-front"></div></div>
+        </div>
+
+        <script>
+            Cards = document.getElementsByClassName("cards");
+            Icons = document.getElementsByClassName("class-icon");
+            Deck = document.getElementById("deck");
+            CardAlign = 0;
+            CardFaceAlign = 20;
+
+            for (let x = 0; x < Cards.length; x++) {
+                
+                Cards[x].style.marginLeft = CardAlign;
+                CardAlign += Deck.offsetWidth / Cards.length;
+
+                cardFace = document.createElement("div");
+                
+                cardFace.style.position = "relative";
+                cardFace.style.boxShadow = "0px 0px 50px black"
+                cardFace.style.marginLeft = CardFaceAlign + "%";
+                cardFace.style.top = "5%";
+                cardFace.style.width = "60%";
+                cardFace.style.height = "90%";
+                switch (x) {
+                    case 0:
+                        cardFace.setAttribute("id", "melee");
+                        Icons[x].src = "Textures/Melee.png";
+                        break;
+                    case 1:
+                        cardFace.setAttribute("id", "mage");
+                        Icons[x].src = "Textures/Mage.png";
+                        break;
+                    case 2:
+                        cardFace.setAttribute("id", "range");
+                        Icons[x].src = "Textures/Range.png";
+                        break;
+                    case 3:
+                        cardFace.setAttribute("id", "priest");
+                        Icons[x].src = "Textures/Priest.png";
+                        break;
+                
+                    case 4:
+                        cardFace.setAttribute("id", "assassin");
+                        Icons[x].src = "Textures/Assassin.png";
+                        break;
+                
+                    default:
+                        cardFace.style.backgroundColor = "transparent";
+                        break;
+                }
+                Cards[x].appendChild(cardFace);
+
+
+            }
+        </script>
     </body>
 </html>

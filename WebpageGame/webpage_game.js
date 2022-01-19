@@ -30,18 +30,18 @@ document.addEventListener("keydown", function (event) {
 var xPlayerPosition = 0;
 var xPlayerVelocity = 0;
 var BackgroundMovement = 0;
-var movementToggle = true;
-
+var isMoving = true;
+var MovementSpeed = 10;
 
 
 
 
 
 /*------------------------------------------------------------------   CHARACTER MOVEMENTS   -------------------------------------------------------------*/
-var MovementRight = function() {
-    xPlayerPosition += 10;
+function MovementRight() {
+    xPlayerPosition += MovementSpeed;
     document.getElementById("character").style.marginLeft = xPlayerVelocity; //Movement
-    BackgroundMovement += 10;
+    BackgroundMovement += MovementSpeed;
     console.log(BackgroundMovement)
 
     //Charcter animation for running
@@ -50,10 +50,10 @@ var MovementRight = function() {
         document.getElementById("characterSkin").src = "Textures/Character/slimeAttackRight.gif";}, 500);
     MovementRight.done = true;
 };
-var MovementLeft = function() {
-    xPlayerPosition -= 10;
+function MovementLeft() {
+    xPlayerPosition -= MovementSpeed;
     document.getElementById("character").style.marginLeft = xPlayerVelocity; //Movement
-    BackgroundMovement -= 10;
+    BackgroundMovement -= MovementSpeed;
     console.log(BackgroundMovement)
 
 
@@ -68,27 +68,21 @@ function BackgroundMoving() {
     //Moving generated trees
     document.getElementById("forestPart1").style.marginLeft = -BackgroundMovement;      //First forest moving
     document.getElementById("forestPartX").style.marginLeft = -BackgroundMovement;     //Second forest moving
-    for (let index = 0; index < numberOfForests; index++) {
-            ForestPart = "forestPartX" + (index + 2);                                   //Grabbing all of the Trees
-            ForestCurrentPosition = ForestPosition[index] - BackgroundMovement;        //Making a current position tracking variable
-            
-            document.getElementById(ForestPart).style.marginLeft = ForestCurrentPosition;       //Moving generated forests
-            /*console.log(ForestPart, "'s x-position is", ForestCurrentPosition, "and the its staring position is:", ForestPosition[index]) //Loging the position of trees*/
+    for (let x = 0; x < numberOfForests; x++) {
+            ForestPart = "forestPartX" + (x + 2);                                                                 //Grabbing all of the Trees      
+            document.getElementById(ForestPart).style.marginLeft = ForestPosition[x] - BackgroundMovement;       //Moving generated forests
     };
     //Moving generated enemies
-    for (let index = 0; index < numberOfEnemiesForests; index++) {
-            Enemy = "enemy-hitbox" + (index + 1);                                                  //Grabbing all of the enemies
-            EnemiesCurrentPosition = EnemyPosition[index]  - BackgroundMovement;        //Making a current position tracking variable
-            
-            document.getElementById(Enemy).style.marginLeft = EnemiesCurrentPosition;      //Moving generated enemies
-            //console.log(Enemy, "'s x-position is", EnemiesCurrentPosition, "and the its staring position is:", EnemyPosition[index])
+    for (let x = 0; x < numberOfEnemiesForests; x++) {
+            Enemy = "enemy-hitbox" + (x + 1);                                                               //Grabbing all of the enemies
+            document.getElementById(Enemy).style.marginLeft = EnemyPosition[x]  - BackgroundMovement;      //Moving generated enemies
     };
 };
 
 document.addEventListener("keydown", function (event) {
 switch (event.keyCode) {
     case 68:
-        if (movementToggle == true) {
+        if (isMoving == true) {
             MovementRight();
             BackgroundMoving();
             Collision();
@@ -98,10 +92,12 @@ switch (event.keyCode) {
         //console.log('The "x" position is equal to: ', xPlayerVelocity)
         break;
     case 65:
-        if (movementToggle == true) {
+        if (isMoving == true) {
             MovementLeft();
             BackgroundMoving();
             Collision();
+        } else {
+            console.log("You cannot move!")
         };
         //console.log('The "x" position is equal to: ', xPosition)
         break;
@@ -149,7 +145,10 @@ var EnemyPosition = [];
 var numberOfForests = 100;
 var numberOfEnemiesForests = 5;
 
-
+function EnemyGeneration() {
+    ForestEnemies();
+    ForestBoss();    
+};
 
 /*---------------------------------------------------------------------     TREES     ----------------------------------------------------------------*/
 marginLeftInPx = 300;
@@ -184,7 +183,6 @@ function GeneratingTrees() {
     RTD = Math.floor(Math.random() *(250 - 200) + 200); //RandomTreeDistance
     marginLeftInPx += RTD;
 }};
-
 
 /*-------------------------------------------------------------------------   ENEMIES   ---------------------------------------------------------------------*/
 function ForestEnemies() {
@@ -240,22 +238,21 @@ function ForestEnemies() {
         EnemyMovablePosition += RandomSpacing;
 }};
 
-function ForestBoss() {};
+function ForestBoss() {
 
-function EnemyGeneration() {
-    ForestEnemies();
-    ForestBoss();    
 };
 
+/*-------------------------------------------------------------------------   BATTLE SYSTEM   ---------------------------------------------------------------------*/
+
 function Battle() {
-    movementToggle = false;
+    isMoving = false;
     window.open("battle.html", '_blank');
 }
 
 function Collision() {
-    for (let index = 0; index < numberOfEnemiesForests; index++) {
-        Enemy = "enemy-hitbox" + (index + 1);                                                        //Grabbing all of the enemies
-        EnemiesCurrentPosition = EnemyPosition[index] - 580;                                        //Making a variable to check there current position
+    for (let x = 0; x < numberOfEnemiesForests; x++) {
+        Enemy = "enemy-hitbox" + (x + 1);                                                        //Grabbing all of the enemies
+        EnemiesCurrentPosition = EnemyPosition[x] - 580;                                        //Making a variable to check there current position
         
         if (BackgroundMovement == EnemiesCurrentPosition) {
             //Battle
