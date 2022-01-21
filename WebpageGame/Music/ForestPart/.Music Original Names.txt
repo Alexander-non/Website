@@ -1,0 +1,6 @@
+bossFightMusic1 - Halling efter per loof : 
+bossFightMusic2 - Boss Fight : 
+mainTheme1 - Delivered : 
+mainTheme2 - Felgubben efter soren johansson : 
+enemyFightMusic1 - Tussle Among Tree : 
+villageMusic1 - Cambris :

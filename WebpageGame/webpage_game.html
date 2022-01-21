@@ -1,18 +1,24 @@
 <html>
     <head>
+        <script src="battle.js"></script>
         <title>Trash Adventure</title>
         <link rel="stylesheet" href="webpage_game.css">
+        
     </head>
-    <body>
-        <div id="menu-sidepage"> 
-            <div id="menu-sidepage-buttons-holder">
-                <button class="menu-sidepage-buttons">Volume</button>
-                <button class="menu-sidepage-buttons">Language</button>
+    <body> <!--oncontextmenu="return false"-->
+        <audio id="music" autoplay loop><source src="Music/ForestPart/mainTheme1.mp3" type="audio/mpeg"></audio>
+        <ul id="menu-sidepage">
+            <li class="menu-sidepage-buttons">
+                Settings
                 <button class="menu-sidepage-buttons">Display</button>
                 <button class="menu-sidepage-buttons">Graphics</button>
-            </div>
-        </div>
-        <div id="blackscreen"></div>
+            </button>
+            <li class="menu-sidepage-buttons">
+                Audio
+                <button class="menu-sidepage-buttons">Volume</button>
+                <button class="menu-sidepage-buttons">Language</button>
+            </li>
+        </ul>
             <section id="ground">
                 <div id="grass"></div>
                 <div id="character"><img id="characterSkin" src="Textures/Character/slimeIdleRight.gif" alt=""></div>

@@ -1,25 +1,34 @@
-var langClicked = 0;
-var themeClicked = 0;
-var pressed = 0;
-
-
-document.addEventListener("keydown", function (event) {
-    if (event.key === 'm') {
-        pressed++;
-    if (pressed % 2 == 0) {
-        document.getElementById("menu-sidepage").style.width = "0%";
-        document.getElementById("menu-sidepage-buttons-holder").style.display = "none";
-        document.getElementById("blackscreen").style.display = "none";
-    } else {
-        document.getElementById("menu-sidepage").style.width = "50%";
-        setTimeout(
-            function() {
-                document.getElementById("menu-sidepage-buttons-holder").style.display = "block";
-                }, 250
-        )
-        document.getElementById("blackscreen").style.display = "block";
-        }
+/*document.onkeydown = function(e) {
+    if(event.keyCode == 123) {
+       return false;
     }
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+       return false;
+    }
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+       return false;
+    }
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+       return false;
+    }
+    if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+       return false;
+    }
+}*/
+const music = document.getElementById("music")
+music.volume = 0.5;
+
+var Pressed = false;
+document.addEventListener("keydown", function (event) {
+    if (event.keyCode === 77) {
+        if (Pressed == true) {
+            Pressed = false;
+            document.getElementById("menu-sidepage").style.left = "-50%";
+        } else {
+            Pressed = true;
+            document.getElementById("menu-sidepage").style.left = "2%";
+            }
+        }
 });
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -42,7 +51,7 @@ function MovementRight() {
     xPlayerPosition += MovementSpeed;
     document.getElementById("character").style.marginLeft = xPlayerVelocity; //Movement
     BackgroundMovement += MovementSpeed;
-    console.log(BackgroundMovement)
+    //console.log(BackgroundMovement)
 
     //Charcter animation for running
     if (MovementRight.done) return;
@@ -54,7 +63,7 @@ function MovementLeft() {
     xPlayerPosition -= MovementSpeed;
     document.getElementById("character").style.marginLeft = xPlayerVelocity; //Movement
     BackgroundMovement -= MovementSpeed;
-    console.log(BackgroundMovement)
+    //console.log(BackgroundMovement)
 
 
     //Charcter animation for running
@@ -73,9 +82,9 @@ function BackgroundMoving() {
             document.getElementById(ForestPart).style.marginLeft = ForestPosition[x] - BackgroundMovement;       //Moving generated forests
     };
     //Moving generated enemies
-    for (let x = 0; x < numberOfEnemiesForests; x++) {
-            Enemy = "enemy-hitbox" + (x + 1);                                                               //Grabbing all of the enemies
-            document.getElementById(Enemy).style.marginLeft = EnemyPosition[x]  - BackgroundMovement;      //Moving generated enemies
+    for (let x = EnemyPosition.length; x > 0; x--) {
+            Enemy = "enemy-hitbox" + x;                                                               //Grabbing all of the enemies
+            document.getElementById(Enemy).style.marginLeft = EnemyPosition[x-1]  - BackgroundMovement;      //Moving generated enemies
     };
 };
 
@@ -144,6 +153,8 @@ var ForestPosition = [];
 var EnemyPosition = [];
 var numberOfForests = 100;
 var numberOfEnemiesForests = 5;
+var Battling = false
+
 
 function EnemyGeneration() {
     ForestEnemies();
@@ -175,7 +186,7 @@ function GeneratingTrees() {
     //Customizing the generated tree so I can see them clearer
     clone.style.top = topInPx;
     clone.style.marginLeft = marginLeftInPx;
-    clone.style.border = borderToSee
+    //clone.style.border = borderToSee
     clone.style.position = positionToSee;
     clone.style.height = SizeInPx;
     clone.style.width = SizeInPx;
@@ -195,9 +206,9 @@ function ForestEnemies() {
     RandomSpacing = 0;
 
 
-    for (let index = 0; index < numberOfEnemiesForests; index++) {
-        EnemyMovablePosition = EnemyStartingPosition + RandomSpacing;
-        
+    for (let x = numberOfEnemiesForests; x > 0; x--) {
+        var EnemyMovablePosition = EnemyStartingPosition + RandomSpacing;
+        var number = x;
 
         //Creating new div element as a new enemy hitbox and adding it to the game area
         enemyHitbox = document.createElement("div");
@@ -205,20 +216,17 @@ function ForestEnemies() {
 
         enemySkin = document.createElement("img");
         enemyHitbox.appendChild(enemySkin);
-        /*enemyIDSkin = document.createAttribute("id", "enemySkin");
-        enemySkin.setAttribute("id", "enemySkin");*/
         enemySkin.src = "Textures/Enemies/Normals/Forest/Blue Forest Slime Idling.gif";
         enemySkin.style.width = 175;
         enemySkin.style.position = "absolute"
         enemySkin.style.top = HitboxTop / 2.5;
         enemySkin.style.left = -10;
         enemySkin.style.transform = "scaleX(1)";
-        console.log(EnemyPosition)
 
 
         
-        number = index + 1;
-        newID = document.createAttribute("id", "enemy-hitbox" + number);
+        
+        document.createAttribute("id", "enemy-hitbox" + number);
         enemyHitbox.setAttribute("id", "enemy-hitbox" + number);
         
     
@@ -229,13 +237,16 @@ function ForestEnemies() {
         document.getElementById("enemy-hitbox" + number).style.marginLeft = EnemyMovablePosition;
         document.getElementById("enemy-hitbox" + number).style.top = HitboxTop;
         document.getElementById("enemy-hitbox" + number).style.zIndex = "996";
-        /*document.getElementById("enemy-hitbox" + number).style.backgroundColor = "red";*/
+        //document.getElementById("enemy-hitbox" + number).style.backgroundColor = "red";
 
         //Putting the enemies generated position to a list
         EnemyPosition.push(EnemyMovablePosition);
+        EnemyPosition.sort(function(a, b){return b - a});
         //Generating random number between 1000-800 and adding it to current enemy position
         RandomSpacing += 1000;
         EnemyMovablePosition += RandomSpacing;
+
+        //console.log(EnemyPosition)
 }};
 
 function ForestBoss() {
@@ -245,18 +256,31 @@ function ForestBoss() {
 /*-------------------------------------------------------------------------   BATTLE SYSTEM   ---------------------------------------------------------------------*/
 
 function Battle() {
-    isMoving = false;
+    Battling = true
     window.open("battle.html", '_blank');
+    setInterval(() => {
+        if (Battling == true) {
+            isMoving = false;
+            isBattling();
+        } else {
+            isMoving = true;
+        }
+        
+    }, 1000);
 }
 
 function Collision() {
-    for (let x = 0; x < numberOfEnemiesForests; x++) {
-        Enemy = "enemy-hitbox" + (x + 1);                                                        //Grabbing all of the enemies
-        EnemiesCurrentPosition = EnemyPosition[x] - 580;                                        //Making a variable to check there current position
+    for (let x = EnemyPosition.length; x > 0; x--) {
+        Enemy = "enemy-hitbox" + x;                                                        //Grabbing all of the enemies
+        EnemiesCurrentPosition = document.getElementById(Enemy).offsetLeft;                                        //Making a variable to check there current position
         
-        if (BackgroundMovement == EnemiesCurrentPosition) {
+        if (EnemiesCurrentPosition -580 == 0) {
             //Battle
+            EnemyPosition.pop();
+            document.getElementById(Enemy).remove();
             Battle();
+            //document.getElementById(Enemy).style.visibility = "hidden";
+            
             console.log("Reached enemy");
         };
         //console.log(Enemy, "'s x-position is", EnemiesCurrentPosition, "and the its staring position is:", EnemyPosition[index])

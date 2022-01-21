@@ -1,63 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
-
-
-
-
 body {
     background-color: #23A2C5;
     overflow: hidden;
 }
 
-#blackscreen {
-    transition: 10s;
-    display: none;
-    position: absolute;
-    z-index: 999;
-    background-color: black;
-    top: -10px;
-    left: -10px;
-    width: 120%;
-    height: 120%;
-    opacity: 60%;}
-
 #menu-sidepage {
-    transform: rotate(10deg);
-    top: -20%;
-    left: -25%;
-    z-index: 1000;
-    background-color: gainsboro;
     position: absolute;
-    height: 130%;
-    width: 0px;
-    transition: 0.5s;}
-#menu-sidepage-buttons-holder {
-    transform: rotate(-10deg);
-    transition: 1s;
-    display: none;
-    position: relative;
-    height: auto;
-    width: 150px;
-    top: 15%;
-    left: 60%;}
+    overflow-y: scroll;
+    z-index: 1000;
+    transform: rotate(-1deg);
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 70%;
+    width: 20%;
+    top: 25%;
+    left: -50%;
+    transition: 0.5s ease-out;}
+#menu-sidepage::-webkit-scrollbar {
+    width: 20px;}
+#menu-sidepage::-webkit-scrollbar-thumb {
+    background-color: sandybrown;
+    border-radius: 5px;
+    border: 3px dashed yellow;}
 .menu-sidepage-buttons {
     position: relative;
-    margin-top: 50%;
+    cursor: pointer;
+    background-color: white;
+    width: 80%;
+    height: 10%;
+    top: 10%;
+    bottom: 10%;
+    margin: 5% 10% auto 10%;
     border: none;
     font-family: 'Permanent Marker', cursive;
-    padding: 5vh;
-    font-size: 3vh;
-
-    background-size: 110%;
-    background-position: center;
-    background-color: transparent;
-    background-image: url("./BUTTON-BG.png");
-    color: white;
+    font-size: 1.2rem;
     text-align: center;
-    transition-duration: 0.5s;
-    cursor: pointer;}
+    color: black;
+    transition: 0.5s ease-out;}
 :hover.menu-sidepage-buttons {
-    transition-duration: 0.5s;
+    transition: 0.5s ease-out;
     background-color: transparent;
     background-image: url("./BUTTON-BG-Phase2.png");
     color: black;}
@@ -133,12 +114,13 @@ body {
 
 .treePlacement {
     /*border: black 1px solid;*/
-
+    position: absolute;
     height: 100%;
     top: 90px;}
 .backgroundTrees {
     z-index: 0;
-    filter: brightness(70%);}
+    filter: brightness(70%);
+    top: 60px;}
 .middleTrees {
     z-index: 1;
     filter: brightness(90%);}
@@ -154,14 +136,14 @@ body {
     user-select: none;}
 
 #forestPart1 {
-    border: black 1px solid;
+    /*border: black 1px solid;*/
     position: relative;
     left: -200px;
     top: -910px;
     width: 1000px;
     height: 1000px;}
 #forestPartX {
-    border: black 1px solid;
+    /*border: black 1px solid;*/
     position: absolute;
     left: 50px;
     top: -910px;
