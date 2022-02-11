@@ -197,12 +197,6 @@ table {
     height: 60%;
     width: 30%;
     transition-duration: 0.5s;}
-#group-work-holder:hover {
-    transition-duration: 0.5s;
-    border: 2px solid #141414;
-    box-shadow: 0 0 2px 2px #141414;
-    border-radius: 10px;
-}
 .group-picture {
     width: 90%;
     height: auto;
