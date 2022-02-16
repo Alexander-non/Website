@@ -1,9 +1,8 @@
-var langClicked = 0;
-var themeClicked = 0;
 var TimesPressed = 0;
 var Pressed = false;
 
-document.getElementById("menu-button-open").onclick = function menuOpen() {
+$("#menu-button-open").click(() => {
+    //$("p").slideToggle();
     Pressed = true;
     TimesPressed++;
 
@@ -15,8 +14,8 @@ document.getElementById("menu-button-open").onclick = function menuOpen() {
             }, 250
     );
     document.getElementById("blackscreen").style.display = "block";
-};
-document.getElementById("menu-button-close").onclick = function menuClose() {
+});
+$("#menu-button-close").click(() => {
     TimesPressed++;
     Pressed = false;
 
@@ -24,7 +23,7 @@ document.getElementById("menu-button-close").onclick = function menuClose() {
     document.getElementById("menu-sidepage-buttons-holder").style.display = "none";
     document.getElementById("menu-button-close").style.display = "none";
     document.getElementById("blackscreen").style.display = "none";
-}
+});
 document.addEventListener("keydown", function (event) {
     if (event.key == 'm') {
         TimesPressed++;
@@ -52,28 +51,13 @@ document.addEventListener("keydown", function (event) {
 });
 
 
-document.getElementById("language").onclick = function languageChangeAppear() {
-    langClicked++;
 
-    if (langClicked % 2 == 0) {
-        document.getElementById("language-select-holder").style.display = "none";
-    } else {
-        document.getElementById("language-select-holder").style.display = "block";
-    }
-};
-document.getElementById("theme").onclick = function themeChangeAppear() {
-    themeClicked++;
-
-    if (themeClicked % 2 == 0) {
-        document.getElementById("theme-select-holder").style.display = "none";
-    } else {
-        document.getElementById("theme-select-holder").style.display = "block";
-    }
-};
-
-function themeChange(){
-
-}
+$("#language").click(() => {
+    $("#language-select-holder").slideToggle("slow", "swing");
+});
+$("#theme").click(() => {
+    $("#theme-select-holder").slideToggle("slow", "swing");
+});
 
 // LANGUAGE CHANGES
 

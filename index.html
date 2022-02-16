@@ -3,54 +3,54 @@
     <head>
         <link rel="stylesheet" href="index.css">
         <link rel="icon" href="Pictures/WebpageIcons/home-page-icon.png">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <meta charset="UTF-8">
         <meta name="webpage_main" content="width=device-width, initial-scale=1.0">
         <base target="_blank">
         <title>Weblapom</title>
     </head>
     <body>
-        <script src="index.js"></script>
         <div id="blackscreen"></div>
-        <button onclick="menuOpen()" id="menu-button-open">MENU</button>
+        <button id="menu-button-open">MENU</button>
         <div id="menu-sidepage">
             <button id="menu-button-close" class="menu-button-close">X</button>
             <div id="menu-sidepage-buttons-holder">
                 <button id="theme" class="menu-sidepage-buttons">Téma</button>
-                <ul id="theme-select-holder">
-                    <li><button class="theme-select" id="normal">Normal</button></li>
-                    <li><button class="theme-select" id="light">Light</button></li>
-                    <li><button class="theme-select" id="dark">Dark</button></li>
-                    <li><button class="theme-select" id="ocean">Ocean</button></li>
-                    <li><button class="theme-select" id="old">Old</button></li>
-                    <li><button class="theme-select" id="apocalypse">Apocalypse</button></li>
-                    <li><button class="theme-select" id="console">Console</button></li>
-                    <li><button class="theme-select" id="minecraft">Minecraft</button></li>
-                    <li><button class="theme-select" id="terraria">Terraria</button></li>
-                    <li><button class="theme-select" id="undertale" >Undertale</button></li>
+                <ul class="settings-select-holder" id="theme-select-holder">
+                    <li><button class="settings-select" id="normal">Normal</button></li>
+                    <li><button class="settings-select" id="light">Light</button></li>
+                    <li><button class="settings-select" id="dark">Dark</button></li>
+                    <li><button class="settings-select" id="ocean">Ocean</button></li>
+                    <li><button class="settings-select" id="old">Old</button></li>
+                    <li><button class="settings-select" id="apocalypse">Apocalypse</button></li>
+                    <li><button class="settings-select" id="console">Console</button></li>
+                    <li><button class="settings-select" id="minecraft">Minecraft</button></li>
+                    <li><button class="settings-select" id="terraria">Terraria</button></li>
+                    <li><button class="settings-select" id="undertale" >Undertale</button></li>
                 </ul>
                 <button id="language" class="menu-sidepage-buttons">Nyelv</button>
-                <ul id="language-select-holder">
-                    <li><button class="language-select" onclick="Translate('eng')">Angol</button></li>
-                    <li><button class="language-select" onclick="Translate('hun')">Magyar</button></li>
-                    <li><button class="language-select" onclick="Translate('fra')">Francia</button></li>
-                    <li><button class="language-select" onclick="Translate('ger')">Német</button></li>
-                    <li><button class="language-select" onclick="Translate('spa')">Spanyol</button></li>
-                    <li><button class="language-select" onclick="Translate('rus')">Orosz</button></li>
-                    <li><button class="language-select" onclick="Translate('chi')">Kínai</button></li>
-                    <li><button class="language-select" onclick="Translate('jap')">Japán</button></li>
+                <ul class="settings-select-holder" id="language-select-holder">
+                    <li><button class="settings-select" onclick="Translate('eng')">Angol</button></li>
+                    <li><button class="settings-select" onclick="Translate('hun')">Magyar</button></li>
+                    <li><button class="settings-select" onclick="Translate('fra')">Francia</button></li>
+                    <li><button class="settings-select" onclick="Translate('ger')">Német</button></li>
+                    <li><button class="settings-select" onclick="Translate('spa')">Spanyol</button></li>
+                    <li><button class="settings-select" onclick="Translate('rus')">Orosz</button></li>
+                    <li><button class="settings-select" onclick="Translate('chi')">Kínai</button></li>
+                    <li><button class="settings-select" onclick="Translate('jap')">Japán</button></li>
                 </ul>
                 <button id="none" class="menu-sidepage-buttons">None</button>
             </div>
         </div>
         <div>
-            <div class="button-contanier">
-                <a class="buttons" href="Webfiles/personal-games.html"><div id="szorakozas">SZÓRAKOZÁS</div></a>
-                <a class="buttons" href="Webfiles/munkajog.html"><div id="munkajog">MUNKA JOG</div></a>
-                <a class="buttons" href="Webfiles/elerhetosegem.html"><div id="elerhetosegem">ELÉRHETŐSÉGEM</div></a>
-                <a class="buttons" href="Webfiles/projekteim.html"><div id="projekteim">PROJEKTEIM</div></a>
-                <a class="buttons" href="Webfiles/team.html"><div id="csoport_munka">CSOPORT MUNKA</div></a>
-                <a class="buttons" href="Webfiles/others.html"><div id="egyebek">EGYEBEK</div></a>
-                <a class="buttons" href="https://www.pataky.hu/"><div id="iskolam">ISKOLÁM</div></a>
+            <div class="main-buttons-contanier">
+                <a class="main-buttons" href="Webfiles/personal-games.html"><div id="szorakozas">SZÓRAKOZÁS</div></a>
+                <a class="main-buttons" href="Webfiles/munkajog.html"><div id="munkajog">MUNKA JOG</div></a>
+                <a class="main-buttons" href="Webfiles/elerhetosegem.html"><div id="elerhetosegem">ELÉRHETŐSÉGEM</div></a>
+                <a class="main-buttons" href="Webfiles/projekteim.html"><div id="projekteim">PROJEKTEIM</div></a>
+                <a class="main-buttons" href="Webfiles/team.html"><div id="csoport_munka">CSOPORT MUNKA</div></a>
+                <a class="main-buttons" href="Webfiles/others.html"><div id="egyebek">EGYEBEK</div></a>
+                <a class="main-buttons" href="https://www.pataky.hu/"><div id="iskolam">ISKOLÁM</div></a>
             </div>
 
             <div id="group-work-holder">
@@ -63,5 +63,6 @@
         </div>
             </div>
         </div>
+        <script src="index.js"></script>
     </body>
 </html>
