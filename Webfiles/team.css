@@ -7,7 +7,7 @@ img {
     width: 100%;}
 
 #bullet-board-inner{
-    height: 95%;
+    height: 94vh;
     width: 100%;
     background-image: url("https://us.123rf.com/450wm/thawats/thawats1209/thawats120900276/15456710-panneau-de-fibres-panneaux-de-bois-press%C3%A9-la-texture.jpg?ver=6");
     filter: brightness(50%);
