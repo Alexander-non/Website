@@ -175,7 +175,7 @@ function GeneratingTrees() {
     clone.setAttribute('id', 'forestPartX' + number);
 
     // Append the newly created element on element you select 
-    document.querySelector('section').appendChild(clone);
+    document.querySelector('span').appendChild(clone);
 
     //Creating variables to make my work easier
     topInPx = "-910px";
@@ -212,7 +212,7 @@ function ForestEnemies() {
 
         //Creating new div element as a new enemy hitbox and adding it to the game area
         enemyHitbox = document.createElement("div");
-        document.querySelector('section').appendChild(enemyHitbox);
+        document.querySelector('span').appendChild(enemyHitbox);
 
         enemySkin = document.createElement("img");
         enemyHitbox.appendChild(enemySkin);

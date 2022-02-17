@@ -1,39 +1,15 @@
 body {
     overflow: hidden;
 }
+* {font-family: 'Courier New', Courier, monospace;}
 
 p {
     user-select: none;
     position: relative;
     color: white;
     text-align: center;
-    font-size: 35;
-    font-family: 'Courier New', Courier, monospace;
-}
-
-#proba {
-    top: -100px;
-    left: -25%;
-    position: absolute;
-}
-
-.GameHolder {
-    position: absolute;
-    background-color: rgb(0, 0, 0, 0.8);
-    border-radius: 10px;
-    z-index: 1;
-
-    height: 65vh;
-    width: 25vw;
-}
-
-.Game {
-    margin-top: 10vh;
-    margin-left: 10vw;
-}
-.Game_2 {
-    margin-top: 10vh;
-    margin-left: 60vw;
+    font-size: 2rem;
+    z-index: 10;
 }
 
 img {
@@ -48,6 +24,33 @@ img {
     z-index: 1;
 }
 
+#proba {
+    color: #000000;
+    top: 0;
+    left: 5%;
+    position: absolute;
+}
+#GameHolder {
+    position: relative;
+    flex-flow: row;
+    display: flex;
+    z-index: 2;
+    margin-top: 10vh;
+}
+.Games {
+    position: relative;
+    background-color: rgb(0, 0, 0, 0.8);
+    border-radius: 10px;
+    z-index: 1;
+    height: 65vh;
+    width: 25vw;
+    margin-left: 15vw;
+}
+
+.Active{
+    background-color: #000000b3;
+}
+
 .PlayButton {
     position: relative;
     user-select: none;
@@ -56,24 +59,19 @@ img {
     color: #000000;
     background-color: #ffffff;
     margin: auto 25% auto 25%;
-    font-size: xx-large;
-
-    transition-duration: 1s;
-    
-}
-
+    font-size: 2rem;
+    transition-duration: 1s;}
 .PlayButton:hover {
-    transition-duration: 0.75s;
+    background-color: green;
+    color: white;
     animation-name: glitch;
     animation-iteration-count: infinite;
     animation-duration: 3s;
-    
-    background-color: green;
-    color: white;
+    transition-duration: 0.75s;
 }
 
 @keyframes glitch {
-    2%,64%{
+    2%, 64%{
       transform: translate(-2px,0);
     }
     4%,60%{
@@ -82,5 +80,13 @@ img {
     6%, 56% {
         transform: translate(-2px,0);
     }
-  }
-  
+}
+
+@media screen and (max-width:1000px) {
+    body {overflow: visible}
+    .Games {width: 90vw;height: 35vh;left: 0px;margin-left: 5vw;margin-top:10vh;}
+    #GameHolder{flex-flow: column;margin-top: 0vh;}
+    p {font-size: 5rem;}
+    img {position: absolute;margin-left: 5%;margin-top: 22.5%;width: 40%;}
+    .PlayButton{font-size: 5rem;left: 25%;width: 40%;height: 30%;}
+}

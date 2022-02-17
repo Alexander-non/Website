@@ -119,19 +119,16 @@ a:any-link {
 #wave4 {
     animation-name: waves4;}
 
-
 @media screen and (max-width:1000px) {
     body {overflow: visible}
 
     a:any-link {
         width: 100%;
         height: 100%;
-        margin-bottom: 2%;}
-
+        margin-bottom: 2vh;}
     .buttons {
-        line-height: 280%;
         text-align: center;
-        font-size: 25px;
+        font-size: 5rem;
         
         background-image: url("../Pictures/sand.jpg");
         background-size: cover;
