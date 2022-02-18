@@ -20,21 +20,14 @@ h1 {
 h2 {
     position: relative;
     font-family: 'Poppins', sans-serif;
-    font-size: large;
+    font-size: 1rem;
     top: -20%;}
-h3 {
-    /*border: 3px solid black;*/
-    position: relative;
-    width: 50%;
-    height: 40%;
-    background-color: grey;
-    filter: brightness(90%);
-    border-bottom-left-radius: 100%;
-    border-bottom-right-radius: 100%;
-    top: -20%;
-    left: 25%;
-}
 
+#file-container {
+    margin: 1%;
+    background-color: grey;
+    width: 20%;
+    height: 40%;}
 .file-compartment {
     text-align: center;
     border: none;
@@ -48,12 +41,7 @@ h3 {
     transition-duration: 1s;
     transform: translateY(10px) translateX(-5px);
     box-shadow: 5px -10px;}
-.file-container {
-    margin: 1%;
-    background-color: grey;
-    width: 20%;
-    height: 40%;
-}
+
 
 .fogalom-button {
     margin: 1%;
@@ -70,11 +58,21 @@ h3 {
     filter: opacity(100%);}
 #fogalmak {
     width: 70%;
-    font-size: 18px;
+    font-size: 1.5rem;
     font-family: 'Roboto', sans-serif;
     margin-left: 2%;}
 .fogalom-dropdown {
-    font-size: 18px;
+    font-size: 1rem;
     font-family: 'Roboto', sans-serif;
     margin-left: 2%;
+}
+
+@media screen and (max-width:1000px) {
+    body {background-image: none;background-color:#d6d6c5;}
+    #file-container {width: 100%;height: 45vh;}
+    h2 {font-size: 3rem;text-align:center;}
+    .fogalom-button {width: 100%;height: 15vh;}
+    h1 {font-size: 3rem;}
+    select {width: 50%;height: 5vh;font-size: 3rem;text-align: center;}
+    #fogalmak {font-size: 4rem;width: 90%;margin-left: 3%;background-color: #c5c5b9;padding: 2%;}
 }

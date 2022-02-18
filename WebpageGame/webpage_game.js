@@ -15,11 +15,15 @@
        return false;
     }
 }*/
-const music = document.getElementById("music")
-music.volume = 0.5;
+
+function Volume() {
+    let volumeNum = $("#volume-slider").val()/100
+    const music = document.getElementById("music")
+    music.volume = volumeNum;
+};
 
 var Pressed = false;
-document.addEventListener("keydown", function (event) {
+document.addEventListener("keydown", (event) => {
     if (event.keyCode === 77) {
         if (Pressed == true) {
             Pressed = false;
@@ -29,6 +33,25 @@ document.addEventListener("keydown", function (event) {
             document.getElementById("menu-sidepage").style.left = "2%";
             }
         }
+});
+$('document').ready(() => {
+    Volume()
+    $("#display").click(() => {
+        $("#display-select-holder").slideToggle("slow", "swing");
+    });
+    $("#graphics").click(() => {
+        $("#graphics-select-holder").slideToggle("slow", "swing");
+    });
+    $("#volume").click(() => {
+        $("#volume-slider").slideToggle("slow", "swing");
+    });
+    $("#language").click(() => {
+        $("#language-select-holder").slideToggle("slow", "swing");
+    });
+});
+
+$("#volume-slider").change(() => {
+    Volume()
 });
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/

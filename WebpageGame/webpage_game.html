@@ -1,24 +1,46 @@
 <html>
     <head>
-        <script src="battle.js"></script>
         <title>Trash Adventure</title>
+        <link rel="icon" href="">
+        <meta name="webpage_main" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="battle.js"></script>
         <link rel="stylesheet" href="webpage_game.css">
-        
+        <base target="_blank">
     </head>
     <body> <!--oncontextmenu="return false"-->
         <audio id="music" autoplay loop><source src="Music/ForestPart/mainTheme1.mp3" type="audio/mpeg"></audio>
-        <ul id="menu-sidepage">
-            <li class="menu-sidepage-buttons">
-                Settings
-                <button class="menu-sidepage-buttons">Display</button>
-                <button class="menu-sidepage-buttons">Graphics</button>
-            </button>
-            <li class="menu-sidepage-buttons">
-                Audio
-                <button class="menu-sidepage-buttons">Volume</button>
-                <button class="menu-sidepage-buttons">Language</button>
-            </li>
-        </ul>
+        <div id="menu-sidepage">
+            <h1>Settings</h1>
+            <button id="volume" class="menu-sidepage-buttons">Volume</button>
+            <input id="volume-slider" type="range" min="1" max="100" value="20">
+            <button id="display" class="menu-sidepage-buttons">Display</button>
+            <ul id="display-select-holder"></ul>
+            <button id="graphics" class="menu-sidepage-buttons">Graphics</button>
+            <ul id="graphics-select-holder">
+                <li>3840x2160</li>
+                <li>2560x1600</li>
+                <li>2560x1440</li>
+                <li>1920x1200</li>
+                <li>1920x1080</li>
+                <li>1600x900</li>
+                <li>1366x768</li>
+                <li>800x600</li>
+                <li>640x480</li>
+            </ul>
+            <button id="language" class="menu-sidepage-buttons">Language</button>
+            <ul id="language-select-holder">
+                <li>Angol</li>
+                <li>Magyar</li>
+                <li>Francia</li>
+                <li>Német</li>
+                <li>Spanyol</li>
+                <li>Orosz</li>
+                <li>Kínai</li>
+                <li>Japán</li>
+            </ul>
+        </div>
             <span id="ground">
                 <div id="grass"></div>
                 <div id="character"><img id="characterSkin" src="Textures/Character/slimeIdleRight.gif" alt=""></div>
@@ -35,7 +57,6 @@
                     <div id="tree4" class="treePlacement backgroundTrees"><img id="treePicture" src="Textures/Tree2.gif" alt=""></div>
                 </div>
             </span>
-            <!--<div style="width:100%;height:0px;position:relative;padding-bottom:56.250%;"><iframe src="https://streamable.com/e/6e3nnw?autoplay=1" frameborder="0" width="100%" height="100%" allowfullscreen allow="autoplay" style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe></div>-->
         <script src="webpage_game.js"></script>
     </body>
 </html>
