@@ -27,6 +27,8 @@ document.addEventListener("keydown", (event) => {
     if (event.keyCode === 77) {
         if (Pressed == true) {
             Pressed = false;
+            let zoom = ((window.outerWidth - 10) / window.innerWidth) * 100;
+            console.log(zoom)
             document.getElementById("menu-sidepage").style.left = "-50%";
         } else {
             Pressed = true;
@@ -37,16 +39,16 @@ document.addEventListener("keydown", (event) => {
 $('document').ready(() => {
     Volume()
     $("#display").click(() => {
-        $("#display-select-holder").slideToggle("slow", "swing");
+        $("#display-select-holder").slideToggle("slow", "linear");
     });
     $("#graphics").click(() => {
-        $("#graphics-select-holder").slideToggle("slow", "swing");
+        $("#graphics-select-holder").slideToggle("slow", "linear");
     });
     $("#volume").click(() => {
-        $("#volume-slider").slideToggle("slow", "swing");
+        $("#volume-slider").slideToggle("slow", "linear");
     });
     $("#language").click(() => {
-        $("#language-select-holder").slideToggle("slow", "swing");
+        $("#language-select-holder").slideToggle("slow", "linear");
     });
 });
 
