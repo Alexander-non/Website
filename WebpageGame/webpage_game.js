@@ -17,45 +17,6 @@
 }*/
 
 
-
-
-setInterval(() => {
-    let volumeNum = $("#volume-slider").val()/100;
-    let zoom = ((window.outerWidth - 10) / window.innerWidth) * 100;
-    const music = document.getElementById("music");
-    const levelMap = document.getElementById("mapLevel");
-    const worldMap = document.getElementById("mapWorld");
-
-
-    const sun = document.getElementById("sun-rod");
-    const moon = document.getElementById("moon-rod");
-    const date = new Date();
-    const hourDegree = 30 * date.getHours(); + date.getMinutes() / 2;
-    const secondsDegree = -6 * date.getSeconds();
-    
-    console.log(secondsDegree-180)
-    moon.style.transform = `rotate(` + (secondsDegree-180) + `deg)`;
-    sun.style.transform = `rotate(`+secondsDegree+`deg)`;
-    music.volume = volumeNum;
-    if (zoom < 100) {
-        zoom == 100;
-    }
-
-    if (zoom <= 68 && zoom >= 27) {
-        levelMap.style.display = "block";
-    } else { 
-        levelMap.style.display = "none";
-    };
-
-    if (zoom <= 26 && zoom >= 24) {
-        worldMap.style.display = "block";
-    } else { 
-        worldMap.style.display = "none";
-    };
-}, 1);
-
-
-
 var Pressed = false;
 document.addEventListener("keydown", (event) => {
     if (event.keyCode === 77) {
@@ -83,6 +44,33 @@ $('document').ready(() => {
     });
 });
 
+setInterval(() => {
+    Day_Night_Cycle();
+    ShowMap();
+}, 500);
+
+setInterval(() => {
+    let volumeNum = $("#volume-slider").val()/100;
+    const music = document.getElementById("music");
+    music.volume = volumeNum;
+}, 1);
+
+var fps = document.getElementById("fps");
+var startTime = Date.now();
+var frame = 0;
+
+function tick() {
+  var time = Date.now();
+  frame++;
+  if (time - startTime > 1000) {
+      fps.innerHTML = (frame / ((time - startTime) / 1000)).toFixed(1);
+      startTime = time;
+      frame = 0;
+	}
+  window.requestAnimationFrame(tick);
+}
+tick();
+
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------      Game Content      -------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -97,10 +85,40 @@ var MovementSpeed = 10;
 
 /*------------------------------------------------------------------   MISCS   -------------------------------------------------------------*/
 
-function ShowWorldMap() {
+function Day_Night_Cycle() {
+    const sun = document.getElementById("sun-rod");
+    const moon = document.getElementById("moon-rod");
+    let sunrise = 6
+    let opacity = 1
+    //Time for day night cycle
+    const date = new Date();
+    const rawHour = date.getHours()
+    const hour = rawHour - sunrise;
+    const min = date.getMinutes();
+    const hourDegree = 90 - (hour * 15) - (min * 0.125);
 
-}
+    moon.style.transform = `rotate(` + (hourDegree-180) + `deg)`;
+    sun.style.transform = `rotate(`+hourDegree+`deg)`;
+    
+    if (hourDegree-180 <= 0 && hourDegree-180 >= -90 || hourDegree-180 <= -270 && hourDegree-180 >= -365) {
+        document.querySelector('body').style.backgroundImage =  "linear-gradient(rgb(0, 0, 0, "+opacity+"), #0d91a6)"
+    } else {
+        document.querySelector('body').style.backgroundImage =  "linear-gradient(#0d91a6, #0d91a6)"
+    };
+};
+function ShowMap() {
+    let zoom = ((window.outerWidth - 10) / window.innerWidth) * 100;
+    const levelMap = document.getElementById("mapLevel");
+    const worldMap = document.getElementById("mapWorld");
 
+    
+    if (zoom <= 68 && zoom >= 27) {
+        levelMap.style.display = "block";
+    } else {levelMap.style.display = "none";};
+    if (zoom <= 26 && zoom >= 24) {
+        worldMap.style.display = "block";
+    } else {worldMap.style.display = "none";};
+};
 
 /*------------------------------------------------------------------   CHARACTER MOVEMENTS   -------------------------------------------------------------*/
 function MovementRight() {

@@ -5,7 +5,7 @@
     user-select: none;}
 
 body {
-    background-color: #23A2C5;
+    background-color: #16738d;
     overflow: hidden;
 }
 
@@ -227,10 +227,12 @@ body {
     width: 20vw;
     height: 40vh;
     margin-top: -20vh;
-    margin-left: -22vw;
+    margin-left: -9vw;
     border-radius: 50%;
     background-color: yellow;
-    filter: blur(1vh) brightness(80%);}
+    filter: blur(1vh) brightness(80%);
+    
+}
 #sun-rod {
     top: -50%;
     height: 100%;}
@@ -239,10 +241,10 @@ body {
     width: 20vw;
     height: 40vh;
     margin-top: -20vh;
-    margin-left: -22vw;
+    margin-left: -9vw;
     border-radius: 50%;
     background-color: whitesmoke;
-    filter: blur(0.5vh) brightness(60%);}
+    filter: brightness(90%);}
 #moon-rod {
     top: -50%;
     height: 100%;
