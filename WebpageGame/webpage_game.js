@@ -16,19 +16,51 @@
     }
 }*/
 
-function Volume() {
-    let volumeNum = $("#volume-slider").val()/100
-    const music = document.getElementById("music")
+
+
+
+setInterval(() => {
+    let volumeNum = $("#volume-slider").val()/100;
+    let zoom = ((window.outerWidth - 10) / window.innerWidth) * 100;
+    const music = document.getElementById("music");
+    const levelMap = document.getElementById("mapLevel");
+    const worldMap = document.getElementById("mapWorld");
+
+
+    const sun = document.getElementById("sun-rod");
+    const moon = document.getElementById("moon-rod");
+    const date = new Date();
+    const hourDegree = 30 * date.getHours(); + date.getMinutes() / 2;
+    const secondsDegree = -6 * date.getSeconds();
+    
+    console.log(secondsDegree-180)
+    moon.style.transform = `rotate(` + (secondsDegree-180) + `deg)`;
+    sun.style.transform = `rotate(`+secondsDegree+`deg)`;
     music.volume = volumeNum;
-};
+    if (zoom < 100) {
+        zoom == 100;
+    }
+
+    if (zoom <= 68 && zoom >= 27) {
+        levelMap.style.display = "block";
+    } else { 
+        levelMap.style.display = "none";
+    };
+
+    if (zoom <= 26 && zoom >= 24) {
+        worldMap.style.display = "block";
+    } else { 
+        worldMap.style.display = "none";
+    };
+}, 1);
+
+
 
 var Pressed = false;
 document.addEventListener("keydown", (event) => {
     if (event.keyCode === 77) {
         if (Pressed == true) {
             Pressed = false;
-            let zoom = ((window.outerWidth - 10) / window.innerWidth) * 100;
-            console.log(zoom)
             document.getElementById("menu-sidepage").style.left = "-50%";
         } else {
             Pressed = true;
@@ -37,7 +69,6 @@ document.addEventListener("keydown", (event) => {
         }
 });
 $('document').ready(() => {
-    Volume()
     $("#display").click(() => {
         $("#display-select-holder").slideToggle("slow", "linear");
     });
@@ -52,10 +83,6 @@ $('document').ready(() => {
     });
 });
 
-$("#volume-slider").change(() => {
-    Volume()
-});
-
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------      Game Content      -------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -68,7 +95,11 @@ var isMoving = true;
 var MovementSpeed = 10;
 
 
+/*------------------------------------------------------------------   MISCS   -------------------------------------------------------------*/
 
+function ShowWorldMap() {
+
+}
 
 
 /*------------------------------------------------------------------   CHARACTER MOVEMENTS   -------------------------------------------------------------*/
@@ -179,7 +210,7 @@ var EnemyPosition = [];
 var numberOfForests = 100;
 var numberOfEnemiesForests = 5;
 var Battling = false
-
+const GROUND = document.getElementById('ground');
 
 function EnemyGeneration() {
     ForestEnemies();
@@ -187,37 +218,35 @@ function EnemyGeneration() {
 };
 
 /*---------------------------------------------------------------------     TREES     ----------------------------------------------------------------*/
-marginLeftInPx = 300;
+var marginLeftInPx = 300;
 function GeneratingTrees() {
     //Generator more forest after each other
     for (let index = 0; index < numberOfForests; index++) {
 
-    // Create a clone of element with the selected id:
-    let clone = document.querySelector('#forestPartX').cloneNode( true );
+        // Create a clone of element with the selected id:
+        let clone = document.querySelector('#forestPartX').cloneNode( true );
 
-    // Change the id attribute of the newly created element:
-    number = index + 2;
-    clone.setAttribute('id', 'forestPartX' + number);
+        // Change the id attribute of the newly created element:
+        number = index + 2;
+        clone.setAttribute('id', 'forestPartX' + number);
 
-    // Append the newly created element on element you select 
-    document.querySelector('span').appendChild(clone);
+        // Append the newly created element on element you select 
+        GROUND.appendChild(clone);
 
-    //Creating variables to make my work easier
-    topInPx = "-910px";
-    borderToSee = "1px solid #000000";
-    SizeInPx = "1000px";
-    positionToSee = "absolute";
-    
-    //Customizing the generated tree so I can see them clearer
-    clone.style.top = topInPx;
-    clone.style.marginLeft = marginLeftInPx;
-    //clone.style.border = borderToSee
-    clone.style.position = positionToSee;
-    clone.style.height = SizeInPx;
-    clone.style.width = SizeInPx;
-    ForestPosition.push(marginLeftInPx);
-    RTD = Math.floor(Math.random() *(250 - 200) + 200); //RandomTreeDistance
-    marginLeftInPx += RTD;
+        //Creating variables to make my work easier
+        topInPx = "-910px";
+        SizeInPx = "1000px";
+        positionToSee = "absolute";
+        
+        //Customizing the generated tree so I can see them clearer
+        clone.style.top = topInPx;
+        clone.style.marginLeft = marginLeftInPx;
+        clone.style.position = positionToSee;
+        clone.style.height = SizeInPx;
+        clone.style.width = SizeInPx;
+        ForestPosition.push(marginLeftInPx);
+        RTD = Math.floor(Math.random() *(250 - 200) + 200); //RandomTreeDistance
+        marginLeftInPx += RTD;
 }};
 
 /*-------------------------------------------------------------------------   ENEMIES   ---------------------------------------------------------------------*/
@@ -237,7 +266,7 @@ function ForestEnemies() {
 
         //Creating new div element as a new enemy hitbox and adding it to the game area
         enemyHitbox = document.createElement("div");
-        document.querySelector('span').appendChild(enemyHitbox);
+        GROUND.appendChild(enemyHitbox);
 
         enemySkin = document.createElement("img");
         enemyHitbox.appendChild(enemySkin);
@@ -253,6 +282,7 @@ function ForestEnemies() {
         
         document.createAttribute("id", "enemy-hitbox" + number);
         enemyHitbox.setAttribute("id", "enemy-hitbox" + number);
+        enemyHitbox.setAttribute("class", 'enemySkin');
         
     
 

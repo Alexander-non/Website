@@ -2,7 +2,7 @@
     <head>
         <title>Trash Adventure</title>
         <link rel="icon" href="">
-        <meta name="webpage_main" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.00>
         <meta charset="UTF-8">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="battle.js"></script>
@@ -10,6 +10,8 @@
         <base target="_blank">
     </head>
     <body> <!--oncontextmenu="return false"-->
+        <div id="mapLevel"></div>
+        <div id="mapWorld"></div>
         <audio id="music" autoplay loop><source src="Music/ForestPart/mainTheme1.mp3" type="audio/mpeg"></audio>
         <div id="menu-sidepage">
             <h1>Settings</h1>
@@ -49,22 +51,30 @@
                 </div>
             </div>
         </div>
-            <span id="ground">
-                <div id="grass"></div>
-                <div id="character"><img id="characterSkin" src="Textures/Character/slimeIdleRight.gif" alt=""></div>
-                <div id="forestPart1">
-                    <div id="tree" class="treePlacement frontTrees"><img id="treePicture" src="Textures/Tree.gif" alt=""></div>
-                    <div id="tree2" class="treePlacement backgroundTrees"><img id="treePicture" src="Textures/Tree.gif" alt=""></div>
-                    <div id="tree3" class="treePlacement middleTrees"><img id="treePicture" src="Textures/Tree2.gif" alt=""></div>
-                    <div id="tree4" class="treePlacement backgroundTrees"><img id="treePicture" src="Textures/Tree2.gif" alt=""></div>
-                </div>
-                <div id="forestPartX">
-                    <div id="tree" class="treePlacement frontTrees"><img id="treePicture" src="Textures/Tree.gif" alt=""></div>
-                    <div id="tree2" class="treePlacement backgroundTrees"><img id="treePicture" src="Textures/Tree.gif" alt=""></div>
-                    <div id="tree3" class="treePlacement middleTrees"><img id="treePicture" src="Textures/Tree2.gif" alt=""></div>
-                    <div id="tree4" class="treePlacement backgroundTrees"><img id="treePicture" src="Textures/Tree2.gif" alt=""></div>
-                </div>
-            </span>
+
+        <div id="solar-cycle">
+            <div class="solar-rods" id="moon-rod"><div id="moon"></div></div>
+            <div class="solar-rods" id="sun-rod"><div id="sun"></div></div>
+        </div>
+
+
+        
+        <div id="ground">
+            <div id="grass"></div>
+            <div id="character"><img id="characterSkin" src="Textures/Character/slimeIdleRight.gif" alt=""></div>
+            <div id="forestPart1">
+                <div id="tree" class="treePlacement frontTrees"><img id="treePicture" src="Textures/Tree.gif" alt=""></div>
+                <div id="tree2" class="treePlacement backgroundTrees"><img id="treePicture" src="Textures/Tree.gif" alt=""></div>
+                <div id="tree3" class="treePlacement middleTrees"><img id="treePicture" src="Textures/Tree2.gif" alt=""></div>
+                <div id="tree4" class="treePlacement backgroundTrees"><img id="treePicture" src="Textures/Tree2.gif" alt=""></div>
+            </div>
+            <div id="forestPartX">
+                <div id="tree" class="treePlacement frontTrees"><img id="treePicture" src="Textures/Tree.gif" alt=""></div>
+                <div id="tree2" class="treePlacement backgroundTrees"><img id="treePicture" src="Textures/Tree.gif" alt=""></div>
+                <div id="tree3" class="treePlacement middleTrees"><img id="treePicture" src="Textures/Tree2.gif" alt=""></div>
+                <div id="tree4" class="treePlacement backgroundTrees"><img id="treePicture" src="Textures/Tree2.gif" alt=""></div>
+            </div>
+        </div>
         <script src="webpage_game.js"></script>
     </body>
 </html>

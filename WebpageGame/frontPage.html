@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome To Trash Adventure</title>
+</head>
+<body>
+    <style>
+        #rightSide {
+            position: absolute;
+            z-index: 2;
+            top: 0;
+            left: -35%;
+            height: 100vh;
+            width: 70%;
+            background-color: rgb(0, 0, 0, 0.5);
+            transform: skewX(5deg);
+        }
+        #leftSide {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100%;
+            background-image: url("https://store-images.s-microsoft.com/image/apps.12517.65571960709588388.6e3322f5-d49a-48f6-ac1e-c5450bd5b3e2.fb31476b-29e2-4699-b180-b2ab3385b7e4?q=90&w=480&h=270");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+    <div id="rightSide"></div>
+    <div id="leftSide"></div>
+</body>
+</html>
