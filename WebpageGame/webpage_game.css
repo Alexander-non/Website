@@ -98,16 +98,11 @@ body {
     position: absolute;
     display: block;
     z-index: 998;
-    background-color: #0A4E2B;
+    background-image:linear-gradient(to top, #0A4E2B 0%, #0A4E2B 50%, #0e5e34 50%, #0e5e34 100%);
     bottom: 0;
     left: 0;
     width: 0100%;
     height: 10%;}
-#grass {
-    position: absolute;
-    background-color: #0e5e34;
-    width: 100%;
-    height: 50%;}
 
 
 #character {
@@ -244,7 +239,7 @@ body {
     margin-left: -9vw;
     border-radius: 50%;
     background-color: whitesmoke;
-    filter: brightness(90%);}
+    filter: brightness(90%) blur(0.3vh);}
 #moon-rod {
     top: -50%;
     height: 100%;

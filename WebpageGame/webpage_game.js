@@ -1,3 +1,4 @@
+try {localStorage["key"] = value;} catch {console.log()}
 /*document.onkeydown = function(e) {
     if(event.keyCode == 123) {
        return false;
@@ -17,7 +18,38 @@
 }*/
 
 
-var Pressed = false;
+try {
+    FPSCounter();
+    setInterval(() => {
+        Day_Night_Cycle();
+        ShowMap();
+        Music();
+    }, 1);
+} catch (error) {
+    console.log()
+};
+
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------      Game Content      -------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+let xPlayerPosition = 0;
+let xPlayerVelocity = 0;
+let BackgroundMovement = 0;
+let isMoving = true;
+const MovementSpeed = 10;
+
+
+/*------------------------------------------------------------------   MISCS   -------------------------------------------------------------*/
+const music = document.getElementById("music");
+const fps = document.getElementById("fps");
+const startTime = Date.now();
+let Pressed = false;
+let frame = 0;
+
+//Sidemenu content
 document.addEventListener("keydown", (event) => {
     if (event.keyCode === 77) {
         if (Pressed == true) {
@@ -44,22 +76,8 @@ $('document').ready(() => {
     });
 });
 
-setInterval(() => {
-    Day_Night_Cycle();
-    ShowMap();
-}, 500);
-
-setInterval(() => {
-    let volumeNum = $("#volume-slider").val()/100;
-    const music = document.getElementById("music");
-    music.volume = volumeNum;
-}, 1);
-
-var fps = document.getElementById("fps");
-var startTime = Date.now();
-var frame = 0;
-
-function tick() {
+//FPS Counter
+function FPSCounter() {
   var time = Date.now();
   frame++;
   if (time - startTime > 1000) {
@@ -67,23 +85,8 @@ function tick() {
       startTime = time;
       frame = 0;
 	}
-  window.requestAnimationFrame(tick);
-}
-tick();
-
-/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-/*------------------------------------------------------------------------------------      Game Content      -------------------------------------------------------------------------------*/
-/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-
-
-var xPlayerPosition = 0;
-var xPlayerVelocity = 0;
-var BackgroundMovement = 0;
-var isMoving = true;
-var MovementSpeed = 10;
-
-
-/*------------------------------------------------------------------   MISCS   -------------------------------------------------------------*/
+  window.requestAnimationFrame(FPSCounter);
+};
 
 function Day_Night_Cycle() {
     const sun = document.getElementById("sun-rod");
@@ -119,7 +122,10 @@ function ShowMap() {
         worldMap.style.display = "block";
     } else {worldMap.style.display = "none";};
 };
-
+function Music() {
+    let volumeNum = $("#volume-slider").val()/100;
+    music.volume = volumeNum;
+};
 /*------------------------------------------------------------------   CHARACTER MOVEMENTS   -------------------------------------------------------------*/
 function MovementRight() {
     xPlayerPosition += MovementSpeed;
@@ -141,7 +147,7 @@ function MovementLeft() {
 
 
     //Charcter animation for running
-    if(MovementLeft.done) return;
+    if(MovementLeft.done == true) {return};
     setTimeout(() => {
         document.getElementById("characterSkin").src = "Textures/Character/slimeAttackLeft.gif";}, 500);
     MovementLeft.done = true;
@@ -162,7 +168,7 @@ function BackgroundMoving() {
     };
 };
 
-document.addEventListener("keydown", function (event) {
+document.addEventListener("keydown", (event) => {
 switch (event.keyCode) {
     case 68:
         if (isMoving == true) {
@@ -184,21 +190,11 @@ switch (event.keyCode) {
         };
         //console.log('The "x" position is equal to: ', xPosition)
         break;
-    case 83:
-        yPosition += 10;
-        console.log('The "y" position is equal to: ', yPosition)
-        document.getElementById("character").style.marginTop = yPosition;
-        break;
-    case 87:
-        yPosition -= 10;
-        console.log('The "y" position is equal to: ', yPosition)
-        document.getElementById("character").style.marginTop = yPosition;
-        break;
     default:
         break;
     }
 });
-document.addEventListener("keyup", function (event) {
+document.addEventListener("keyup", (event) => {
     switch (event.keyCode) {
         case 68:
             MovementRight.done = false;
@@ -237,7 +233,10 @@ function EnemyGeneration() {
 
 /*---------------------------------------------------------------------     TREES     ----------------------------------------------------------------*/
 var marginLeftInPx = 300;
+let SelectedTree = 0
 function GeneratingTrees() {
+    const ListOfTreeImgsSRC = ['ComplexTree1', 'ComplexTree2', 'ComplexTree3', 'SimpleTree1', 'SimpleTree2', 'SimpleTree3'];
+    const ListOfTreeImgs = document.getElementsByClassName("treeImg");
     //Generator more forest after each other
     for (let index = 0; index < numberOfForests; index++) {
 
@@ -265,7 +264,19 @@ function GeneratingTrees() {
         ForestPosition.push(marginLeftInPx);
         RTD = Math.floor(Math.random() *(250 - 200) + 200); //RandomTreeDistance
         marginLeftInPx += RTD;
-}};
+    }
+    //Random tree custom look
+    for (let x = 0; x < ListOfTreeImgs.length; x++) {
+        SelectedTree++;
+        ListOfTreeImgs[x].src = "/WebpageGame/Textures/" + ListOfTreeImgsSRC[Math.floor(Math.random() * (ListOfTreeImgsSRC.length - 0) + 0)] + ".png";
+        if (SelectedTree % 3 == 0) {
+            ListOfTreeImgs[x].style.filter = "brightness("+ Math.floor(Math.random() * (95 - 90) + 90) +"%)", " grayscale("+ Math.floor(Math.random() * (20 - 10) + 10) +"%)";
+        } else if (SelectedTree % 5 == 0) {
+            ListOfTreeImgs[x].style.filter =  "brightness("+ Math.floor(Math.random() * (90 - 80) + 80) +"%)", " grayscale("+ Math.floor(Math.random() * (20 - 10) + 10) +"%)";;
+        }
+    };
+    
+};
 
 /*-------------------------------------------------------------------------   ENEMIES   ---------------------------------------------------------------------*/
 function ForestEnemies() {
@@ -273,22 +284,21 @@ function ForestEnemies() {
     HitboxWidth = 150;
     HitboxHeight = HitboxWidth / 1.5;
     HitboxTop = -100;
-    EnemyStartingPosition = 3000;
+    EnemyStartingPosition = 1000;
     offset = EnemyStartingPosition - HitboxWidth;
     RandomSpacing = 0;
 
 
     for (let x = numberOfEnemiesForests; x > 0; x--) {
         var EnemyMovablePosition = EnemyStartingPosition + RandomSpacing;
-        var number = x;
 
         //Creating new div element as a new enemy hitbox and adding it to the game area
         enemyHitbox = document.createElement("div");
         GROUND.appendChild(enemyHitbox);
 
-        enemySkin = document.createElement("img");
+        const enemySkin = document.createElement("img");
         enemyHitbox.appendChild(enemySkin);
-        enemySkin.src = "Textures/Enemies/Normals/Forest/Blue Forest Slime Idling.gif";
+        enemySkin.src = "Textures/Enemies/Normals/Forest/BlueForestSlimeIdling.gif";
         enemySkin.style.width = 175;
         enemySkin.style.position = "absolute"
         enemySkin.style.top = HitboxTop / 2.5;
@@ -298,19 +308,19 @@ function ForestEnemies() {
 
         
         
-        document.createAttribute("id", "enemy-hitbox" + number);
-        enemyHitbox.setAttribute("id", "enemy-hitbox" + number);
-        enemyHitbox.setAttribute("class", 'enemySkin');
+        document.createAttribute("id", "enemy-hitbox" + x);
+        enemyHitbox.setAttribute("id", "enemy-hitbox" + x);
+        enemySkin.setAttribute("class", 'enemySkin');
         
     
 
-        document.getElementById("enemy-hitbox" + number).style.width = HitboxWidth;
-        document.getElementById("enemy-hitbox" + number).style.height = HitboxHeight;
-        document.getElementById("enemy-hitbox" + number).style.position = "absolute";
-        document.getElementById("enemy-hitbox" + number).style.marginLeft = EnemyMovablePosition;
-        document.getElementById("enemy-hitbox" + number).style.top = HitboxTop;
-        document.getElementById("enemy-hitbox" + number).style.zIndex = "996";
-        //document.getElementById("enemy-hitbox" + number).style.backgroundColor = "red";
+        document.getElementById("enemy-hitbox" + x).style.width = HitboxWidth;
+        document.getElementById("enemy-hitbox" + x).style.height = HitboxHeight;
+        document.getElementById("enemy-hitbox" + x).style.position = "absolute";
+        document.getElementById("enemy-hitbox" + x).style.marginLeft = EnemyMovablePosition;
+        document.getElementById("enemy-hitbox" + x).style.top = HitboxTop;
+        document.getElementById("enemy-hitbox" + x).style.zIndex = "996";
+        //document.getElementById("enemy-hitbox" + x).style.backgroundColor = "red";
 
         //Putting the enemies generated position to a list
         EnemyPosition.push(EnemyMovablePosition);
@@ -330,17 +340,16 @@ function ForestBoss() {
 
 function Battle() {
     Battling = true
+    music.muted = true;
     window.open("battle.html", '_blank');
-    setInterval(() => {
-        if (Battling == true) {
-            isMoving = false;
-            isBattling();
-        } else {
-            isMoving = true;
-        }
-        
-    }, 1000);
+    if (Battling == true) {
+        isMoving = false;
+        isBattling();
+    } else {
+        isMoving = true;
+    }
 }
+
 
 function Collision() {
     for (let x = EnemyPosition.length; x > 0; x--) {
@@ -349,6 +358,11 @@ function Collision() {
         
         if (EnemiesCurrentPosition -580 == 0) {
             //Battle
+            const EnemyImg = document.getElementsByClassName("enemySkin");
+            const PlayerSkin = document.getElementById("characterSkin").src;
+            for (let i = 0; i < EnemyImg.length; i++) { var EnemySkin = EnemyImg[0].src };
+            localStorage.setItem("PlayerSkin", PlayerSkin);
+            localStorage.setItem("EnemySkin", EnemySkin);
             EnemyPosition.pop();
             document.getElementById(Enemy).remove();
             Battle();

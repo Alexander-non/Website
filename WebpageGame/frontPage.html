@@ -25,12 +25,54 @@
             left: 0;
             height: 100vh;
             width: 100%;
-            background-image: url("https://store-images.s-microsoft.com/image/apps.12517.65571960709588388.6e3322f5-d49a-48f6-ac1e-c5450bd5b3e2.fb31476b-29e2-4699-b180-b2ab3385b7e4?q=90&w=480&h=270");
             background-repeat: no-repeat;
             background-size: cover;
         }
+        #play {
+            position: absolute;
+            width: 20vw;
+            height: 10vh;
+            right: 10%;
+            bottom: 10%;
+            transform: skewX(-2deg);
+            background-color: #ffffff;
+            color: #000000;
+            padding-top: 3%;
+            text-align: center;
+            font-size: 2.5rem;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            transition-duration: 0.5s;
+        }
+        #play:hover {
+            transition-duration: 0.5s;
+            background-color: #008000;
+            box-shadow: 5px 5px #000000;
+            color: #ffffff;
+            cursor: pointer;
+        }
+        h1 {
+            position: relative;
+            background-color: #fff;
+            text-align: center;
+            left: 20%;
+            top: 40%;
+            width: 60%;
+            font-size: 5rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        h2 {
+            position: absolute;
+            text-align: center;
+            width: 40%;
+            right: 5%;
+            top: 20%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
     </style>
-    <div id="rightSide"></div>
-    <div id="leftSide"></div>
+    <div id="rightSide">
+        <h2>GAME LOGO PICTURE GOES HERE</h2>
+        <a href="/WebpageGame/webpage_game.html"><div id="play">Play</div></a>
+    </div>
+    <div id="leftSide"><h1>BACKGROUND PICTURE GOES HERE</h1></div>
 </body>
 </html>
