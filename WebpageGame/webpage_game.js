@@ -268,7 +268,7 @@ function GeneratingTrees() {
     //Random tree custom look
     for (let x = 0; x < ListOfTreeImgs.length; x++) {
         SelectedTree++;
-        ListOfTreeImgs[x].src = "/WebpageGame/Textures/" + ListOfTreeImgsSRC[Math.floor(Math.random() * (ListOfTreeImgsSRC.length - 0) + 0)] + ".png";
+        ListOfTreeImgs[x].src = "/Website/WebpageGame/Textures/" + ListOfTreeImgsSRC[Math.floor(Math.random() * (ListOfTreeImgsSRC.length - 0) + 0)] + ".png";
         if (SelectedTree % 3 == 0) {
             ListOfTreeImgs[x].style.filter = "brightness("+ Math.floor(Math.random() * (95 - 90) + 90) +"%)", " grayscale("+ Math.floor(Math.random() * (20 - 10) + 10) +"%)";
         } else if (SelectedTree % 5 == 0) {
@@ -298,7 +298,7 @@ function ForestEnemies() {
 
         const enemySkin = document.createElement("img");
         enemyHitbox.appendChild(enemySkin);
-        enemySkin.src = "Textures/Enemies/Normals/Forest/BlueForestSlimeIdling.gif";
+        enemySkin.src = "/Website/WebpageGameTextures/Enemies/Normals/Forest/BlueForestSlimeIdling.gif";
         enemySkin.style.width = 175;
         enemySkin.style.position = "absolute"
         enemySkin.style.top = HitboxTop / 2.5;
