@@ -17,9 +17,8 @@ try {localStorage["key"] = value;} catch {console.log()}
     }
 }*/
 
-
+FPSCounter();
 try {
-    FPSCounter();
     setInterval(() => {
         Day_Night_Cycle();
         ShowMap();
@@ -221,7 +220,7 @@ window.onload = function() {
 
 var ForestPosition = [];
 var EnemyPosition = [];
-var numberOfForests = 100;
+var numberOfForests = 50;
 var numberOfEnemiesForests = 5;
 var Battling = false
 const GROUND = document.getElementById('ground');
@@ -284,7 +283,7 @@ function ForestEnemies() {
     HitboxWidth = 150;
     HitboxHeight = HitboxWidth / 1.5;
     HitboxTop = -100;
-    EnemyStartingPosition = 1000;
+    EnemyStartingPosition = 3000;
     offset = EnemyStartingPosition - HitboxWidth;
     RandomSpacing = 0;
 
