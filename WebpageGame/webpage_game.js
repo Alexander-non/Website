@@ -136,7 +136,7 @@ function MovementRight() {
     //Charcter animation for running
     if (MovementRight.done) return;
     setTimeout(() => {
-        document.getElementById("characterSkin").src = "Textures/Character/slimeAttackRight.gif";}, 500);
+        document.getElementById("characterSkin").src = "/Website/WebpageGame/Textures/Character/slimeAttackRight.gif";}, 500);
     MovementRight.done = true;
 };
 function MovementLeft() {
@@ -149,7 +149,7 @@ function MovementLeft() {
     //Charcter animation for running
     if(MovementLeft.done == true) {return};
     setTimeout(() => {
-        document.getElementById("characterSkin").src = "Textures/Character/slimeAttackLeft.gif";}, 500);
+        document.getElementById("characterSkin").src = "/Website/WebpageGame/Textures/Character/slimeAttackLeft.gif";}, 500);
     MovementLeft.done = true;
 };
 
@@ -198,11 +198,11 @@ document.addEventListener("keyup", (event) => {
     switch (event.keyCode) {
         case 68:
             MovementRight.done = false;
-            document.getElementById("characterSkin").src = "Textures/Character/slimeIdleRight.gif";
+            document.getElementById("characterSkin").src = "/Website/WebpageGame/Textures/Character/slimeIdleRight.gif";
             break;
         case 65:
             MovementLeft.done = false;
-            document.getElementById("characterSkin").src = "Textures/Character/slimeIdleLeft.gif";
+            document.getElementById("characterSkin").src = "/Website/WebpageGame/Textures/Character/slimeIdleLeft.gif";
             break;
         default:
             break;}
@@ -298,7 +298,7 @@ function ForestEnemies() {
 
         const enemySkin = document.createElement("img");
         enemyHitbox.appendChild(enemySkin);
-        enemySkin.src = "/Website/WebpageGameTextures/Enemies/Normals/Forest/BlueForestSlimeIdling.gif";
+        enemySkin.src = "/Website/WebpageGame/Textures/Enemies/Normals/Forest/BlueForestSlimeIdling.gif";
         enemySkin.style.width = 175;
         enemySkin.style.position = "absolute"
         enemySkin.style.top = HitboxTop / 2.5;
