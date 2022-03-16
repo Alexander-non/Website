@@ -17,16 +17,6 @@ try {localStorage["key"] = value;} catch {console.log()}
     }
 }*/
 
-FPSCounter();
-try {
-    setInterval(() => {
-        Day_Night_Cycle();
-        ShowMap();
-        Music();
-    }, 1);
-} catch (error) {
-    console.log()
-};
 
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -125,6 +115,19 @@ function Music() {
     let volumeNum = $("#volume-slider").val()/100;
     music.volume = volumeNum;
 };
+
+FPSCounter();
+try {
+    setInterval(() => {
+        Day_Night_Cycle();
+        ShowMap();
+        Music();
+    }, 1);
+} catch (error) {
+    console.log()
+};
+
+
 /*------------------------------------------------------------------   CHARACTER MOVEMENTS   -------------------------------------------------------------*/
 function MovementRight() {
     xPlayerPosition += MovementSpeed;
