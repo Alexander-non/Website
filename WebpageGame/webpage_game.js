@@ -34,7 +34,7 @@ const MovementSpeed = 10;
 /*------------------------------------------------------------------   MISCS   -------------------------------------------------------------*/
 const music = document.getElementById("music");
 const fps = document.getElementById("fps");
-const startTime = Date.now();
+let startTime = Date.now();
 let Pressed = false;
 let frame = 0;
 
@@ -122,9 +122,9 @@ try {
         Day_Night_Cycle();
         ShowMap();
         Music();
-    }, 1);
+    }, 10);
 } catch (error) {
-    console.log()
+    console.log();
 };
 
 
@@ -157,11 +157,34 @@ function MovementLeft() {
 
 function BackgroundMoving() {
     //Moving generated trees
-    document.getElementById("forestPart1").style.marginLeft = -BackgroundMovement;      //First forest moving
-    document.getElementById("forestPartX").style.marginLeft = -BackgroundMovement;     //Second forest moving
-    for (let x = 0; x < numberOfForests; x++) {
-            ForestPart = "forestPartX" + (x + 2);                                                                 //Grabbing all of the Trees      
-            document.getElementById(ForestPart).style.marginLeft = ForestPosition[x] - BackgroundMovement;       //Moving generated forests
+    let Forests = document.getElementsByClassName("forestHolder"); //Grabbing all of the forests
+    for (let x = 0; x < Forests.length; x++) {
+        //Moving generated forests
+        Forests[0].style.marginLeft = -BackgroundMovement;
+        Forests[1].style.marginLeft = -BackgroundMovement;
+        Forests[x].style.marginLeft = ForestPosition[x] - BackgroundMovement;
+    };
+    for (let x = 0; x < Forests.length; x++) {                                                                 
+        console.log(parseInt(Forests[x].style.marginLeft))
+        if (parseInt(Forests[x].style.marginLeft) - 1000 <= -1800) {
+            //Despawn Tree
+            Forests[x].style.display = "none"
+            setTimeout(() => {
+                NewTrees(false,Forests[x]);
+            }, 1000);
+        } else if (parseInt(Forests[x].style.marginLeft) - 1000 >= -1800 && parseInt(Forests[x].style.marginLeft) < 2000){
+            //Spawn Tree
+            Forests[x].style.display = "block"
+            setTimeout(() => {
+                NewTrees(true, Forests[x], Forests[0]);
+            }, 1000);
+            
+            console.log("visible")
+        } else if (parseInt(Forests[x].style.marginLeft) > 2000) {
+            //Despawn Tree
+            Forests[x].style.display = "none"
+            console.log("not visible")
+        };
     };
     //Moving generated enemies
     for (let x = EnemyPosition.length; x > 0; x--) {
@@ -216,7 +239,7 @@ document.addEventListener("keyup", (event) => {
 /*---------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 window.onload = function() {
-    GeneratingTrees(); 
+    GeneratingTrees(numberOfForests); 
     EnemyGeneration();
 };
 
@@ -236,18 +259,17 @@ function EnemyGeneration() {
 /*---------------------------------------------------------------------     TREES     ----------------------------------------------------------------*/
 var marginLeftInPx = 300;
 let SelectedTree = 0
-function GeneratingTrees() {
+ForestPosition.push(1), ForestPosition.push(2); //Aliging for the first 2 manually generated trees
+function GeneratingTrees(numberoftimes) {
     const ListOfTreeImgsSRC = ['ComplexTree1', 'ComplexTree2', 'ComplexTree3', 'SimpleTree1', 'SimpleTree2', 'SimpleTree3'];
     const ListOfTreeImgs = document.getElementsByClassName("treeImg");
     //Generator more forest after each other
-    for (let index = 0; index < numberOfForests; index++) {
-
+    for (let i = 0; i < numberoftimes; i++) {
         // Create a clone of element with the selected id:
         let clone = document.querySelector('#forestPartX').cloneNode( true );
 
         // Change the id attribute of the newly created element:
-        number = index + 2;
-        clone.setAttribute('id', 'forestPartX' + number);
+        clone.setAttribute('id', 'forestPartX' + (i+2));
 
         // Append the newly created element on element you select 
         GROUND.appendChild(clone);
@@ -280,6 +302,32 @@ function GeneratingTrees() {
     
 };
 
+/* AUTO GENERATING TREES BASED RENDER DISTANCE [NOT COMPLETE]
+function NewTrees(generate, selectedtree, cloneabletree) {
+    if (generate == true) {
+        let clone = cloneabletree.cloneNode( true );
+        GROUND.appendChild(clone);
+
+        //Creating variables to make my work easier
+        topInPx = "-910px";
+        SizeInPx = "1000px";
+        positionToSee = "absolute";
+        
+        //Customizing the generated tree so I can see them clearer
+        clone.style.top = topInPx;
+        clone.style.marginLeft = marginLeftInPx;
+        clone.style.position = positionToSee;
+        clone.style.height = SizeInPx;
+        clone.style.width = SizeInPx;
+        ForestPosition.push(marginLeftInPx);
+        RTD = Math.floor(Math.random() *(250 - 200) + 200); //RandomTreeDistance
+        marginLeftInPx += RTD;
+
+        console.log("Generating Trees...", clone);
+    } else {
+        selectedtree.remove();
+    }
+};*/
 /*-------------------------------------------------------------------------   ENEMIES   ---------------------------------------------------------------------*/
 function ForestEnemies() {
 
@@ -351,7 +399,6 @@ function Battle() {
         isMoving = true;
     }
 }
-
 
 function Collision() {
     for (let x = EnemyPosition.length; x > 0; x--) {
