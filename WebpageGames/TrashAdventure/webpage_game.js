@@ -138,7 +138,7 @@ function MovementRight() {
     //Charcter animation for running
     if (MovementRight.done) return;
     setTimeout(() => {
-        document.getElementById("characterSkin").src = "/Website/WebpageGame/Textures/Character/slimeAttackRight.gif";}, 500);
+        document.getElementById("characterSkin").src = "/Website/WebpageGames/TrashAdventure/Textures/Character/slimeAttackRight.gif";}, 500);
     MovementRight.done = true;
 };
 function MovementLeft() {
@@ -151,7 +151,7 @@ function MovementLeft() {
     //Charcter animation for running
     if(MovementLeft.done == true) {return};
     setTimeout(() => {
-        document.getElementById("characterSkin").src = "/Website/WebpageGame/Textures/Character/slimeAttackLeft.gif";}, 500);
+        document.getElementById("characterSkin").src = "/Website/WebpageGames/TrashAdventure/Textures/Character/slimeAttackLeft.gif";}, 500);
     MovementLeft.done = true;
 };
 
@@ -223,11 +223,11 @@ document.addEventListener("keyup", (event) => {
     switch (event.keyCode) {
         case 68:
             MovementRight.done = false;
-            document.getElementById("characterSkin").src = "/Website/WebpageGame/Textures/Character/slimeIdleRight.gif";
+            document.getElementById("characterSkin").src = "/Website/WebpageGames/TrashAdventure/Textures/Character/slimeIdleRight.gif";
             break;
         case 65:
             MovementLeft.done = false;
-            document.getElementById("characterSkin").src = "/Website/WebpageGame/Textures/Character/slimeIdleLeft.gif";
+            document.getElementById("characterSkin").src = "/Website/WebpageGames/TrashAdventure/Textures/Character/slimeIdleLeft.gif";
             break;
         default:
             break;}
@@ -292,7 +292,7 @@ function GeneratingTrees(numberoftimes) {
     //Random tree custom look
     for (let x = 0; x < ListOfTreeImgs.length; x++) {
         SelectedTree++;
-        ListOfTreeImgs[x].src = "/Website/WebpageGame/Textures/" + ListOfTreeImgsSRC[Math.floor(Math.random() * (ListOfTreeImgsSRC.length - 0) + 0)] + ".png";
+        ListOfTreeImgs[x].src = "/Website/WebpageGames/TrashAdventure/Textures/" + ListOfTreeImgsSRC[Math.floor(Math.random() * (ListOfTreeImgsSRC.length - 0) + 0)] + ".png";
         if (SelectedTree % 3 == 0) {
             ListOfTreeImgs[x].style.filter = "brightness("+ Math.floor(Math.random() * (95 - 90) + 90) +"%)", " grayscale("+ Math.floor(Math.random() * (20 - 10) + 10) +"%)";
         } else if (SelectedTree % 5 == 0) {
@@ -348,7 +348,7 @@ function ForestEnemies() {
 
         const enemySkin = document.createElement("img");
         enemyHitbox.appendChild(enemySkin);
-        enemySkin.src = "/Website/WebpageGame/Textures/Enemies/Normals/Forest/BlueForestSlimeIdling.gif";
+        enemySkin.src = "/Website/WebpageGames/TrashAdventure/Textures/Enemies/Normals/Forest/BlueForestSlimeIdling.gif";
         enemySkin.style.width = 175;
         enemySkin.style.position = "absolute"
         enemySkin.style.top = HitboxTop / 2.5;

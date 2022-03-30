@@ -24,28 +24,34 @@ img {
     z-index: 1;
 }
 
-#proba {
-    color: #000000;
-    top: 0;
-    left: 5%;
-    position: absolute;
-}
 #GameHolder {
     position: relative;
+    background-color: rgb(0, 0, 0, 0.3);
+    width: 80%;
+    left: 10%;
+    height: 80vh;
+    top: 10vh;
     flex-flow: row;
     display: flex;
     z-index: 2;
-    margin-top: 10vh;
+    overflow-x: scroll;
 }
+#GameHolder::-webkit-scrollbar {
+    width: 40px;}
+#GameHolder::-webkit-scrollbar-thumb {
+    background-color: rgba(70, 70, 70, 0.8);}
 .Games {
     position: relative;
-    background-color: rgb(0, 0, 0, 0.8);
+    background-color: rgb(0, 0, 0, 0.6);
     border-radius: 10px;
     z-index: 1;
-    height: 65vh;
-    width: 25vw;
-    margin-left: 15vw;
-}
+    height: 80%;
+    top: 10%;
+    width: 25%;}
+#Game_1 {left: 5%;}
+#Game_2 {left: 10%;}
+#Game_3 {left: 15%;}
+#Game_4 {left: 20%;}
 
 .Active{
     background-color: #000000b3;

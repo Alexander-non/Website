@@ -16,7 +16,7 @@ function GameArea() {
         let GameRow = document.createElement("tr");
         GameRow.style.height = 100/cells + "px";
         GameRow.style.width = "100%";
-        GameRow.style.border = "5px solid black";
+        GameRow.style.border = "0.5px solid black";
         GameArea.appendChild(GameRow);
         //Creating game columns
         for (let x = 0; x < cells; x++) {
@@ -24,7 +24,7 @@ function GameArea() {
             GameColumn.setAttribute('class', 'cell');
             GameColumn.style.height = 100/cells + "px";
             GameColumn.style.width = 100/cells + "px";
-            GameColumn.style.border = "5px solid black";
+            GameColumn.style.border = "1px solid black";
             GameRow.appendChild(GameColumn);
         };
     };
@@ -39,7 +39,7 @@ function GameArea() {
             ActiveCell = document.getElementsByClassName('cell')[RandomCell];
             $(ActiveCell).toggleClass('Active');
         };
-    }, 10);
+    }, 30);
 
 };
 $("document").ready(()=> {
