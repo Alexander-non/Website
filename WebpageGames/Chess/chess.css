@@ -1,0 +1,14 @@
+#timer{
+    background-color: purple;
+    height: 10vh;
+    width: 15vw;
+    margin: 0 auto 1% auto;
+}
+
+#chessboard {
+    position: relative;
+    height: 800px;
+    width: 800px;
+    margin: 0 auto 0 auto;
+    background-color: black;
+}
