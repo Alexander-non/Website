@@ -1,6 +1,5 @@
 const loadingCircle = document.getElementById("loading-circle");
 const tiles = document.getElementsByClassName("tile");
-const colour = Math.floor(Math.random() * 3);
 let color1 = color2 = color3 = 0
 let RotateDegree = 0
 
@@ -30,28 +29,21 @@ setTimeout(() => {
     }, 100);
 }, 400);
 setInterval(() => {
-    for (let x = 0; x < tiles.length; x++) {tiles[x].style.backgroundColor = `rgb(`+color1+`, `+color2+`, `+color3+`)`}
+    const colour = Math.floor(Math.random() * 3) + 1;
     console.log(colour)
+    for (let x = 0; x < tiles.length; x++) {tiles[x].style.backgroundColor = `rgb(`+color1+`, `+color2+`, `+color3+`)`}
     switch (colour) {
         case 1:
+            if (color1 == 255) {color1 = 0}
             color1++
-            if (color1 == 255) {color2++, color1 = 0}
-            if (color2 == 255) {color3++, color2 = 0}
-            if (color3 == 255) {color3 = 0}
             break;
         case 2:
+            if (color2 == 255) {color2 = 0}
             color2++
-            if (color2 == 255) {color3++, color2 = 0}
-            if (color3 == 255) {color1++, color3 = 0}
-            if (color1 == 255) {color1 = 0}
             break;
         case 3:
+            if (color3 == 255) {color3 = 0}
             color3++
-            if (color3 == 255) {color2++, color3 = 0}
-            if (color2 == 255) {color1++, color2 = 0}
-            if (color1 == 255) {color1 = 0}
-            break;
-        default:
             break;
     };
-}, 1);
+}, 100);

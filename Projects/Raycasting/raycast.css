@@ -1,0 +1,14 @@
+body {
+    overflow: hidden;
+}
+
+.cube {
+    position: absolute;
+    background-color: #000000;
+}
+
+#line {
+    position: absolute;
+    background-color: red;
+    width: 10px;
+}
