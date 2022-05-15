@@ -13,9 +13,9 @@
 
             </svg>
             <svg id="coconuts">
-                <circle cx="380" cy="300" r="40" fill="brown" />
-                <circle cx="350" cy="240" r="40" fill="brown" />
-                <circle cx="300" cy="300" r="40" fill="brown" />
+                <circle cx="80" cy="90" r="45" style="filter: brightness(80%);" fill="brown" />
+                <circle cx="110" cy="140" r="45" style="filter: brightness(90%);" fill="brown" />
+                <circle cx="50" cy="140" r="45" fill="brown" />
              </svg>
         </div>
         <div id="assignment-container-container">
@@ -55,10 +55,29 @@
                 <a href="../Projects/Raycasting/raycast.html"><div class="buttons"><span>Raytracing</span></div></a>
             </div>
         </div>
-            <div class="waves" id="wave"></div>
-            <div class="waves" id="wave2"></div>
-            <div class="waves" id="wave3"></div>
-            <div class="waves" id="wave4"></div>
-        <script src="projekteim.js"></script>
+        <div id="boat"><div id="boat_parts"></div></div>
+        <svg id="ocean" viewbox="0 0 1400 300">
+            <path id='wave-pattern' fill="#000fff" fill-opacity="0.4" d="M0, 120 C320, 200, 320, 200, 550, 160 C1000, 50, 1200, 50, 1400, 120 V0 H0" />
+            <use id="wave-1" href="#wave-pattern" />
+            <use id="wave-1" x="-100%" href="#wave-pattern" />
+            <use id="wave-2" href="#wave-pattern" />
+            <use id="wave-2" x="-100%" href="#wave-pattern" />
+            <use id="wave-3" href="#wave-pattern" />
+            <use id="wave-3" x="-100%" href="#wave-pattern" />
+        </svg>
+        <script>
+            var clickCounter = 0;
+            const ocean = document.getElementById("ocean");
+            const boat = document.getElementById("boat");
+            ocean.addEventListener('click', function(event) {
+                clickCounter+=1
+                if (clickCounter % 5 == 0) {
+                    boat.style.display = "block";
+                    setTimeout(() => {
+                        boat.style.display = "none";
+                    }, 15000);
+                };
+            });
+        </script>
     </body>
 </html>
