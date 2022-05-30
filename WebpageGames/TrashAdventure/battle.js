@@ -62,38 +62,51 @@ for (let x = 0; x < Cards.length; x++) {
     }
     Cards[x].appendChild(CardFace[x]);
 };
+//Generating div's that contain the words letter
+function WordSpell() {
+    const RandomNumber = Math.floor(Math.random() * (10 - 2) ) + 2;
+    const SpellName = Math.random().toString(36).substring(2, RandomNumber + 2); //Temporary
+    let SupportVariable = 0;
 
-RandomNumber = Math.floor(Math.random() * (10 - 2) ) + 2
-SpellName = Math.random().toString(36).substring(2, RandomNumber + 2);
-for (let x = 0; x < SpellName.length; x++) {
-    const letter_holder = document.createElement("div");
-    const letter = document.createElement("p");
-    letter_holder.style.width = "10%"//100/SpellName.length + "%"
-    letter_holder.style.left = (100 - (SpellName.length * 10) - (0.5 * SpellName.length)) / 2 + "%"
-    letter_holder.setAttribute("class", "typebox-letter-holder");
-    letter.setAttribute("class", "typebox-letter");
-    letter.innerHTML = SpellName[x];
-    letter_holder.appendChild(letter);
-    TypeBox.appendChild(letter_holder);
-};
-//Detecting keypresses
-let i = 0
-document.addEventListener("keypress", (event) => {
-    TypeBoxLetter = document.getElementsByClassName("typebox-letter");
-    TypeBoxLetterHolder = document.getElementsByClassName("typebox-letter-holder");
-    JollyList = []
-    for (let x = 0; x < TypeBoxLetter.length; x++) {JollyList.push(TypeBoxLetter[x])}
-    if (i != JollyList.length) {
-        if (JollyList[i].innerHTML == event.key) {TypeBoxLetterHolder[i].style.backgroundColor = "green", i+=1} 
-        else {TypeBoxLetterHolder[i].style.backgroundColor = "red", i+=1}
+    for (let x = 0; x < SpellName.length; x++) {
+        const letter_holder = document.createElement("div");
+        const letter = document.createElement("p");
+        letter_holder.style.width = "10%"//100/SpellName.length + "%"
+        letter_holder.style.left = (100 - (SpellName.length * 10) - (0.5 * SpellName.length)) / 2 + "%";
+        letter_holder.setAttribute("class", "typebox-letter-holder");
+        letter.setAttribute("class", "typebox-letter");
+        letter.innerHTML = SpellName[x];
+        letter_holder.appendChild(letter);
+        TypeBox.appendChild(letter_holder);
     };
-});
+
+    window.addEventListener("keypress", (event) => {
+        const TypeBoxLetter = document.getElementsByClassName("typebox-letter");
+        const TypeBoxLetterHolder = document.getElementsByClassName("typebox-letter-holder");
+        let SupportList = [];
+        for (let x = 0; x < TypeBoxLetter.length; x++) {SupportList.push(TypeBoxLetter[x])};
+        if (SupportVariable != SupportList.length) {
+            if (SupportList[SupportVariable].innerHTML == event.key) {TypeBoxLetterHolder[SupportVariable].style.backgroundColor = "green", SupportVariable += 1}
+            else {TypeBoxLetterHolder[SupportVariable].style.backgroundColor = "red", SupportVariable += 1};
+        };
+    });
+};
+
+//Generating new words if one the cards are clicked
+for (let x = 0; x < Cards.length; x++) {
+    var firstCardPull = true;
+    Cards[x].addEventListener("click", () => {
+        console.log(TypeBox.children)
+        if (firstCardPull == true) {WordSpell(); firstCardPull = false}
+        else {TypeBox.innerHTML = ""; WordSpell();}
+    });
+};
 
 
 function isBattling() {
     //active on victory
     setTimeout(() => {
         Battling = false;
-        console.log("Battle ended")
+        console.log("Battle ended");
     }, 10000);
 }

@@ -6,7 +6,6 @@ function Rotate(spin) {
         element.style.animationName = "spin";
         setTimeout(() => {
             done = false;
-            console.log(done)
             if (done == false) {
                 element.style.animationName = "none";
                 location.reload()

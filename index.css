@@ -67,7 +67,7 @@ table {
     background-color: black;}
 #menu-button-close {
     display: none;
-    font-size: 1.25rem;
+    font-size: 1.25vw;
     height: 5%;
     width: 10%;
     position: relative;
@@ -99,7 +99,7 @@ table {
     cursor: pointer;
     background-color: #00b7d6;
     font-family: 'Fira Sans', sans-serif;
-    font-size: 2.5rem;
+    font-size: 2.5vw;
     text-align: center;
     border: none;
     padding: 3%;
@@ -123,7 +123,7 @@ table {
     background-color: #00B7D6;
     font-family: 'Fira Sans', sans-serif;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 1vw;
     padding: 3%;
     border: none;
     height: auto;
@@ -141,33 +141,38 @@ table {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-around;
-    height: 50%;
-    width: 70%;
-    top: 10px;
-    left: 30%;
+    height: 10vh;
+    width: 85%;
+    left: 15%;
+    background-color: #000000;
 }
 
 .main-buttons {
     position: relative;
     text-align: center;
     cursor: default;
-    background-color: #85cdfa;
+    background-color: #00B7D6;
     color: #000000;
     border: none;
-    padding-top: 4vh;
-    padding-bottom: 4vh;
     height: 100%;
     width: 20%;
-    font-size: 1.5rem;
+    
+    transition-duration: 1s;}
+.main-buttons > * {
+    position: relative;
+    height: 30%;
+    top: 35%;
+    font-size: 1.2vw;
     font-family: 'Fira Sans', sans-serif;
     font-weight: bold;
-    transition-duration: 1s;}
-.main-buttons:hover{
-    transition-duration: 1s;
-    transform: scale(1.25);
-    background-color: #85cdfa;
-    filter: brightness(0.8);
-    z-index: 2;
+}
+.main-buttons > span {
+    color: transparent;
+    transition-duration: 0.3s;}
+.main-buttons:hover > span {
+    color: #000000;
+    margin: 2%;
+    transition-duration: 0.3s;
 }
 
 #group-work-holder {
@@ -188,7 +193,7 @@ table {
 .group-work-title {
     position: relative;
     font-family: 'RocknRoll One', sans-serif;
-    font-size: 250%;
+    font-size: 2.3vw;
     height: 10%;
     width: 60%;
     text-align: center;
@@ -199,9 +204,10 @@ table {
 
 @media screen and (max-width:1000px) {
     #group-work-holder {display: none;}
-    .main-buttons {width: 100%; padding-top: 5%; border-radius: 0px;font-size:4rem;padding-top:5%;padding-bottom:5%;}
+    .main-buttons {width: 100%;padding-top: 5%;padding-bottom: 5%;}
+    .main-buttons > * {font-size: 5vw;}
     .main-buttons:hover {transform: scale(1.00);}
-    .main-buttons-contanier {left: 0;top: 10vh; width: 100%; position: relative;flex-direction: column;}
+    .main-buttons-contanier {position: relative;height: 100%;width: 100%;top: 10vh;left: 0;flex-direction: column;}
     #menu-button-open {left:0;width:100%; box-shadow: 1px 2.5px black;border-radius:0%;top:0%;font-size:3rem;}
     #menu-button-open:hover {transition-duration: 1s;border-radius: 25%; box-shadow: 2.5px 5px black;border-radius: 0%;}
     .menu-button-open-icon {margin-bottom: 1%;}

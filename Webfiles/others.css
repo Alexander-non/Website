@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap');
 
 body {
-    background-image: url("https://etc.usf.edu/clipart/41600/41619/hex_41619_lg.gif");
-    background-size: 20%;
+    background-image: url("../Pictures/othersBackground.png");
+    background-size: 2%;
 }
 
 button {
@@ -31,28 +31,35 @@ img {
 }
 
 h1 {
+    height: 20%;
     font-family: 'Roboto Mono', monospace;
     position: relative;
     cursor: pointer;
-    margin-left: 20%;
+    margin-left: 17.5%;
     -webkit-user-drag: none;
     user-select: none;
+    background-color: white;
+    padding: 1%;
+    line-height: 75%;
+    border: 5px dashed black;
 }
 
 #reload {
-    position: relative;
-    width: 3%;
-    height: 3%;
-    margin-top: 0.75%;
+    position: absolute;
+    width: 5%;
+    height: 75%;
+    top: 20%;
     left: 2%;
 }
 #header {
+    position: absolute;
     justify-content: inherit;
     flex-wrap: nowrap;
     display: flex;
-    left: 0%;
-    height: 5%;
-    width: 100%;
+    left: 0;
+    top: 0;
+    height: 10vh;
+    width: 100vw;
 }
 #inner {
     position: absolute;

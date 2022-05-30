@@ -65,30 +65,34 @@
         </div>
         <canvas id='canvas'></canvas>
         <script>
-            var brushColor =undefined;
-            let leftArrange = 10
-            let topArrange = 5
+            
+            var brushColor = undefined;
+            
+            
             const colorHolder = document.getElementById("color-holder");
             const colorsClick = document.getElementsByClassName("color");
-            const colors = ["red", "yellow", "blue", "orange", "green", "violet"]
-            for (let y = 0; y < 20; y++) {
+            const colors = ["black", "grey", "darkgrey", "white", "brown", "red", "orange", "yellow", "darkgreen", "green", "lightgreen", "cyan", "lightblue", "blue", "darkblue", "purple", "magenta", "violet"]
+            let leftArrange = 3
+            let topArrange = 5;
+            const colorButtonHeight = 40;
+            const colorButtonWidth = 7.5;
+            for (let y = 0; y < colors.length; y++) {
                 color = document.createElement('button');
                 color.setAttribute('class', "color");
                 color.setAttribute('name', colors[y]);
-                color.style.width = colorHolder.offsetWidth / 11.5 + "px";
-                color.style.left = leftArrange + "px"
-                color.style.top = topArrange + "px"
-                color.style.height = colorHolder.offsetHeight / 2.5 + "px";
-                color.style.backgroundColor = colors[y]
-                colorHolder.append(color)
-                //Arrengament
-                if ((y+1) == 10) {
-                    leftArrange = 10
-                    topArrange +=colorHolder.offsetHeight / 2.5 + 5
-                } else {
-                    leftArrange += colorHolder.offsetWidth / 11.5 + 5
-                }
-                for (let x = 0; x < colorsClick.length; x++) {color.addEventListener('click', function(event) {brushColor = colorsClick[x].name});}   
+                color.style.backgroundColor = colors[y];
+                color.style.width = colorButtonWidth + "%";
+                color.style.height = colorButtonHeight + "%";
+                /*-------------------------------------------*/
+                color.style.left = leftArrange + "%";
+                color.style.top = topArrange + "%";
+                colorHolder.append(color);
+                //Elhelyezés
+                if (y + 1 == 10) {
+                    leftArrange = 3;
+                    topArrange += topArrange + colorButtonHeight;
+                } else {leftArrange += colorButtonWidth + 2};
+                for (let x = 0; x < colorsClick.length; x++) {color.addEventListener('click', function(event) {brushColor = colorsClick[x].name});}
             }
 
 
@@ -109,19 +113,20 @@
             window.addEventListener('mouseup', function(event) {holding = false});
             setInterval(() => {
                 if (holding == true) {
-                    /*ctx.moveTo(mouseStart.x, mouseStart.y);
-                    ctx.lineTo(mouseCurrent.x, mouseCurrent.y);
-                    ctx.strokeStyle = "red";
-                    ctx.lineWidth = 10;
-                    ctx.stroke();*/
-                    
                     const brushWidth = document.getElementById("width-bar").value;
                     if (mouseCurrent.y > 90) {
+                        ctx.moveTo(mouseStart.x, mouseStart.y);
+                        ctx.lineTo(mouseCurrent.x, mouseCurrent.y);
+                        ctx.strokeStyle = brushColor;
+                        ctx.lineWidth = 100;
+                        ctx.stroke();
+
+
                         ctx.beginPath();
                         ctx.arc(mouseCurrent.x, mouseCurrent.y, brushWidth, 0, 2 * Math.PI);
                         ctx.fillStyle = brushColor;
-                        ctx.fill();
                         ctx.strokeStyle = brushColor;
+                        ctx.fill();
                         ctx.stroke();
                     }
                     mouseStart.x = mouseCurrent.x;

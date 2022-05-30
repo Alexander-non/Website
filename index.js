@@ -62,19 +62,22 @@ $("#theme").click(() => {
 // LANGUAGE CHANGES
 
 function Translate(language){
-    transElement = ['szorakozas', 'munkajog', 'elerhetosegem', 'projekteim', 'csoport_munka', 'egyebek', 'iskolam', 'cim', 'theme', 'language'];
+    transElement = document.getElementsByClassName("main-buttons");
+    title = document.getElementById("cim");
     engList = ['ENTERTAINMENT', 'LABOR LAW', 'CONTACTS', 'MY PROJECTS', 'GROUP WORK', 'OTHERS', 'SCHOOL', 'Group Work', 'Theme', 'Language'];
     hunList = ['SZÓRAKOZÁS', 'MUNKA JOG', 'ELÉRHETŐSÉGEM', 'PROJEKTEIM', 'CSOPORT MUNKA', 'EGYEBEK', 'ISKOLÁM', 'Csoport Munka', 'Téma', 'Nyelv'];
     //Gombok leforditása a főoldalon
+    console.log(transElement[0].innerText)
     switch (language) {
         case 'eng':
             for (let x = 0; x < transElement.length; x++) {
-                document.getElementById(transElement[x]).innerHTML = engList[x];
+                transElement[x].innerHTML = "<span>[</span> <b>" + engList[x] + "</b> <span>]</span>";
             }
+            title.innerHTML
             break;
         case 'hun':
             for (let x = 0; x < transElement.length; x++) {
-                document.getElementById(transElement[x]).innerHTML = hunList[x];
+                transElement[x].innerHTML = "<span>[</span> <b>" + hunList[x] + "</b> <span>]</span>";
             }
             break;
     
