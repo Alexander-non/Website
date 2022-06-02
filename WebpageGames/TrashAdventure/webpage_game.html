@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Trash Adventure</title>
-        <link rel="icon" href="/Website/Pictures/WebpageIcons/SlimeInTrashcan.ico">
+        <link rel="icon" href="../../Pictures/WebpageIcons/">
         <meta name="viewport" content="width=device-width, initial-scale=1.00">
         <meta charset="UTF-8">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
     <body> <!--oncontextmenu="return false"-->
         <div id="mapLevel"></div>
         <div id="mapWorld"></div>
-        <audio id="music" autoplay loop><source src="/Website/WebpageGames/TrashAdventure/Music/ForestPart/mainTheme1.mp3" type="audio/mpeg"></audio>
+        <audio id="music" autoplay loop><source src="../TrashAdventure/Music/ForestPart/mainTheme1.mp3" type="audio/mpeg"></audio>
         <div id="menu-sidepage">
             <h1>Settings </h1>
             <div>FPS: <span id="fps">--</span></div>
@@ -58,7 +58,7 @@
             <div class="solar-rods" id="sun-rod"><div id="sun"></div></div>
         </div>
         <div id="ground">
-            <div id="character"><img id="characterSkin" src="Textures/Character/slimeIdleRight.gif" alt=""></div>
+            <div id="character"><img id="characterSkin" src="../TrashAdventure/Textures/Character/slimeIdleRight.gif"></div>
             <div class="forestHolder" id="forestPart1">
                 <div id="tree" class="treePlacement frontTrees"><img class="treeImg" id="treePicture" alt="Picture of tree"></div>
                 <div id="tree2" class="treePlacement backgroundTrees"><img class="treeImg" id="treePicture" alt="Picture of tree"></div>
@@ -72,7 +72,6 @@
                 <div id="tree4" class="treePlacement backgroundTrees"><img class="treeImg" id="treePicture" alt="Picture of tree"></div>
             </div>
         </div>
-        <script src="battle.js"></script>
-        <script src="webpage_game.js"></script>
+        <script type="module" src="webpage_game.js"></script>
     </body>
 </html>

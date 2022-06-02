@@ -1,4 +1,4 @@
-value = localStorage["key"]; //Linking two JS files together DO NOT REMOVE
+import "../TrashAdventure/webpage_game.js"
 const Cards = document.getElementsByClassName("cards");
 const CardFace = document.getElementsByClassName("card-front");
 const CardIcons = document.getElementsByClassName("class-icon");

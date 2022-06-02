@@ -1,4 +1,4 @@
-try {localStorage["key"] = value;} catch {console.log()}
+import "../TrashAdventure/battle.js";
 /*document.onkeydown = function(e) {
     if(event.keyCode == 123) {
        return false;
@@ -103,7 +103,6 @@ function ShowMap() {
     const levelMap = document.getElementById("mapLevel");
     const worldMap = document.getElementById("mapWorld");
 
-    
     if (zoom <= 68 && zoom >= 27) {
         levelMap.style.display = "block";
     } else {levelMap.style.display = "none";};
@@ -117,16 +116,11 @@ function Music() {
 };
 
 FPSCounter();
-try {
-    setInterval(() => {
-        Day_Night_Cycle();
-        ShowMap();
-        Music();
-    }, 10);
-} catch (error) {
-    console.log();
-};
-
+setInterval(() => {
+    Day_Night_Cycle();
+    ShowMap();
+    Music();
+}, 10);
 
 /*------------------------------------------------------------------   CHARACTER MOVEMENTS   -------------------------------------------------------------*/
 function MovementRight() {
@@ -138,7 +132,7 @@ function MovementRight() {
     //Charcter animation for running
     if (MovementRight.done) return;
     setTimeout(() => {
-        document.getElementById("characterSkin").src = "/Website/WebpageGames/TrashAdventure/Textures/Character/slimeAttackRight.gif";}, 500);
+        document.getElementById("characterSkin").src = "../TrashAdventure/Textures/Character/slimeAttackRight.gif";}, 500);
     MovementRight.done = true;
 };
 function MovementLeft() {
@@ -151,7 +145,7 @@ function MovementLeft() {
     //Charcter animation for running
     if(MovementLeft.done == true) {return};
     setTimeout(() => {
-        document.getElementById("characterSkin").src = "/Website/WebpageGames/TrashAdventure/Textures/Character/slimeAttackLeft.gif";}, 500);
+        document.getElementById("characterSkin").src = "../TrashAdventure/Textures/Character/slimeAttackLeft.gif";}, 500);
     MovementLeft.done = true;
 };
 
@@ -169,16 +163,9 @@ function BackgroundMoving() {
         if (parseInt(Forests[x].style.marginLeft) - 1000 <= -1800) {
             //Despawn Tree
             Forests[x].style.display = "none"
-            setTimeout(() => {
-                NewTrees(false,Forests[x]);
-            }, 1000);
         } else if (parseInt(Forests[x].style.marginLeft) - 1000 >= -1800 && parseInt(Forests[x].style.marginLeft) < 2000){
             //Spawn Tree
             Forests[x].style.display = "block"
-            setTimeout(() => {
-                NewTrees(true, Forests[x], Forests[0]);
-            }, 1000);
-            
             console.log("visible")
         } else if (parseInt(Forests[x].style.marginLeft) > 2000) {
             //Despawn Tree
@@ -223,11 +210,11 @@ document.addEventListener("keyup", (event) => {
     switch (event.keyCode) {
         case 68:
             MovementRight.done = false;
-            document.getElementById("characterSkin").src = "/Website/WebpageGames/TrashAdventure/Textures/Character/slimeIdleRight.gif";
+            document.getElementById("characterSkin").src = "../TrashAdventure/Textures/Character/slimeIdleRight.gif";
             break;
         case 65:
             MovementLeft.done = false;
-            document.getElementById("characterSkin").src = "/Website/WebpageGames/TrashAdventure/Textures/Character/slimeIdleLeft.gif";
+            document.getElementById("characterSkin").src = "../TrashAdventure/Textures/Character/slimeIdleLeft.gif";
             break;
         default:
             break;}
@@ -246,9 +233,9 @@ window.onload = function() {
 
 var ForestPosition = [];
 var EnemyPosition = [];
-var numberOfForests = 50;
-var numberOfEnemiesForests = 5;
-var Battling = false
+var Battling = false;
+const numberOfForests = 50;
+const numberOfEnemiesForests = 5;
 const GROUND = document.getElementById('ground');
 
 function EnemyGeneration() {
@@ -275,9 +262,9 @@ function GeneratingTrees(numberoftimes) {
         GROUND.appendChild(clone);
 
         //Creating variables to make my work easier
-        topInPx = "-910px";
-        SizeInPx = "1000px";
-        positionToSee = "absolute";
+        const topInPx = "-910px";
+        const SizeInPx = "1000px";
+        const positionToSee = "absolute";
         
         //Customizing the generated tree so I can see them clearer
         clone.style.top = topInPx;
@@ -286,13 +273,13 @@ function GeneratingTrees(numberoftimes) {
         clone.style.height = SizeInPx;
         clone.style.width = SizeInPx;
         ForestPosition.push(marginLeftInPx);
-        RTD = Math.floor(Math.random() *(250 - 200) + 200); //RandomTreeDistance
+        var RTD = Math.floor(Math.random() *(250 - 200) + 200); //RandomTreeDistance
         marginLeftInPx += RTD;
     }
     //Random tree custom look
     for (let x = 0; x < ListOfTreeImgs.length; x++) {
         SelectedTree++;
-        ListOfTreeImgs[x].src = "/Website/WebpageGames/TrashAdventure/Textures/" + ListOfTreeImgsSRC[Math.floor(Math.random() * (ListOfTreeImgsSRC.length - 0) + 0)] + ".png";
+        ListOfTreeImgs[x].src = "../TrashAdventure/Textures/" + ListOfTreeImgsSRC[Math.floor(Math.random() * (ListOfTreeImgsSRC.length - 0) + 0)] + ".png";
         if (SelectedTree % 3 == 0) {
             ListOfTreeImgs[x].style.filter = "brightness("+ Math.floor(Math.random() * (95 - 90) + 90) +"%)", " grayscale("+ Math.floor(Math.random() * (20 - 10) + 10) +"%)";
         } else if (SelectedTree % 5 == 0) {
@@ -331,10 +318,10 @@ function NewTrees(generate, selectedtree, cloneabletree) {
 /*-------------------------------------------------------------------------   ENEMIES   ---------------------------------------------------------------------*/
 function ForestEnemies() {
 
-    HitboxWidth = 150;
-    HitboxHeight = HitboxWidth / 1.5;
-    HitboxTop = -100;
-    EnemyStartingPosition = 3000;
+    var HitboxWidth = 150;
+    var HitboxHeight = HitboxWidth / 1.5;
+    var HitboxTop = -100;
+    var EnemyStartingPosition = 3000;
     offset = EnemyStartingPosition - HitboxWidth;
     RandomSpacing = 0;
 
@@ -348,7 +335,7 @@ function ForestEnemies() {
 
         const enemySkin = document.createElement("img");
         enemyHitbox.appendChild(enemySkin);
-        enemySkin.src = "/Website/WebpageGames/TrashAdventure/Textures/Enemies/Normals/Forest/BlueForestSlimeIdling.gif";
+        enemySkin.src = "../TrashAdventure/Textures/Enemies/Normals/Forest/BlueForestSlimeIdling.gif";
         enemySkin.style.width = 175;
         enemySkin.style.position = "absolute"
         enemySkin.style.top = HitboxTop / 2.5;
