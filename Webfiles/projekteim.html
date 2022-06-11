@@ -57,7 +57,7 @@
         </div>
         <div id="boat"><div id="boat_parts"></div></div>
         <svg id="ocean" viewbox="0 0 1400 300">
-            <path id='wave-pattern' fill="#000fff" fill-opacity="0.4" d="M0, 120 C320, 200, 320, 200, 550, 160 C1000, 50, 1200, 50, 1400, 120 V0 H0" />
+            <path id='wave-pattern' fill="#000fff" fill-opacity="0.4" d="M0, 90 C330, 200, 320, 200, 550, 160 C1000, 50, 1400, 70, 1400, 90 V0 H0" />
             <use id="wave-1" href="#wave-pattern" />
             <use id="wave-1" x="-100%" href="#wave-pattern" />
             <use id="wave-2" href="#wave-pattern" />
@@ -65,19 +65,6 @@
             <use id="wave-3" href="#wave-pattern" />
             <use id="wave-3" x="-100%" href="#wave-pattern" />
         </svg>
-        <script>
-            var clickCounter = 0;
-            const ocean = document.getElementById("ocean");
-            const boat = document.getElementById("boat");
-            ocean.addEventListener('click', function(event) {
-                clickCounter+=1
-                if (clickCounter % 5 == 0) {
-                    boat.style.display = "block";
-                    setTimeout(() => {
-                        boat.style.display = "none";
-                    }, 15000);
-                };
-            });
-        </script>
+        <script src="../Webfiles/projekteim.js"></script>
     </body>
 </html>
