@@ -1,2 +1,0 @@
-['Alma', 'Körte', 'Szilva', 'Eper', 'Barack']
-['Eper', 'Körte']

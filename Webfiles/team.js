@@ -30,13 +30,13 @@ function StartDraging(mouse) {
     var CurrentElementYPos = dragArea.offsetHeight - element.offsetTop;
     var Correction = 40;
     if (CurrentElementXPos > dragArea.offsetWidth - Correction) {
-        CurrentXPos = -1
+        CurrentXPos = -2
     } else if (CurrentElementXPos < element.offsetWidth - Correction/2) {
-        CurrentXPos = 1
+        CurrentXPos = 2
     } else if (CurrentElementYPos > dragArea.offsetHeight - Correction) {
-        CurrentYPos = -1
+        CurrentYPos = -2
     } else if (CurrentElementYPos < element.offsetHeight - Correction/4) {
-        CurrentYPos = 1
+        CurrentYPos = 2
     }
 
      OldXPos = mouse.clientX;
@@ -46,7 +46,7 @@ function StartDraging(mouse) {
     }
 
     function StopDraging() {
-         document.onmouseup = null;
-         document.onmousemove = null;
+        document.onmouseup = null;
+        document.onmousemove = null;
     }
 }

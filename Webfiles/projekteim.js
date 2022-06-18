@@ -1,35 +1,40 @@
+function CreateAssignmentContainerItems(filename, linkParent) {
+  const aHref = document.createElement("a");  
+  aHref.href = "../Projects/" + filename.charAt(0).toUpperCase() + filename.slice(1) + "/" + filename + ".html"
+  linkParent.appendChild(aHref);
+
+  const button = document.createElement("div");
+  button.setAttribute("class", "buttons");
+  aHref.appendChild(button);
+
+  const name = document.createElement("span");
+  name.innerText = filename.charAt(0).toUpperCase() + filename.slice(1).replace('_', ' ');
+  button.appendChild(name)
+};
+
 fetch("../Webfiles/projekteim.json").then( response => {
     return response.json();
     }).then(jsondata => {
-        //console.log(jsondata.FileNames)
         var numberOfAssigments = 1;
         const ACC = document.getElementById("assignment-container-container");
+        //Create Assignment Container
         var assignmentContainer = document.createElement("div");
         assignmentContainer.setAttribute("class", "assignment-container");
         ACC.appendChild(assignmentContainer);
         for (let x = 0; x < jsondata.FileNames.length; x++) {
           if (numberOfAssigments <= 3) {
-            const aHref = document.createElement("a");
-            aHref.href = "../Projects/" + jsondata.FileNames[x].charAt(0).toUpperCase() + jsondata.FileNames[x].slice(1) + "/" + jsondata.FileNames[x] + ".html"
-            assignmentContainer.appendChild(aHref);
-
-            const button = document.createElement("div");
-            button.setAttribute("class", "buttons");
-            aHref.appendChild(button);
-
-            const name = document.createElement("span");
-            name.innerText = jsondata.FileNames[x].charAt(0).toUpperCase() + jsondata.FileNames[x].slice(1).replace('_', ' ');
-            button.appendChild(name)
+            CreateAssignmentContainerItems(jsondata.FileNames[x], assignmentContainer);
           } else {
+            //Create Assignment Container
             assignmentContainer = document.createElement("div");
             assignmentContainer.setAttribute("class", "assignment-container");
             ACC.appendChild(assignmentContainer);
-            numberOfAssigments=0;
+            //Create Assignment Container Items
+            CreateAssignmentContainerItems(jsondata.FileNames[x], assignmentContainer);
+            numberOfAssigments = 1;
           };
-          numberOfAssigments++;
+          numberOfAssigments += 1;
         }
-        
-      
     });
 
 

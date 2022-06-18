@@ -1,6 +1,0 @@
-iranyitoszam = int(input("Adja meg az irányító számát: "))
-while (iranyitoszam < 1000) or (iranyitoszam > 9999): iranyitoszam = int(input("Adja meg az irányító számát: "))
-if iranyitoszam % 2 == 0: print("A szám páros")
-else: print("A szám nem páros")
-if iranyitoszam < 2000: print("Az irányító szám Budapesti!")
-else: print("Az irányító nem szám Budapesti!")
