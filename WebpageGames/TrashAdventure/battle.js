@@ -1,23 +1,21 @@
-import "../TrashAdventure/webpage_game.js"
+import { PlayerSkin, EnemyImg, Battling, isMoving } from "../TrashAdventure/webpage_game.js";
+
 const Cards = document.getElementsByClassName("cards");
 const CardFace = document.getElementsByClassName("card-front");
 const CardIcons = document.getElementsByClassName("class-icon");
 const Deck = document.getElementById("deck");
 const Sky = document.getElementById("sky");
 const TypeBox = document.getElementById("typebox-holder");
-const PlayerSkin = localStorage.getItem("PlayerSkin");
-const EnemySkin = localStorage.getItem("EnemySkin");
+//const EnemySkin = localStorage.getItem("EnemySkin");
 const musicBattle = document.getElementById("music_battle");
 let SpellName = ""
 let CardAlign = 0;
 
-
 window.onload = () => {
     //Disabling movement
-    isMoving = false
     //Setting character skins
     document.getElementById("character_battle_skin").src = PlayerSkin;
-    document.getElementById("enemy_battle_skin").src = EnemySkin;
+    document.getElementById("enemy_battle_skin").src = EnemyImg;
 }
 
 
@@ -33,8 +31,6 @@ setInterval(() => {
 for (let x = 0; x < Cards.length; x++) {
     Cards[x].style.marginLeft = CardAlign + "%";
     CardAlign += 20;
-    
-    //CardFace[x].style.marginLeft = "20%";
     switch (x) {
         case 0:
             CardFace[x].setAttribute("id", "melee");
@@ -102,11 +98,11 @@ for (let x = 0; x < Cards.length; x++) {
     });
 };
 
-
-function isBattling() {
+export function isBattling() {
     //active on victory
     setTimeout(() => {
         Battling = false;
+        isMoving = false;
         console.log("Battle ended");
     }, 10000);
-}
+};

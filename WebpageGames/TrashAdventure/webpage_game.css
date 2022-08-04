@@ -109,74 +109,48 @@ body {
     z-index: 997;
     position: absolute;
     background-color: transparent;
-    filter: drop-shadow(-5px 2px 2px #00000091);
+    filter: drop-shadow(-1px 2px 2px #00000091);
     left: 500px;
-    top: -100px;
-    width: 100px;
-    height: 100px;}
+    top: -90px;
+    width: 150px;
+    height: 100px;
+    transform: scaleX(-1);}
 #characterSkin {
     position: relative;
-    -webkit-user-drag: none;
-    user-select: none;
-    left: -50px;
-    top: -50px;
-    width: 200%;}
+    left: 0px;
+    bottom: 20px;
+    width: 100%;}
 
 .treePlacement {
-   /*border: black 1px solid;*/
     position: absolute;
     height: 100%;
-    top: 90px;}
+    bottom: 0px;}
 .backgroundTrees {
     z-index: 0;
-    filter: brightness(70%);
-    top: 60px;}
+    filter: brightness(70%);}
 .middleTrees {
     z-index: 1;
     filter: brightness(80%);}
 .frontTrees {
-    z-index: 2;
-    opacity: 100%;}
-#treePicture {
-    height: 100%;
-    width: 100%;
-    /*border: black 1px solid;
-    display: none;*/}
-
-#forestPart1 {
-    /*border: black 1px solid;*/
-    position: relative;
-    left: -200px;
-    top: -910px;
-    width: 1000px;
-    height: 1000px;}
-#forestPartX {
-    /*border: black 1px solid;*/
+     z-index: 2;
+     opacity: 100%;}
+.tree_imgs {
+    height: 80%;
     position: absolute;
-    left: 50px;
-    top: -910px;
-    width: 1000px;
-    height: 1000px;}
-
-#tree {
-    left: -150px;
-    position: absolute;}
-#tree2 {
-    left: -75px;
-    position: absolute;}
-#tree3 {
-    left: 20px;
+    bottom: 0px; /*For Design*/}
+.forestHolder {
     position: absolute;
-    transform: scaleX(-1);}
-#tree4 {
-    left: 75px;
-    position: absolute;}
-
+    bottom: 97.5%;
+    width: 750px;
+    height: 1000px;}
 
 .enemySkin {
-    width: 100px;
+    position: absolute;
+    width: 100%;
+    background-color: transparent;
+    bottom: -30%;
     filter: drop-shadow(-5px 2px 2px #00000091);
-}
+};
 
 #mapLevel {
     position: absolute;
@@ -187,8 +161,7 @@ body {
     top: 10%;
     left: 10%;
     background-color: black;
-}
-
+};
 #mapWorld {
     position: absolute;
     display: none;
@@ -198,7 +171,7 @@ body {
     top: 10%;
     left: 10%;
     background-color: white;
-}
+};
 
 
 
@@ -225,9 +198,7 @@ body {
     margin-left: -9vw;
     border-radius: 50%;
     background-color: yellow;
-    filter: blur(1vh) brightness(80%);
-    
-}
+    filter: blur(1vh) brightness(80%);}
 #sun-rod {
     top: -50%;
     height: 100%;}

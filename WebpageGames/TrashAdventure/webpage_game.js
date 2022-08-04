@@ -1,4 +1,4 @@
-import "../TrashAdventure/battle.js";
+import * as ImportBattle from "../TrashAdventure/battle.js";
 /*document.onkeydown = function(e) {
     if(event.keyCode == 123) {
        return false;
@@ -29,7 +29,7 @@ let xPlayerVelocity = 0;
 let BackgroundMovement = 0;
 let isMoving = true;
 const MovementSpeed = 10;
-
+const body = document.querySelector('body');
 
 /*------------------------------------------------------------------   MISCS   -------------------------------------------------------------*/
 const music = document.getElementById("music");
@@ -65,6 +65,17 @@ $('document').ready(() => {
     });
 });
 
+try {
+    FPSCounter();
+    setInterval(() => {
+        Day_Night_Cycle();
+        //ShowMap();
+        Music();
+    }, 10);
+} catch (error) {
+    console.log();
+};
+
 //FPS Counter
 function FPSCounter() {
   var time = Date.now();
@@ -93,9 +104,9 @@ function Day_Night_Cycle() {
     sun.style.transform = `rotate(`+hourDegree+`deg)`;
     
     if (hourDegree-180 <= 0 && hourDegree-180 >= -90 || hourDegree-180 <= -270 && hourDegree-180 >= -365) {
-        document.querySelector('body').style.backgroundImage =  "linear-gradient(rgb(0, 0, 0, "+opacity+"), #0d91a6)"
+        body.style.backgroundImage =  "linear-gradient(rgb(0, 0, 0, "+opacity+"), #0d91a6)"
     } else {
-        document.querySelector('body').style.backgroundImage =  "linear-gradient(#0d91a6, #0d91a6)"
+        body.style.backgroundImage =  "linear-gradient(#0d91a6, #0d91a6)"
     };
 };
 function ShowMap() {
@@ -115,29 +126,27 @@ function Music() {
     music.volume = volumeNum;
 };
 
-FPSCounter();
-setInterval(() => {
-    Day_Night_Cycle();
-    ShowMap();
-    Music();
-}, 10);
-
 /*------------------------------------------------------------------   CHARACTER MOVEMENTS   -------------------------------------------------------------*/
+const character = document.getElementById("character");
+const characterSkin = document.getElementById("characterSkin");
 function MovementRight() {
     xPlayerPosition += MovementSpeed;
-    document.getElementById("character").style.marginLeft = xPlayerVelocity; //Movement
+    character.style.marginLeft = xPlayerVelocity; //Movement
     BackgroundMovement += MovementSpeed;
     //console.log(BackgroundMovement)
 
     //Charcter animation for running
     if (MovementRight.done) return;
     setTimeout(() => {
-        document.getElementById("characterSkin").src = "../TrashAdventure/Textures/Character/slimeAttackRight.gif";}, 500);
+        characterSkin.src = "../TrashAdventure/Textures/Character/slimeAttackLeft.gif";
+        characterSkin.style.transform = "scaleX(1)";
+    }, 500);
+        
     MovementRight.done = true;
 };
 function MovementLeft() {
     xPlayerPosition -= MovementSpeed;
-    document.getElementById("character").style.marginLeft = xPlayerVelocity; //Movement
+    character.style.marginLeft = xPlayerVelocity; //Movement
     BackgroundMovement -= MovementSpeed;
     //console.log(BackgroundMovement)
 
@@ -145,39 +154,20 @@ function MovementLeft() {
     //Charcter animation for running
     if(MovementLeft.done == true) {return};
     setTimeout(() => {
-        document.getElementById("characterSkin").src = "../TrashAdventure/Textures/Character/slimeAttackLeft.gif";}, 500);
+        characterSkin.src = "../TrashAdventure/Textures/Character/slimeAttackLeft.gif";
+        characterSkin.style.transform = "scaleX(-1)";
+    }, 500);
     MovementLeft.done = true;
 };
 
-function BackgroundMoving() {
-    //Moving generated trees
-    let Forests = document.getElementsByClassName("forestHolder"); //Grabbing all of the forests
-    for (let x = 0; x < Forests.length; x++) {
-        //Moving generated forests
-        Forests[0].style.marginLeft = -BackgroundMovement;
-        Forests[1].style.marginLeft = -BackgroundMovement;
-        Forests[x].style.marginLeft = ForestPosition[x] - BackgroundMovement;
-    };
-    for (let x = 0; x < Forests.length; x++) {                                                                 
-        console.log(parseInt(Forests[x].style.marginLeft))
-        if (parseInt(Forests[x].style.marginLeft) - 1000 <= -1800) {
-            //Despawn Tree
-            Forests[x].style.display = "none"
-        } else if (parseInt(Forests[x].style.marginLeft) - 1000 >= -1800 && parseInt(Forests[x].style.marginLeft) < 2000){
-            //Spawn Tree
-            Forests[x].style.display = "block"
-            console.log("visible")
-        } else if (parseInt(Forests[x].style.marginLeft) > 2000) {
-            //Despawn Tree
-            Forests[x].style.display = "none"
-            console.log("not visible")
-        };
-    };
-    //Moving generated enemies
-    for (let x = EnemyPosition.length; x > 0; x--) {
-            Enemy = "enemy-hitbox" + x;                                                               //Grabbing all of the enemies
-            document.getElementById(Enemy).style.marginLeft = EnemyPosition[x-1]  - BackgroundMovement;      //Moving generated enemies
-    };
+function Assetmoving() {
+    // Moving generated trees //
+    const Forests = document.getElementsByClassName("forestHolder");                                      //Grabbing all of the forests
+    for (let x = 0; x < Forests.length; x++) {Forests[x].style.marginLeft = -BackgroundMovement};       //Moving generated forests
+
+    // Moving generated enemies //
+    const Enemies = document.getElementsByClassName("enemy-hitbox");                                      //Grabbing all of the forests
+    for (let x = 0; x < Enemies.length; x++) {Enemies[x].style.marginLeft = -BackgroundMovement;};      //Moving generated forests
 };
 
 document.addEventListener("keydown", (event) => {
@@ -185,22 +175,16 @@ switch (event.keyCode) {
     case 68:
         if (isMoving == true) {
             MovementRight();
-            BackgroundMoving();
+            Assetmoving();
             Collision();
-        } else {
-            console.log("You cannot move!")
-        };
-        //console.log('The "x" position is equal to: ', xPlayerVelocity)
+        } else {console.log("You cannot move!")};
         break;
     case 65:
         if (isMoving == true) {
             MovementLeft();
-            BackgroundMoving();
+            Assetmoving();
             Collision();
-        } else {
-            console.log("You cannot move!")
-        };
-        //console.log('The "x" position is equal to: ', xPosition)
+        } else {console.log("You cannot move!")};
         break;
     default:
         break;
@@ -210,11 +194,13 @@ document.addEventListener("keyup", (event) => {
     switch (event.keyCode) {
         case 68:
             MovementRight.done = false;
-            document.getElementById("characterSkin").src = "../TrashAdventure/Textures/Character/slimeIdleRight.gif";
+            document.getElementById("characterSkin").src = "../TrashAdventure/Textures/Character/slimeIdleLeft.gif";
+            characterSkin.style.transform = "scaleX(1)";
             break;
         case 65:
             MovementLeft.done = false;
             document.getElementById("characterSkin").src = "../TrashAdventure/Textures/Character/slimeIdleLeft.gif";
+            characterSkin.style.transform = "scaleX(-1)";
             break;
         default:
             break;}
@@ -225,16 +211,24 @@ document.addEventListener("keyup", (event) => {
 /*---------------------------------------------------------------------     GENERATING GAME ASSETS     ----------------------------------------------------------------*/
 /*---------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
+var forest_align = -150;
 window.onload = function() {
-    GeneratingTrees(numberOfForests); 
+    GeneratingForests(forest_align)
     EnemyGeneration();
+
+    var Forests = document.getElementsByClassName('forestHolder');
+    setInterval(() => {
+        if (Forests[Forests.length - 1].offsetLeft + Forests[Forests.length - 1].offsetWidth < window.innerWidth) {
+            forest_align += Forests[Forests.length - 1].offsetWidth;
+            GeneratingForests(forest_align);
+        };
+    }, 100);
 };
 
 
-var ForestPosition = [];
 var EnemyPosition = [];
 var Battling = false;
-const numberOfForests = 50;
+export { Battling };
 const numberOfEnemiesForests = 5;
 const GROUND = document.getElementById('ground');
 
@@ -243,130 +237,93 @@ function EnemyGeneration() {
     ForestBoss();    
 };
 
-/*---------------------------------------------------------------------     TREES     ----------------------------------------------------------------*/
-var marginLeftInPx = 300;
-let SelectedTree = 0
-ForestPosition.push(1), ForestPosition.push(2); //Aliging for the first 2 manually generated trees
-function GeneratingTrees(numberoftimes) {
-    const ListOfTreeImgsSRC = ['ComplexTree1', 'ComplexTree2', 'ComplexTree3', 'SimpleTree1', 'SimpleTree2', 'SimpleTree3'];
-    const ListOfTreeImgs = document.getElementsByClassName("treeImg");
-    //Generator more forest after each other
-    for (let i = 0; i < numberoftimes; i++) {
-        // Create a clone of element with the selected id:
-        let clone = document.querySelector('#forestPartX').cloneNode( true );
+/*-------------------------------------------------------------------------   BACKGROUND   ---------------------------------------------------------------------*/
 
-        // Change the id attribute of the newly created element:
-        clone.setAttribute('id', 'forestPartX' + (i+2));
 
-        // Append the newly created element on element you select 
-        GROUND.appendChild(clone);
+/*---------------------------------------------------------------   TREES   -----------------------------------------------------------*/
 
-        //Creating variables to make my work easier
-        const topInPx = "-910px";
-        const SizeInPx = "1000px";
-        const positionToSee = "absolute";
+function GeneratingForests(forest_left) {
+    const Forest = document.createElement("div");
+    Forest.setAttribute('class', 'forestHolder');
+    Forest.setAttribute('id', 'forest_' + forest_align);
+    Forest.style.left = forest_left + 'px';
+    GeneratingTrees(4, Forest);
+    GROUND.appendChild(Forest);
+};
+function GeneratingTrees(NumberOfTrees, forest) {
+    const type_of_trees = ['frontTrees', 'middleTrees', 'backgroundTrees'];
+    const list_of_tree_imgs = ['ComplexTree1', 'ComplexTree2', 'ComplexTree3', 'SimpleTree1', 'SimpleTree2', 'SimpleTree3'];
+    const scheme = "../TrashAdventure/Textures/";
+    var left_design = -150;
+    let previous_tree_type = 0;
+    let previous_tree_skin = 0;
+    let previous_treeBackgroundFrames = 0;
+
+    let treeBackgroundFrames = 7;
+
+    for (let x = 0; x < NumberOfTrees; x++) {
+        const tree = document.createElement('div');
+            let random_tree_type = Math.floor(Math.random() * (type_of_trees.length - 0) + 0);
+            while (previous_tree_type == random_tree_type) {random_tree_type = Math.floor(Math.random() * (type_of_trees.length - 0) + 0)};
+            previous_tree_type = random_tree_type;
+        tree.setAttribute('class', 'treePlacement ' + type_of_trees[random_tree_type]);
+        tree.style.left = left_design + "px";
+
+        const treeSkin = document.createElement('img');
+            let random_tree_skin = Math.floor(Math.random() * (list_of_tree_imgs.length - 0) + 0);
+            while (previous_tree_skin == random_tree_skin) {random_tree_skin = Math.floor(Math.random() * (list_of_tree_imgs.length - 0) + 0)};
+            previous_tree_skin = random_tree_skin;
+        treeSkin.src = scheme + list_of_tree_imgs[random_tree_skin] + ".png";
+        treeSkin.setAttribute('class', 'tree_imgs');
+
+        const treeBackground = document.createElement('img');
+            let random_treeBackgroundFrames = Math.floor(Math.random() * (treeBackgroundFrames - 0) + 0);
+            while (previous_treeBackgroundFrames == random_treeBackgroundFrames) {random_treeBackgroundFrames = Math.floor(Math.random() * (treeBackgroundFrames - 0) + 0);
+            previous_treeBackgroundFrames = random_treeBackgroundFrames;
+        treeBackground.src = scheme + "background_frame" + random_treeBackgroundFrames + ".png"
+        //background_frame0
+        tree.appendChild(treeSkin);
+        forest.appendChild(tree);
         
-        //Customizing the generated tree so I can see them clearer
-        clone.style.top = topInPx;
-        clone.style.marginLeft = marginLeftInPx;
-        clone.style.position = positionToSee;
-        clone.style.height = SizeInPx;
-        clone.style.width = SizeInPx;
-        ForestPosition.push(marginLeftInPx);
-        var RTD = Math.floor(Math.random() *(250 - 200) + 200); //RandomTreeDistance
-        marginLeftInPx += RTD;
-    }
-    //Random tree custom look
-    for (let x = 0; x < ListOfTreeImgs.length; x++) {
-        SelectedTree++;
-        ListOfTreeImgs[x].src = "../TrashAdventure/Textures/" + ListOfTreeImgsSRC[Math.floor(Math.random() * (ListOfTreeImgsSRC.length - 0) + 0)] + ".png";
-        if (SelectedTree % 3 == 0) {
-            ListOfTreeImgs[x].style.filter = "brightness("+ Math.floor(Math.random() * (95 - 90) + 90) +"%)", " grayscale("+ Math.floor(Math.random() * (20 - 10) + 10) +"%)";
-        } else if (SelectedTree % 5 == 0) {
-            ListOfTreeImgs[x].style.filter =  "brightness("+ Math.floor(Math.random() * (90 - 80) + 80) +"%)", " grayscale("+ Math.floor(Math.random() * (20 - 10) + 10) +"%)";;
-        }
+        left_design += Math.floor(Math.random() * (200 - 150) + 150);
     };
-    
+
 };
 
-/* AUTO GENERATING TREES BASED RENDER DISTANCE [NOT COMPLETE]
-function NewTrees(generate, selectedtree, cloneabletree) {
-    if (generate == true) {
-        let clone = cloneabletree.cloneNode( true );
-        GROUND.appendChild(clone);
-
-        //Creating variables to make my work easier
-        topInPx = "-910px";
-        SizeInPx = "1000px";
-        positionToSee = "absolute";
-        
-        //Customizing the generated tree so I can see them clearer
-        clone.style.top = topInPx;
-        clone.style.marginLeft = marginLeftInPx;
-        clone.style.position = positionToSee;
-        clone.style.height = SizeInPx;
-        clone.style.width = SizeInPx;
-        ForestPosition.push(marginLeftInPx);
-        RTD = Math.floor(Math.random() *(250 - 200) + 200); //RandomTreeDistance
-        marginLeftInPx += RTD;
-
-        console.log("Generating Trees...", clone);
-    } else {
-        selectedtree.remove();
-    }
-};*/
 /*-------------------------------------------------------------------------   ENEMIES   ---------------------------------------------------------------------*/
+var HitboxWidth = 200;
+var HitboxHeight = HitboxWidth / 1.5;
+var HitboxTop = -125; 
+var EnemyStartingPosition = 2000;
 function ForestEnemies() {
+    let RandomSpacing = 0;
 
-    var HitboxWidth = 150;
-    var HitboxHeight = HitboxWidth / 1.5;
-    var HitboxTop = -100;
-    var EnemyStartingPosition = 3000;
-    offset = EnemyStartingPosition - HitboxWidth;
-    RandomSpacing = 0;
-
-
-    for (let x = numberOfEnemiesForests; x > 0; x--) {
+    for (let x = 0; x < numberOfEnemiesForests; x++) {
         var EnemyMovablePosition = EnemyStartingPosition + RandomSpacing;
 
         //Creating new div element as a new enemy hitbox and adding it to the game area
-        enemyHitbox = document.createElement("div");
-        GROUND.appendChild(enemyHitbox);
-
+        const enemyHitbox = document.createElement("div");
         const enemySkin = document.createElement("img");
-        enemyHitbox.appendChild(enemySkin);
-        enemySkin.src = "../TrashAdventure/Textures/Enemies/Normals/Forest/BlueForestSlimeIdling.gif";
-        enemySkin.style.width = 175;
-        enemySkin.style.position = "absolute"
-        enemySkin.style.top = HitboxTop / 2.5;
-        enemySkin.style.left = -10;
-        enemySkin.style.transform = "scaleX(1)";
-
-
         
-        
-        document.createAttribute("id", "enemy-hitbox" + x);
-        enemyHitbox.setAttribute("id", "enemy-hitbox" + x);
+        enemyHitbox.setAttribute("class", "enemy-hitbox");
         enemySkin.setAttribute("class", 'enemySkin');
         
-    
+        enemySkin.src = "../TrashAdventure/Textures/Enemies/Normals/Forest/BlueForestSlimeIdling.gif";
 
-        document.getElementById("enemy-hitbox" + x).style.width = HitboxWidth;
-        document.getElementById("enemy-hitbox" + x).style.height = HitboxHeight;
-        document.getElementById("enemy-hitbox" + x).style.position = "absolute";
-        document.getElementById("enemy-hitbox" + x).style.marginLeft = EnemyMovablePosition;
-        document.getElementById("enemy-hitbox" + x).style.top = HitboxTop;
-        document.getElementById("enemy-hitbox" + x).style.zIndex = "996";
-        //document.getElementById("enemy-hitbox" + x).style.backgroundColor = "red";
+        enemyHitbox.style.width = HitboxWidth;
+        enemyHitbox.style.height = HitboxHeight;
+        enemyHitbox.style.left = EnemyMovablePosition;
+        enemyHitbox.style.top = HitboxTop;
+        enemyHitbox.style.position = "absolute";
+        enemyHitbox.style.zIndex = "996";
 
-        //Putting the enemies generated position to a list
-        EnemyPosition.push(EnemyMovablePosition);
-        EnemyPosition.sort(function(a, b){return b - a});
         //Generating random number between 1000-800 and adding it to current enemy position
         RandomSpacing += 1000;
         EnemyMovablePosition += RandomSpacing;
 
         //console.log(EnemyPosition)
+        enemyHitbox.appendChild(enemySkin);
+        GROUND.appendChild(enemyHitbox);
 }};
 
 function ForestBoss() {
@@ -374,38 +331,33 @@ function ForestBoss() {
 };
 
 /*-------------------------------------------------------------------------   BATTLE SYSTEM   ---------------------------------------------------------------------*/
-
-function Battle() {
+var EnemyImg = ""
+var PlayerSkin = ""
+function BattleBegin() {
     Battling = true
     music.muted = true;
+    isMoving = false;
     window.open("battle.html", '_blank');
-    if (Battling == true) {
-        isMoving = false;
-        isBattling();
-    } else {
-        isMoving = true;
-    }
-}
+    if (Battling == true) { ImportBattle.isBattling(); }
+    else { isMoving = true; };
+};
 
 function Collision() {
-    for (let x = EnemyPosition.length; x > 0; x--) {
-        Enemy = "enemy-hitbox" + x;                                                        //Grabbing all of the enemies
-        EnemiesCurrentPosition = document.getElementById(Enemy).offsetLeft;                                        //Making a variable to check there current position
-        
-        if (EnemiesCurrentPosition -580 == 0) {
-            //Battle
-            const EnemyImg = document.getElementsByClassName("enemySkin");
-            const PlayerSkin = document.getElementById("characterSkin").src;
-            for (let i = 0; i < EnemyImg.length; i++) { var EnemySkin = EnemyImg[0].src };
+    const Enemies = document.getElementsByClassName("enemy-hitbox");
+    for (let x = 0; x < Enemies.length; x++) {
+        const offsetCorrection = 430 /*End of Enemy hitbox*/ + HitboxWidth;
+        if (Enemies[x].offsetLeft - offsetCorrection == 0) {
+            EnemyImg = document.getElementsByClassName("enemySkin")[x];
+            PlayerSkin = document.getElementById("characterSkin");
+
+            //console.log(EnemyImg.src, PlayerSkin.src)
+            Enemies[x].remove();
+            BattleBegin();
+            /*for (let i = 0; i < EnemyImg.length; i++) { var EnemySkin = EnemyImg[0].src };
             localStorage.setItem("PlayerSkin", PlayerSkin);
-            localStorage.setItem("EnemySkin", EnemySkin);
-            EnemyPosition.pop();
-            document.getElementById(Enemy).remove();
-            Battle();
-            //document.getElementById(Enemy).style.visibility = "hidden";
-            
-            console.log("Reached enemy");
+            localStorage.setItem("EnemySkin", EnemySkin);*/
         };
-        //console.log(Enemy, "'s x-position is", EnemiesCurrentPosition, "and the its staring position is:", EnemyPosition[index])
-    };    
+    };
 };
+
+export { PlayerSkin, EnemyImg, isMoving };
