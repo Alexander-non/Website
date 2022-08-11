@@ -243,7 +243,7 @@ function EnemyGeneration() {
 /*---------------------------------------------------------------   TREES   -----------------------------------------------------------*/
 
 function GeneratingForests(forest_left) {
-    const Forest = document.createElement("div");
+    const Forest = document.createElement("div"); 
     Forest.setAttribute('class', 'forestHolder');
     Forest.setAttribute('id', 'forest_' + forest_align);
     Forest.style.left = forest_left + 'px';
@@ -278,15 +278,15 @@ function GeneratingTrees(NumberOfTrees, forest) {
 
         const treeBackground = document.createElement('img');
             let random_treeBackgroundFrames = Math.floor(Math.random() * (treeBackgroundFrames - 0) + 0);
-            while (previous_treeBackgroundFrames == random_treeBackgroundFrames) {random_treeBackgroundFrames = Math.floor(Math.random() * (treeBackgroundFrames - 0) + 0);
-            previous_treeBackgroundFrames = random_treeBackgroundFrames;
-        treeBackground.src = scheme + "background_frame" + random_treeBackgroundFrames + ".png"
-        //background_frame0
-        tree.appendChild(treeSkin);
-        forest.appendChild(tree);
-        
-        left_design += Math.floor(Math.random() * (200 - 150) + 150);
-    };
+            while (previous_treeBackgroundFrames == random_treeBackgroundFrames) {random_treeBackgroundFrames = Math.floor(Math.random() * (treeBackgroundFrames - 0) + 0);}
+                    previous_treeBackgroundFrames = random_treeBackgroundFrames;
+                treeBackground.src = scheme + "background_frame" + random_treeBackgroundFrames + ".png"
+                //background_frame0
+                tree.appendChild(treeSkin);
+                forest.appendChild(tree);
+                
+                left_design += Math.floor(Math.random() * (200 - 150) + 150);
+            };
 
 };
 
@@ -307,8 +307,9 @@ function ForestEnemies() {
         
         enemyHitbox.setAttribute("class", "enemy-hitbox");
         enemySkin.setAttribute("class", 'enemySkin');
-        
-        enemySkin.src = "../TrashAdventure/Textures/Enemies/Normals/Forest/BlueForestSlimeIdling.gif";
+        const enemy_skin_number = 4;
+
+        enemySkin.src = "../TrashAdventure/Textures/Enemies/Normals/Forest/BlueForestSlime_Idling_" + Math.floor(Math.random() * (enemy_skin_number - 0) + 0) + ".gif";
 
         enemyHitbox.style.width = HitboxWidth;
         enemyHitbox.style.height = HitboxHeight;
@@ -316,9 +317,10 @@ function ForestEnemies() {
         enemyHitbox.style.top = HitboxTop;
         enemyHitbox.style.position = "absolute";
         enemyHitbox.style.zIndex = "996";
+        //enemyHitbox.style.backgroundColor = "red"
 
         //Generating random number between 1000-800 and adding it to current enemy position
-        RandomSpacing += 1000;
+        RandomSpacing += Math.floor(Math.random() * (1000 - 800) + 800);
         EnemyMovablePosition += RandomSpacing;
 
         //console.log(EnemyPosition)

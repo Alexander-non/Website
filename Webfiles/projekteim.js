@@ -52,3 +52,25 @@ ocean.addEventListener('click', function(event) {
         }, 15000);
     };
 });
+
+function goPython(){
+  $.ajax({
+
+    method: "GET",
+    
+    url: "projekteim.py",
+    
+    data: {"place" : value},
+    
+    dataType: "text",
+    
+    success: function(result){
+    
+    var data=JSON.parse(result);
+    
+    console.log(result);
+    
+    }
+    
+    });
+}

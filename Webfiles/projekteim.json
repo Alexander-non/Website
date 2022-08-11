@@ -1,29 +1,8 @@
 {
-    "FileNames": [
-        "egybesült_karaj",
-        "css_teszt",
-        "verseny",
-        "zászlók",
-        "monitor",
-        "kosárlabda",
-        "heraldika",
-        "js_kártya1",
-        "js_kártya2",
-        "háromszög",
-        "trolibusz",
-        "képszöveg_csere*",
-        "bemutatás",
-        "számológép_[RÉGI]",
-        "oldal_menü",
-        "kép_csere1",
-        "kép_csere2",
-        "javasrcpit_gyak.[RÉGI]",
-        "helyes_helytelen",
-        "gombok",
-        "hullámok",
-        "betöltő_icon",
-        "raytracing",
-        "3D_css",
-        "paint"
-    ]
+  "FileNames": [
+    "3D_css",
+    "Bemutatás",
+    "Betöltő_icon",
+    "CSS_teszt"
+  ]
 }

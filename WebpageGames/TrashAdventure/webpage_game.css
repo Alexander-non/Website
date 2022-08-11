@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
-* {    
+* {
     -webkit-user-drag: none;
     user-select: none;}
 
@@ -148,7 +148,7 @@ body {
     position: absolute;
     width: 100%;
     background-color: transparent;
-    bottom: -30%;
+    bottom: 0%;
     filter: drop-shadow(-5px 2px 2px #00000091);
 };
 
@@ -214,4 +214,4 @@ body {
 #moon-rod {
     top: -50%;
     height: 100%;
-}
+};
