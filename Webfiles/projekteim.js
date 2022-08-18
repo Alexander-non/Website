@@ -1,6 +1,6 @@
 function CreateAssignmentContainerItems(filename, linkParent) {
   const aHref = document.createElement("a");  
-  aHref.href = "../Projects/" + filename.charAt(0).toUpperCase() + filename.slice(1) + "/" + filename + ".html"
+  aHref.href = "../Projects/" + filename.charAt(0).toUpperCase() + filename.slice(1) + "/" + filename.toLowerCase() + ".html"
   linkParent.appendChild(aHref);
 
   const button = document.createElement("div");
