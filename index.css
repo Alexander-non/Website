@@ -6,7 +6,6 @@ body {
     background-image: url(Pictures/background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    transition: 1s;
 }
 
 a:any-link {
