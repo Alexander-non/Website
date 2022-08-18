@@ -4,22 +4,9 @@
         <base target="_blank">
         <link rel="stylesheet" href="projekteim.css">
         <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-        
-        <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
         <link rel="icon" href="../Pictures/WebpageIcons/projects.ico">
         <title>Projekteim</title>
         <meta charset="UTF-8">
-
-        <py-script>
-            import os
-            import json
-            path = "../Projects"
-            dir_list = os.listdir(path)
-            dir_list.pop()
-            fileNameHolder = {"FileNames": dir_list}
-            json_list = json.dumps(fileNameHolder, indent=2, ensure_ascii=False)
-            with open("projekteim.json", "w", encoding="utf8") as x: x.write(json_list)
-        </py-script>
     </head>
     <body>
         <div id="island">
@@ -30,7 +17,6 @@
                 <circle cx="50" cy="140" r="45" fill="brown" />
              </svg>
         </div>
-        <button onclick="goPython()">onclick="()"</button>
         <div id="assignment-container-container"></div>
         <div id="boat"><div id="boat_parts"></div></div>
         <svg id="ocean" viewbox="0 0 1400 300">
