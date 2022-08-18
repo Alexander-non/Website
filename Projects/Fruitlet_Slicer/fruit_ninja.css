@@ -2,7 +2,7 @@
 
 * {
     user-select: none;
-    cursor: default;
+    cursor: none;
 }
 
 body {
@@ -140,7 +140,7 @@ body {
 }
 
 #end_credit {
-    z-index: 102;
+    z-index: 104;
     position: absolute;
     height: 100%;
     width: 100%;

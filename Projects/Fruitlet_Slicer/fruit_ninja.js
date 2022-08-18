@@ -67,6 +67,7 @@ function CustomCursor() {
         trailFragment.setAttribute("class", "pointer");
         trailFragment.style.position = "absolute";
         trailFragment.style.width = trailWidth + "px" ;
+        trailFragment.style.zIndex = 104;
         trailFragment.style.height = trailHeight + "px";
         trailFragment.style.transform = "translate(-50%, -50%) rotate(50deg)";
         trailFragment.style.backgroundColor = "white";
@@ -82,7 +83,7 @@ function CustomCursor() {
         trailOpacity <= 5 ? trailOpacity = 5 : trailOpacity -= 5
         trailTransition += 0.015
 }};
-//CustomCursor();
+CustomCursor();
 
 const Effect = function (left, top) {
     const effect = document.createElement("div");
@@ -92,7 +93,7 @@ const Effect = function (left, top) {
     effect.style.animation = "explosion 4s ease forwards";
     effect.style.borderRadius = "50px";
     effect.style.backgroundColor = "white";
-    effect.style.zIndex = 101;
+    effect.style.zIndex = 103;
     effect.style.left = left;
     effect.style.top = top;
     body.appendChild(effect);
@@ -342,7 +343,7 @@ const Fruit = function (
 
         //Fruit didn't get cut
         if (currentCubeY < -300 || currentCubeY > window.innerHeight + 100) {
-            //currentLives == 0 ? currentLives = 0 : currentLives -= 1;
+            if (fruitType != "bomb") {currentLives == 0 ? currentLives = 0 : currentLives -= 1;}
             lifeContainer.style.width = currentLives * (100/maxLives) + "%";
             lifeScore.innerHTML = maxLives + "/" + currentLives;
             clearInterval(FruitMovement);
