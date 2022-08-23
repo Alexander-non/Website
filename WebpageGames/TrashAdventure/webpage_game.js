@@ -24,8 +24,6 @@ import * as ImportBattle from "../TrashAdventure/battle.js";
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 
-let xPlayerPosition = 0;
-let xPlayerVelocity = 0;
 let BackgroundMovement = 0;
 let isMoving = true;
 const MovementSpeed = 10;
@@ -47,8 +45,8 @@ document.addEventListener("keydown", (event) => {
         } else {
             Pressed = true;
             document.getElementById("menu-sidepage").style.left = "2%";
-            }
-        }
+        };
+    };
 });
 $('document').ready(() => {
     $("#display").click(() => {
@@ -60,9 +58,6 @@ $('document').ready(() => {
     $("#volume").click(() => {
         $("#volume-slider").slideToggle("slow", "linear");
     });
-    $("#language").click(() => {
-        $("#language-select-holder").slideToggle("slow", "linear");
-    });
 });
 
 try {
@@ -73,7 +68,7 @@ try {
         Music();
     }, 10);
 } catch (error) {
-    console.log();
+    null
 };
 
 //FPS Counter
@@ -127,85 +122,72 @@ function Music() {
 };
 
 /*------------------------------------------------------------------   CHARACTER MOVEMENTS   -------------------------------------------------------------*/
-const character = document.getElementById("character");
 const characterSkin = document.getElementById("characterSkin");
-function MovementRight() {
-    xPlayerPosition += MovementSpeed;
-    character.style.marginLeft = xPlayerVelocity; //Movement
-    BackgroundMovement += MovementSpeed;
-    //console.log(BackgroundMovement)
-
-    //Charcter animation for running
-    if (MovementRight.done) return;
-    setTimeout(() => {
-        characterSkin.src = "../TrashAdventure/Textures/Character/slimeAttackLeft.gif";
-        characterSkin.style.transform = "scaleX(1)";
-    }, 500);
+function CharacterMovement(movementSide) {
+    if (movementSide == "right") {
+        BackgroundMovement += MovementSpeed;
         
-    MovementRight.done = true;
-};
-function MovementLeft() {
-    xPlayerPosition -= MovementSpeed;
-    character.style.marginLeft = xPlayerVelocity; //Movement
-    BackgroundMovement -= MovementSpeed;
-    //console.log(BackgroundMovement)
-
-
-    //Charcter animation for running
-    if(MovementLeft.done == true) {return};
-    setTimeout(() => {
-        characterSkin.src = "../TrashAdventure/Textures/Character/slimeAttackLeft.gif";
-        characterSkin.style.transform = "scaleX(-1)";
-    }, 500);
-    MovementLeft.done = true;
-};
-
-function Assetmoving() {
-    // Moving generated trees //
-    const Forests = document.getElementsByClassName("forestHolder");                                      //Grabbing all of the forests
-    for (let x = 0; x < Forests.length; x++) {Forests[x].style.marginLeft = -BackgroundMovement};       //Moving generated forests
-
-    // Moving generated enemies //
-    const Enemies = document.getElementsByClassName("enemy-hitbox");                                      //Grabbing all of the forests
-    for (let x = 0; x < Enemies.length; x++) {Enemies[x].style.marginLeft = -BackgroundMovement;};      //Moving generated forests
-};
-
-document.addEventListener("keydown", (event) => {
-switch (event.keyCode) {
-    case 68:
-        if (isMoving == true) {
-            MovementRight();
-            Assetmoving();
-            Collision();
-        } else {console.log("You cannot move!")};
-        break;
-    case 65:
-        if (isMoving == true) {
-            MovementLeft();
-            Assetmoving();
-            Collision();
-        } else {console.log("You cannot move!")};
-        break;
-    default:
-        break;
-    }
-});
-document.addEventListener("keyup", (event) => {
-    switch (event.keyCode) {
-        case 68:
-            MovementRight.done = false;
-            document.getElementById("characterSkin").src = "../TrashAdventure/Textures/Character/slimeIdleLeft.gif";
+        //Charcter animation for running
+        if (CharacterMovement.done) return;
+        setTimeout(() => {
+            characterSkin.src = "../TrashAdventure/Textures/Character/slimeAttackLeft.gif";
             characterSkin.style.transform = "scaleX(1)";
-            break;
-        case 65:
-            MovementLeft.done = false;
-            document.getElementById("characterSkin").src = "../TrashAdventure/Textures/Character/slimeIdleLeft.gif";
-            characterSkin.style.transform = "scaleX(-1)";
-            break;
-        default:
-            break;}
-});
+        }, 500);
+        CharacterMovement.done = true;
+    } else if (movementSide == "left") {
+        BackgroundMovement <= - 150 ? BackgroundMovement -= 0 : BackgroundMovement -= MovementSpeed;
 
+        //Charcter animation for running
+        if (CharacterMovement.done) return;
+        setTimeout(() => {
+            characterSkin.src = "../TrashAdventure/Textures/Character/slimeAttackLeft.gif";
+            characterSkin.style.transform = "scaleX(-1)";
+        }, 500);
+        CharacterMovement.done = true;
+    };
+};
+function Assetmoving(arrayName) {
+    // Moving generated trees //
+    const array = document.getElementsByClassName(arrayName);                                      //Grabbing all of the assets
+    for (let x = 0; x < array.length; x++) {array[x].style.marginLeft = -BackgroundMovement};       //Moving generated assets
+};
+
+if (isMoving == true) {
+    document.addEventListener("keydown", (event) => {
+        const Forest = document.getElementsByClassName("forestHolder")
+        switch (event.keyCode) {
+            case 68:
+                CharacterMovement("right");
+                Assetmoving("forestHolder");
+                Assetmoving("enemy-hitbox");
+                Collision();
+                break;
+            case 65:
+                CharacterMovement("left");
+                Assetmoving("forestHolder");
+                Assetmoving("enemy-hitbox");
+                Collision();
+                break;
+            default:
+                break;
+        };
+    });
+    document.addEventListener("keyup", (event) => {
+        switch (event.keyCode) {
+            case 68:
+                CharacterMovement.done = false;
+                document.getElementById("characterSkin").src = "../TrashAdventure/Textures/Character/slimeIdleLeft.gif";
+                characterSkin.style.transform = "scaleX(1)";
+                break;
+            case 65:
+                CharacterMovement.done = false;
+                document.getElementById("characterSkin").src = "../TrashAdventure/Textures/Character/slimeIdleLeft.gif";
+                characterSkin.style.transform = "scaleX(-1)";
+                break;
+            default:
+                break;}
+    });
+} else {console.log("You cannot move!")};
 
 
 /*---------------------------------------------------------------------     GENERATING GAME ASSETS     ----------------------------------------------------------------*/
@@ -333,8 +315,8 @@ function ForestBoss() {
 };
 
 /*-------------------------------------------------------------------------   BATTLE SYSTEM   ---------------------------------------------------------------------*/
-var EnemyImg = ""
-var PlayerSkin = ""
+var EnemyImg = null
+var PlayerSkin = null
 function BattleBegin() {
     Battling = true
     music.muted = true;

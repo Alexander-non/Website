@@ -1,18 +1,25 @@
-div {
-    position: relative;
-    width: 60px;
-    height: 60px;
-    left: 100px;
-    background-color: skyblue;
-  }
-  
-  #moved {
-    position: absolute;
-    bottom: 0px;
-    width: 70%;
-    height: 50%;
-    left: 15%;
-    transform: skew(15deg, 15deg) perspective(500px) translateZ(200px);
-    background-color: pink;
-    transition-duration: 0.2s;
-  }
+#floor {
+  position: absolute;
+  background-color: green;
+  left: 0px;
+  top: 0px;
+}
+#center {
+  z-index: 999;
+  position:absolute;
+  background-color: red;
+  border-radius: 25px;
+  height: 50px;
+  width: 50px;
+}
+
+/*
+#right {
+
+}
+#bottom {
+
+}
+#left {
+
+}*/
