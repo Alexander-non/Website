@@ -1,0 +1,18 @@
+THIS IS A GUIDE FOR SIMPLE PYGAME COMMANDS
+
+
+py -m pip install -U pygame --user         --> downloads pygame (REQUIRED)
+import pygame                              --> imports pygame module (REQUIRED)
+pygame.init()                              --> initiate pygame
+
+SURFACE = pygame.display.set_mode(SCREEN_SIZE_IN_BRACKETS)                --> sets window size
+SURFACE.fill(COLOR_IN_BRACKETS)                                           --> sets background color
+pygame.display.update()                                                   --> Draws the surface object to the screen
+pygame.display.set_caption(title)                                         --> Sets window title
+pygame.display.set_icon(icon) --- icon = pygame.image.load(IMAGE_PATH)    --> Sets window icon 
+
+******  DRAWING SHAPES  ******
+pygame.draw.rect(SURFACE, COLOR_IN_BRACKETS, [X, Y, WIDTH, HEIGHT], BORDER_THICKNESS)
+pygame.draw.circle(SURFACE, COLOR_IN_BRACKETS, CENTER, RADIUS, BORDER_THICKNESS)
+pygame.draw.line(SURFACE, COLOR_IN_BRACKETS, LINE_START, LINE_END, LINE_THICKNESS)
+
