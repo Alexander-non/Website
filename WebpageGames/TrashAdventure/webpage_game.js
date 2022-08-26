@@ -281,6 +281,7 @@ function ForestEnemies() {
     let RandomSpacing = 0;
 
     for (let x = 0; x < numberOfEnemiesForests; x++) {
+        const enemy_skin_number = 4;
         var EnemyMovablePosition = EnemyStartingPosition + RandomSpacing;
 
         //Creating new div element as a new enemy hitbox and adding it to the game area
@@ -289,8 +290,7 @@ function ForestEnemies() {
         
         enemyHitbox.setAttribute("class", "enemy-hitbox");
         enemySkin.setAttribute("class", 'enemySkin');
-        const enemy_skin_number = 4;
-
+    
         enemySkin.src = "../TrashAdventure/Textures/Enemies/Normals/Forest/BlueForestSlime_Idling_" + Math.floor(Math.random() * (enemy_skin_number - 0) + 0) + ".gif";
 
         enemyHitbox.style.width = HitboxWidth;
@@ -318,12 +318,22 @@ function ForestBoss() {
 var EnemyImg = null
 var PlayerSkin = null
 function BattleBegin() {
+    BattleAnim();
     Battling = true
     music.muted = true;
     isMoving = false;
-    window.open("battle.html", '_blank');
+    //window.open("battle.html", '_blank');
     if (Battling == true) { ImportBattle.isBattling(); }
     else { isMoving = true; };
+
+    console.log(PlayerSkin.src, "|||", EnemyImg.src, isMoving)
+};
+
+function BattleAnim() {
+    const darkenBG = document.createElement("div");
+    darkenBG.innerText = "dark"
+    
+
 };
 
 function Collision() {
@@ -334,7 +344,6 @@ function Collision() {
             EnemyImg = document.getElementsByClassName("enemySkin")[x];
             PlayerSkin = document.getElementById("characterSkin");
 
-            //console.log(EnemyImg.src, PlayerSkin.src)
             Enemies[x].remove();
             BattleBegin();
             /*for (let i = 0; i < EnemyImg.length; i++) { var EnemySkin = EnemyImg[0].src };
@@ -342,6 +351,7 @@ function Collision() {
             localStorage.setItem("EnemySkin", EnemySkin);*/
         };
     };
+    
 };
 
 export { PlayerSkin, EnemyImg, isMoving };
