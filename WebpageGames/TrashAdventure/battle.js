@@ -101,8 +101,8 @@ for (let x = 0; x < Cards.length; x++) {
 export function isBattling() {
     //active on victory
     setTimeout(() => {
-        Battling = false;
-        isMoving = false;
+        //Battling = false;
+        //isMoving = false;
         console.log("Battle ended");
     }, 10000);
 };

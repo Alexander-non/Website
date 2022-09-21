@@ -315,13 +315,13 @@ function ForestBoss() {
 };
 
 /*-------------------------------------------------------------------------   BATTLE SYSTEM   ---------------------------------------------------------------------*/
-var EnemyImg = null
+var EnemyImg = document.getElementsByClassName("enemySkin")[0]
 var PlayerSkin = null
 function BattleBegin() {
     BattleAnim();
-    Battling = true
+    //Battling = true
     music.muted = true;
-    isMoving = false;
+    //isMoving = false;
     //window.open("battle.html", '_blank');
     if (Battling == true) { ImportBattle.isBattling(); }
     else { isMoving = true; };
@@ -340,7 +340,7 @@ function Collision() {
     const Enemies = document.getElementsByClassName("enemy-hitbox");
     for (let x = 0; x < Enemies.length; x++) {
         const offsetCorrection = 430 /*End of Enemy hitbox*/ + HitboxWidth;
-        if (Enemies[x].offsetLeft - offsetCorrection == 0) {
+        if (Enemies[x].offsetLeft - offsetCorrection <= 0) {
             EnemyImg = document.getElementsByClassName("enemySkin")[x];
             PlayerSkin = document.getElementById("characterSkin");
 

@@ -1,0 +1,34 @@
+body {
+    background-color: black;
+}
+#gameArea {
+    position: absolute;
+    height: 80%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgb(255, 255, 255);
+}
+
+#score {
+    position: absolute;
+    height: 5vh;
+    width: 5vh;
+    background-color: white;
+}
+#high_score {
+    position: absolute;
+    height: 5vh;
+    width: 5vh;
+    left: 10vw;
+    background-color: white;
+}
+
+#lives {
+    position: absolute;
+    height: 7.5vh;
+    width: 25vh;
+    bottom: 1vw;
+    left: 1vw;
+    background-color: white;
+}

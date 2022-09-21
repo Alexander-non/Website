@@ -38,13 +38,11 @@ fetch("../Webfiles/projekteim.json").then( response => {
     });
 
 
-
-
 var clickCounter = 0;
 const ocean = document.getElementById("ocean");
 const boat = document.getElementById("boat");
 ocean.addEventListener('click', function(event) {
-    clickCounter+=1
+    clickCounter++
     if (clickCounter % 5 == 0) {
         boat.style.display = "block";
         setTimeout(() => {
