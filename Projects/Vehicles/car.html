@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Car</title>
+    </head>
+    <body>
+        <style>
+            .car_hitbox {
+                z-index: 1;
+                position: absolute;
+                top: -100px;
+                height: 200px;
+                width: 100px;
+                background-color: black;
+                transform-origin: center;
+            }
+            #speedometer {
+                z-index: 1;
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 150px;
+                width: 300px;
+                background-color: rgb(0, 0, 0, 0.5);
+                text-align: center;
+                font-size: 3vw;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+            #axle {
+                z-index: 1;
+                position: absolute;
+                left: 500px;
+                top: 700px;
+                height: 400px;
+                width: 50px;
+                transition-duration: 0.1s;
+                background-color: rgb(70, 70, 70);
+                transform-origin: bottom;
+            }
+            #axle::before {
+                content: '';
+                z-index: 2;
+                position: absolute;
+                top: -25px;
+                right: -150px;
+                height: 450px;
+                width: 1000px;
+                background-color: red;
+                transform-origin: left;
+                
+                border-top-right-radius: 100px;
+                border-bottom-right-radius: 100px;
+                border-top-left-radius: 10%;
+                border-bottom-left-radius: 10%;
+            }
+        </style>
+        <div id="speedometer">10</div>
+        <script>
+            const body = document.querySelector("body");
+            const speedometer = document.querySelector("#speedometer");
+            const CarAxle = function (friction, x, y) {
+                this.friction = friction
+                this.x = x
+                this.y = y
+
+                //Generate car front
+                const axle = document.createElement("div");
+                axle.setAttribute("id","axle");
+                body.appendChild(axle);
+                axle.style.transform = "translateX("+ 0 +"px) translateY("+ 0 +"px) rotate("+ 0 +"deg)"
+                for (let op = 0; op < 2; op++) {
+                    const carwheel = document.createElement("div");
+                    carwheel.setAttribute("class","car_hitbox");
+                    axle.appendChild(carwheel);
+                    op > 0 ? carwheel.style.transform = "translateX("+ 0 +"px) translateY("+ 0 +"px) rotate("+ startDeg +"deg)" : carwheel.style.transform = "translateX("+ 0 +"px) translateY("+ 400 +"px) rotate("+ startDeg +"deg)"
+                }
+                
+                setInterval(() => {
+                    const axle = document.querySelector('#axle');
+                    const car_hitbox = document.querySelectorAll(".car_hitbox")
+                    if (carVelocity <= friction) {carVelocity = friction;}
+                    var x = parseInt(axle.style.transform.replace("translateX(", ""))
+                    var y = parseInt(axle.style.transform.replace("translateX("+parseInt(x)+"px) translateY(", ""))
+                    carVelocity -= friction;
+                    forward == true ? y -= parseFloat(Math.cos((Math.PI/180) * startDeg) * carVelocity) : y += parseFloat(Math.cos((Math.PI/180) * startDeg) * carVelocity)
+                    forward == true ? x += parseFloat(Math.sin((Math.PI/180) * startDeg) * carVelocity) : x -= parseFloat(Math.sin((Math.PI/180) * startDeg) * carVelocity)
+                    axle.style.transform = "translateX("+ parseInt(x) +"px) translateY("+ parseInt(y) +"px) rotate("+ axelDeg +"deg)";
+                    speedometer.innerHTML = parseInt(carVelocity) + "km/h";
+                    for (let tire = 0; tire < car_hitbox.length; tire++) {
+                        tire > 0 ? car_hitbox[tire].style.transform = "translateX("+ 0 +"px) translateY("+ 0 +"px) rotate("+ startDeg +"deg)" : car_hitbox[tire].style.transform = "translateX("+ 0 +"px) translateY("+ 400 +"px) rotate("+ startDeg +"deg)"}; 
+                }, 10);
+            }
+
+            
+            var carVelocity = 0
+            var friction = 0.6
+            var yout = 0;
+            var xout = 0;
+            var axelDeg = 0
+            var startDeg = 90
+            var accerelate = true
+            var forward = true
+            const breaks = 0.75
+            const horsePower = Math.floor(Math.random() * (200 - 180) + 180)
+            const weight = 1800
+            const power = 1//horsePower/weight
+            function Move(speed) {accerelate == true ? carVelocity += speed : carVelocity -= breaks} 
+            window.addEventListener("keydown", function(e){
+                keys[(e.code)] = true
+            })
+            window.addEventListener("keyup", function(e){
+                keys[(e.code)] = false
+            })
+            var keys = {}
+            setInterval(() => {
+                if (keys.KeyA == true) {
+                    accerelate = true
+                    startDeg <= 45 ? startDeg = 45 : startDeg -= 2;
+                } else if (keys.KeyD == true) {
+                    accerelate = true
+                    startDeg >= 135 ? startDeg = 135 : startDeg += 2
+                } else if (keys.KeyW == true) {
+                    forward = true
+                    accerelate = true
+                    startDeg > 90 ? axelDeg >= startDeg-90 ? axelDeg += 0 : axelDeg += 1 : axelDeg <= -startDeg ? axelDeg += 0 : axelDeg -= 1
+                    
+                    
+                    console.log(startDeg)
+                    
+                    Move(power)
+                } else if (keys.KeyS == true) {
+                    forward = false
+                    accerelate = true
+                    Move(power)
+                } else if (keys.Space == true) {
+                    accerelate = false
+                    Move(0)
+                }
+            }, 10);
+            Front_tire = new CarAxle(friction, xout, yout)
+        </script>
+    </body>
+</html>
