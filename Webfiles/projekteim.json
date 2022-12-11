@@ -1,9 +1,12 @@
 {
   "FileNames": [
     "3D_css",
+    "3D_GameBoard",
+    "3D_space",
     "Bemutatás",
     "Betöltő_icon",
     "CSS_teszt",
+    "Dualpooly",
     "Egybesült_karaj",
     "Fruitlet_Slicer",
     "Gombok",
@@ -24,6 +27,7 @@
     "Raytracing",
     "Számológép_[RÉGI]",
     "Trolibusz",
+    "Vehicles",
     "Verseny",
     "Zászlók"
   ]

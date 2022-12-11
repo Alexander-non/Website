@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dualopoly</title>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div id="card-menu"></div>
+        <div id="gameboard"></div>
+        <div id="battleboard">
+            <p>Háborús Térkép</p>
+            <div id="troop_stats">
+                <span>Adatok</span>
+                <p>Ellenség: <span></span></p>
+                <p>Létszám: <span></span></p>
+                <p>Ellátás: <span></span></p>
+                <p>Haderő: <span></span></p>
+            </div>
+            <div id="attack_types">
+                <button>Agresszív</button>
+                <button>Automata</button>
+                <button>Passzív</button>
+            </div>
+            
+            <div id="war_map">
+                <img src="https://i.pinimg.com/originals/ac/25/b4/ac25b40aa2986721f307f1b4e8e81df6.gif" alt="">
+            </div>
+        </div>
+        <div id="countries">
+            <select id="country_select">
+                <option value="1">Oroszország</option>
+                <option value="2">Brit Birodalom</option>
+                <option value="3">Franciaország</option>
+                <option value="4">Osztrák-Magyar Monarchia</option>
+                <option value="5">Török Birodalom</option>
+                <option value="6">Német Birodalom</option>
+                <option value="7">Olaszország</option>
+            </select>
+            <div>Népesség: <span id="population"></span></div>
+            <div>Dolgozók: <span id="manpower"></span></div>
+            <div>Pénz: <span id="wealth"></span></div>
+            <div>Morál: <span id="morale"></span></div>
+            <div>Élelem: <span id="food"></span></div>
+            <div>Haderő: <span id="effectives"></span></div>
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>

@@ -118,6 +118,9 @@ document.addEventListener("mousemove", (e) => {
     MouseVelocity = Math.sqrt(Math.pow(Math.abs(e.movementX), 2) + Math.pow(Math.abs(e.movementY), 2))
 }, false);
 
+//Bulgária
+
+
 const FruitSkins = {
     Bomb : {
         fruitType: "bomb",

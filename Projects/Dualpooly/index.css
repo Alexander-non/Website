@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+body {
+    background-image: url("https://static.szavazo.hu/content/2018/03/110/105ab89dcb4e728.jpg?800x449");
+    background-size: cover;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+
+#gameboard {
+    position: absolute;
+    width: 80%;
+    height: 90%;
+    top: 5%;
+    left: 10%;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+}
+
+
+#countries {
+    position: absolute;
+    height: 100%;
+    width: 30%;
+    top: 90%;
+    left: 0%;
+    background-color: #0563af;
+    border-top-right-radius: 50px;
+    transition-duration: 1s;
+    box-shadow: 0px 0px 30px black;
+}
+#countries:hover {
+    z-index: 1;
+    top: 15%;
+    transition-duration: 1s;
+}
+#countries > select {
+    position: relative;
+    color: white;
+    background-color: #0563af;
+    padding: 2%;
+    width: 80%;
+    height: 10%;
+    left: 10%;
+    top: 0%;
+    border: none;
+    font-size: 2vw;
+    outline: none;
+    text-align: center;
+}
+#countries > div {
+    position: relative;
+    color: white;
+    background-color: #0563af;
+    width: 50%;
+    height: auto;
+    left: 20%;
+    top: 0%;
+    padding: 5%;
+    margin-top: 2%;
+    font-size: 1.5vw;
+    list-style: none;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+    transition-duration: 1s;
+    user-select: none;
+}
+#countries > div:hover {
+    background-color: #0571c9;
+    transition-duration: 1s;
+}
+
+
+#battleboard {
+    z-index: 0;
+    position: absolute;
+    height: 60%; /*60%*/
+    width: 100%;
+    top: 20%; /*20%*/
+    left: 95%; /*95%*/
+    background-color: #575757;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    box-shadow: 0px 0px 50px black;
+    transition-duration: 1s;
+}
+#battleboard:hover {
+    z-index: 1;
+    left: 7.5%;
+    height: 80%;
+    top: 10%;
+    transition-duration: 1s;
+}
+
+#battleboard > p {
+    position: absolute;
+    color: white;
+    background-color: #444444;
+    width: auto;
+    height: 100%;
+    left: -2.5%;
+    top: 0%;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+    transform: rotate(180deg);
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    writing-mode:vertical-lr;
+    font-size: 2.5vw;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+    text-shadow: 5px 5px 5px black;
+    text-align: center;
+}
+
+#battleboard > #troop_stats {
+    position: absolute;
+    height: 90%;
+    width: 25%;
+    left: 5%;
+    top: 5%;
+}
+#troop_stats > span {
+    position: absolute;
+    color: white;
+    width: 100%;
+    height: auto;
+    top: 5%;
+    font-size: 2.5vw;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+    text-align: center;
+}
+#troop_stats > p, #troop_stats > p > span {
+    position: relative;
+    color: white;
+    width: 100%;
+    height: auto;
+    top: 20%;
+    font-size: 1.5vw;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+    text-align: center;
+}
+#troop_stats > p > span:nth-child(1) {
+    text-shadow: 1px 1px 10px black;
+    /*word-wrap: nowrap*/
+    color: red;
+}
+
+#battleboard > #attack_types {
+    position: absolute;
+    height: 90%;
+    width: 15%;
+    left: 30%;
+    top: 5%;
+    /*background-color: rgba(0, 0, 0, 0.4);*/
+    display: flex;
+    flex-direction: column;    
+}
+#attack_types > button {
+    position: relative;
+    height: 10%;
+    width: 80%;
+    left: 10%;
+    background-color: #0563af;
+}
+
+#war_map {
+    position: absolute;
+    height: 90%;
+    width: 45%;
+    top: 5%;
+    right: 10%;
+}
+#war_map > img {
+    position: absolute;
+    height: 100%;
+    top: 0%;
+}
