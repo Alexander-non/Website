@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+body {
+    background-image: url("https://static.szavazo.hu/content/2018/03/110/105ab89dcb4e728.jpg?800x449");
+    background-size: cover;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+#game-menu {
+    position: absolute;
+    z-index: 999;
+    width: 10%;
+    height: 12%;
+    filter: grayscale(100%);
+}
+
+#game-menu:hover {
+    animation-name: pulse;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+@keyframes pulse {
+    0% {filter: contrast(100%) grayscale(100%);}
+    50% {filter: contrast(200%) grayscale(100%);}
+    100% {filter: contrast(100%) grayscale(100%);}
+}
+
+#card_holder {
+    position: absolute;
+    width: 80%;
+    height: 90%;
+    top: 5%;
+    left: 10%;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+}
+.card {
+    position: absolute;
+    height: 10%;
+    width: 17.5%;
+    transform-style:preserve-3d;
+    transition-duration:1s;
+    transform:rotateY(180deg)
+}
+.card:hover {
+    transform:rotateY(0deg)
+}
+.cardFront {
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility:hidden;
+}
+.cardFront > img {
+    position: absolute;
+    width: 100%;
+    height: 200%;
+    top: -5%;
+}
+.cardBack > img {
+    z-index: 0;
+    position: absolute;
+    width: 100%;
+    height: 200%;
+    top: -5%;
+    filter: brightness(60%);
+}
+.cardBack > span {
+    position: absolute;
+    z-index: 10;
+    width: 70%;
+    height: 100%;
+    padding: 5%;
+    top: 25%;
+    left: 10%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.cardBack {
+    backface-visibility:hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: white;
+    transform:rotateY(180deg)
+}

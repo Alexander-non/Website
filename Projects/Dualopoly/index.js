@@ -2,6 +2,46 @@ function TacticsButtonsOrganizer() {
         const ButtonsArray = document.querySelector('#attack_types').querySelectorAll('button');
         for (let x = 0; x < ButtonsArray.length; x++) {ButtonsArray[x].style.marginTop = 100/ButtonsArray.length + "%"}
 };
+function WarMapIMG() {
+        const war_map_IMG = document.querySelector('#war_map').children[0];
+        war_map_IMG.src = "./Res/" + country.children[country.value-1].id + ".png";
+}
+function WarMap() {
+        //Random WarTroopData
+        const Countries = country.children;
+        const Enemy = document.querySelector('#troop_stats').children[1].children[0];
+        const Troops = document.querySelector('#troop_stats').children[2].children[0];
+        const TroopNumber = Math.floor(Math.random() * (500 - 180)) +  180;
+        const Supply = document.querySelector('#troop_stats').children[3].children[0];
+        const Power = document.querySelector('#troop_stats').children[4].children[0];
+        let SupplyMeter = 100;
+        const Weapons = Math.random() * (1 - 0.1) + 0.1; //A katonák fegyverei
+        const PlayerDice = Math.random() * (1 - 0.1) + 0.1; //A Játékos Dobása
+        
+
+        Enemy.innerText = country.children[Math.floor(Math.random() * (Countries.length - 0)) + 0].innerText;
+        Troops.innerText = TroopNumber  + "ezer";
+        Supply.innerText = SupplyMeter + "%";
+        let SupplyDecrease = setInterval(() => {
+                if (SupplyMeter < 0) {
+                        clearInterval(SupplyDecrease);
+                        SupplyMeter = 0;
+                } else {
+                        SupplyMeter = parseFloat(SupplyMeter -= parseInt(Attack_cost) + TroopNumber/1000)
+                        if (SupplyMeter < 0) {
+                                SupplyMeter = 0
+                        }
+                        else {
+                                SupplyMeter -= parseInt(Attack_cost) + TroopNumber/1000
+                        }
+                } //Ha eléri a nullát a supply a katonák meghalnak
+                Supply.innerText = Math.round(SupplyMeter * 100) / 100 + "%"; //Math.round(SupplyMeter * 100) / 100
+        }, 10000);
+        Power.innerText = Math.round(TroopNumber * Weapons * PlayerDice)   
+
+        //Setting WarMap's image
+        WarMapIMG();
+};
 
 const russia = {
         population_stat: 182229700,
@@ -61,6 +101,8 @@ const italy = {
 };
 
 
+
+
 const country = document.querySelector('#country_select'); 
 
 const population = document.querySelector('#population');
@@ -71,6 +113,13 @@ const food = document.querySelector('#food');
 const effectives = document.querySelector('#effectives');
 const Stats = [population,manpower,wealth,morale,food,effectives];
 const StatHolders = [russia, england, france, hungary, turkey, germany, italy]; 
+let Attack_cost = 1;
+
+const attack_types = document.querySelector('#attack_types');
+for (let x = 0; x < attack_types.children.length; x++) {attack_types.children[x].addEventListener("click", () => {Attack_cost = attack_types.children[x].value});};
+
+
+
 
 country.addEventListener("change", () => {
 	for (let x = 0; x < Stats.length; x++) {
@@ -80,35 +129,10 @@ country.addEventListener("change", () => {
 				Stats[x].innerText = Math.round(Object.values(StatHolders[country.value-1])[x] / 1000000) + "m" : 
 				Stats[x].innerText = Math.round(Object.values(StatHolders[country.value-1])[x]);
 	}
+        WarMapIMG();
 });
 
-
-function WarMapTroopRandom() {
-        const Countries = document.querySelector('#country_select').children;
-        const Enemy = document.querySelector('#troop_stats').children[1].children[0];
-        const Troops = document.querySelector('#troop_stats').children[2].children[0];
-        const TroopNumber = Math.floor(Math.random() * (500 - 180)) +  180;
-        const Supply = document.querySelector('#troop_stats').children[3].children[0];
-        const Power = document.querySelector('#troop_stats').children[4].children[0];
-        let SupplyMeter = 100;
-        const Weapons = Math.random() * (1 - 0.1) + 0.1; //A katonák fegyverei
-        const PlayerDice = Math.random() * (1 - 0.1) + 0.1; //A Játékos Dobása
-        
-
-        Enemy.innerText = document.querySelector('#country_select').children[Math.floor(Math.random() * (Countries.length - 0)) + 0].innerText;
-        Troops.innerText = TroopNumber  + "ezer";
-        Supply.innerText = SupplyMeter + "%";
-        let SupplyDecrease = setInterval(() => {
-                SupplyMeter <= 0 ? clearInterval(SupplyDecrease) : SupplyMeter--; //Ha eléri a nullát a supply a katonák meghalnak
-                Supply.innerText = SupplyMeter + "%";
-        }, 1000);
-        Power.innerText = Math.round(TroopNumber * Weapons * PlayerDice)
-        
-        
-}
-
 (() => {
-        
         for (let x = 0; x < Stats.length; x++) {
 		Stats[x] == morale || Stats[x] == food ? 
 			Stats[x].innerText = Math.round(Object.values(StatHolders[country.value-1])[x]) + "%" : 
@@ -117,5 +141,5 @@ function WarMapTroopRandom() {
 				Stats[x].innerText = Math.round(Object.values(StatHolders[country.value-1])[x]);
 	}
         TacticsButtonsOrganizer();
-        WarMapTroopRandom();
+        WarMap();
 })();

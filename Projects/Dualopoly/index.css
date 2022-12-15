@@ -86,7 +86,7 @@ body {
     transition-duration: 1s;
 }
 #battleboard:hover {
-    z-index: 1;
+    z-index: 3;
     left: 7.5%;
     height: 80%;
     top: 10%;
@@ -133,14 +133,18 @@ body {
 #troop_stats > p, #troop_stats > p > span {
     position: relative;
     color: white;
-    width: 100%;
+    width: 80%;
     height: auto;
     top: 20%;
+    left: 10%;
+    padding: 2%;
     font-size: 1.5vw;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
     text-align: center;
+    user-select: none;
 }
-#troop_stats > p > span:nth-child(1) {
+#troop_stats > p > span {
+    left: 5%;
     text-shadow: 1px 1px 10px black;
     /*word-wrap: nowrap*/
     color: red;
@@ -158,6 +162,7 @@ body {
 }
 #attack_types > button {
     position: relative;
+    font-size: 1.2vw;
     height: 10%;
     width: 80%;
     left: 10%;
@@ -175,4 +180,23 @@ body {
     position: absolute;
     height: 100%;
     top: 0%;
+}
+
+
+#card-menu {
+    position: absolute;
+    z-index: 2;
+    width: 10%;
+    height: 12%;
+}
+
+#card-menu:hover {
+    animation-name: pulse;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+@keyframes pulse {
+    0% {filter: contrast(100%);}
+    50% {filter: contrast(200%);}
+    100% {filter: contrast(100%);}
 }
