@@ -43,7 +43,6 @@ function Organizie() {
   for (let x = 0; x < cards.length; x++) {
     cards[x].style.left = leftXP + "%";
     cards[x].style.top = topXP + "%";
-    console.log((x+1) % 3)
     leftXP += 20
     if ((x+1) % 4 == 0) {topXP += 20, leftXP = 10}
     

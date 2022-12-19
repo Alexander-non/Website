@@ -11,33 +11,57 @@ function WarMap() {
         const Countries = country.children;
         const Enemy = document.querySelector('#troop_stats').children[1].children[0];
         const Troops = document.querySelector('#troop_stats').children[2].children[0];
-        const TroopNumber = Math.floor(Math.random() * (500 - 180)) +  180;
+        let TroopNumber = Math.floor(Math.random() * (500 - 180)) +  180;
         const Supply = document.querySelector('#troop_stats').children[3].children[0];
         const Power = document.querySelector('#troop_stats').children[4].children[0];
         let SupplyMeter = 100;
-        const Weapons = Math.random() * (1 - 0.1) + 0.1; //A katonák fegyverei
-        const PlayerDice = Math.random() * (1 - 0.1) + 0.1; //A Játékos Dobása
+        let Weapons = Math.random() * (1 - 0.1) + 0.1; //A katonák fegyverei
+        let PlayerDice = Math.random() * (1 - 0.1) + 0.1; //A Játékos Dobása
+        let SupplyDecrease = setInterval(() => {}, 1000);
         
+        document.querySelector('#troop_create').addEventListener("click", () => {
+                clearInterval(SupplyDecrease);
+                SupplyMeter = 100;
+                TroopNumber = Math.floor(Math.random() * (500 - 180)) +  180;
+                PlayerDice = Math.random() * (1 - 0.1) + 0.1;
+                Weapons = Math.random() * (1 - 0.1) + 0.1;
 
-        Enemy.innerText = country.children[Math.floor(Math.random() * (Countries.length - 0)) + 0].innerText;
-        Troops.innerText = TroopNumber  + "ezer";
-        Supply.innerText = SupplyMeter + "%";
-        let SupplyDecrease = setInterval(() => {
-                if (SupplyMeter < 0) {
-                        clearInterval(SupplyDecrease);
-                        SupplyMeter = 0;
-                } else {
-                        SupplyMeter = parseFloat(SupplyMeter -= parseInt(Attack_cost) + TroopNumber/1000)
+                let TargetCountry = country.children[Math.floor(Math.random() * (Countries.length - 0)) + 0].innerText
+                if (TargetCountry == country.children[country.value-1].innerText) {TargetCountry = country.children[Math.floor(Math.random() * (Countries.length - 0)) + 0].innerText} else {Enemy.innerText = TargetCountry};
+                Troops.innerText = TroopNumber  + "ezer";
+                Supply.innerText = SupplyMeter + "%";
+                SupplyDecrease = setInterval(() => {
                         if (SupplyMeter < 0) {
-                                SupplyMeter = 0
-                        }
-                        else {
-                                SupplyMeter -= parseInt(Attack_cost) + TroopNumber/1000
-                        }
-                } //Ha eléri a nullát a supply a katonák meghalnak
-                Supply.innerText = Math.round(SupplyMeter * 100) / 100 + "%"; //Math.round(SupplyMeter * 100) / 100
-        }, 10000);
-        Power.innerText = Math.round(TroopNumber * Weapons * PlayerDice)   
+                                clearInterval(SupplyDecrease);
+                                SupplyMeter = 0;
+                        } else {
+                                SupplyMeter = parseFloat(SupplyMeter -= parseInt(Attack_cost) + TroopNumber/1000)
+                                if (SupplyMeter < 0) {
+                                        SupplyMeter = 0
+                                }
+                                else {
+                                        SupplyMeter -= parseInt(Attack_cost) + TroopNumber/1000
+                                }
+                        } //Ha eléri a nullát a supply a katonák meghalnak
+                        Supply.innerText = Math.round(SupplyMeter * 100) / 100 + "%"; //Math.round(SupplyMeter * 100) / 100
+                }, 1000);
+                Power.innerText = Math.round(TroopNumber * Weapons * PlayerDice)   
+
+        });
+        document.querySelector('#troop_delete').addEventListener("click", () => {
+                clearInterval(SupplyDecrease);
+                SupplyMeter = 100;
+                Enemy.innerText = "???";
+                Troops.innerText = 0;
+                Supply.innerText = "100%";
+                Power.innerText = 0;
+
+        });
+
+        Enemy.innerText = "???"//country.children[Math.floor(Math.random() * (Countries.length - 0)) + 0].innerText;
+        Troops.innerText = 0 //TroopNumber  + "ezer";
+        Supply.innerText = "100%" //SupplyMeter + "%";
+        Power.innerText = 0 //Math.round(TroopNumber * Weapons * PlayerDice)   
 
         //Setting WarMap's image
         WarMapIMG();

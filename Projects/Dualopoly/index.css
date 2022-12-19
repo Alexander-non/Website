@@ -149,6 +149,28 @@ body {
     /*word-wrap: nowrap*/
     color: red;
 }
+#troop_stats > button {
+    position: relative;
+    background-color: rgb(0, 0, 0, 0.2);
+    color: black;
+    font-size: 0.85vw;
+    height: 10%;
+    width: 40%;
+    margin-left: 5%;
+    top: 20%;
+    left: 5%;
+    transition-duration: 0.5s;
+}
+#troop_stats > button:hover {
+    position: relative;
+    background-color: rgb(255, 255, 255, 0.2);
+    transition-duration: 0.5s;
+}
+#troop_stats > button:nth-of-type(2):hover {
+    position: relative;
+    background-color: rgba(255, 0, 0, 0.5);
+    transition-duration: 0.5s;
+}
 
 #battleboard > #attack_types {
     position: absolute;

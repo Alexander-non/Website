@@ -41,10 +41,9 @@ body {
     width: 17.5%;
     transform-style:preserve-3d;
     transition-duration:1s;
-    transform:rotateY(180deg)
 }
 .card:hover {
-    transform:rotateY(0deg)
+    transform:rotateY(180deg)
 }
 .cardFront {
     z-index: 1;
