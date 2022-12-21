@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
+* {
+    -webkit-user-drag: none;
+}
+
 body {
     background-image: url("https://static.szavazo.hu/content/2018/03/110/105ab89dcb4e728.jpg?800x449");
     background-size: cover;
@@ -63,6 +67,7 @@ body {
     width: 100%;
     height: 200%;
     top: -5%;
+    user-select: none;
 }
 .cardBack > img {
     z-index: 0;
@@ -71,6 +76,7 @@ body {
     height: 200%;
     top: -5%;
     filter: brightness(60%);
+    user-select: none;
 }
 .cardBack > span {
     position: absolute;

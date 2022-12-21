@@ -28,7 +28,7 @@ function WarMap() {
 
                 let TargetCountry = country.children[Math.floor(Math.random() * (Countries.length - 0)) + 0].innerText
                 if (TargetCountry == country.children[country.value-1].innerText) {TargetCountry = country.children[Math.floor(Math.random() * (Countries.length - 0)) + 0].innerText} else {Enemy.innerText = TargetCountry};
-                Troops.innerText = TroopNumber  + "ezer";
+                Troops.innerText = TroopNumber  + " ezer";
                 Supply.innerText = SupplyMeter + "%";
                 SupplyDecrease = setInterval(() => {
                         if (SupplyMeter < 0) {
