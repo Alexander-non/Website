@@ -11,7 +11,7 @@ function CreateAssignmentContainerItems(filename, linkParent, type) {
   card.appendChild(cardBack);
 
   const card_text = document.createElement("span");
-  card_text.innerText = filename.charAt(0).toUpperCase() + filename.slice(1).replace('_', ' ');
+  card_text.innerHTML = filename.charAt(0).toUpperCase() + filename.slice(1).replace('_', ' ');
   cardBack.appendChild(card_text)
 
   if (type == 1) {

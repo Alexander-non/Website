@@ -45,6 +45,8 @@ body {
     width: 17.5%;
     transform-style:preserve-3d;
     transition-duration:1s;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+    font-size: 0.75vw;
 }
 .card:hover {
     transform:rotateY(180deg)
