@@ -1,4 +1,4 @@
-function CreateAssignmentContainerItems(filename, linkParent) {
+function CreateAssignmentContainerItems(filename, linkParent, type) {
   const card = document.createElement("div");
   card.setAttribute("class", "card");
   linkParent.appendChild(card);
@@ -14,13 +14,24 @@ function CreateAssignmentContainerItems(filename, linkParent) {
   card_text.innerText = filename.charAt(0).toUpperCase() + filename.slice(1).replace('_', ' ');
   cardBack.appendChild(card_text)
 
-  const img = document.createElement("img");
-  img.src = "./Res/world_event_test_card.png"
-  cardFront.appendChild(img);
+  if (type == 1) {
+    const img = document.createElement("img");
+    img.src = "./Res/country_event_test_card.png"
+    cardFront.appendChild(img);
+  
+    const img2 = document.createElement("img");
+    img2.src = "./Res/country_event_test_card.png"
+    cardBack.appendChild(img2);
+  } else {
+    const img = document.createElement("img");
+    img.src = "./Res/world_event_test_card.png"
+    cardFront.appendChild(img);
+  
+    const img2 = document.createElement("img");
+    img2.src = "./Res/world_event_test_card.png"
+    cardBack.appendChild(img2);
+  }
 
-  const img2 = document.createElement("img");
-  img2.src = "./Res/world_event_test_card.png"
-  cardBack.appendChild(img2);
 
 
 };
@@ -29,8 +40,11 @@ fetch("./Res/cards.json").then( response => {
     return response.json();
     }).then(jsondata => {
         const ACC = document.querySelector('#card_holder');
-        for (let x = 0; x < jsondata.CardTitles.length; x++) {
-          CreateAssignmentContainerItems(jsondata.CardTitles[x], ACC);
+        for (let x = 0; x < jsondata.CountryEvents.length; x++) {
+          CreateAssignmentContainerItems(jsondata.CountryEvents[x], ACC, 1);
+        }
+        for (let x = 0; x < jsondata.WorldEvents.length; x++) {
+          CreateAssignmentContainerItems(jsondata.WorldEvents[x], ACC, 2);
         }
         Organizie()
     });

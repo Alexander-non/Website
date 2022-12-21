@@ -16,7 +16,7 @@ function WarMap() {
         const Power = document.querySelector('#troop_stats').children[4].children[0];
         let SupplyMeter = 100;
         let Weapons = Math.random() * (1 - 0.1) + 0.1; //A katonák fegyverei
-        let PlayerDice = Math.random() * (1 - 0.1) + 0.1; //A Játékos Dobása
+        let PlayerDice = (Math.random() * (6 - 1) + 1)/10; //A Játékos Dobása
         let SupplyDecrease = setInterval(() => {}, 1000);
         
         document.querySelector('#troop_create').addEventListener("click", () => {
@@ -70,7 +70,7 @@ function WarMap() {
 const russia = {
         population_stat: 182229700,
         manpower_stat: (182229700/100)*85, //85%-a népességnek
-        wealth_stat: 0,
+        wealth_stat: 856712,
         morale_stat: 100,
         food_stat: 100,
         effectives_stat: 12000000
@@ -78,7 +78,7 @@ const russia = {
 const england = {
         population_stat: 402260775,
         manpower_stat: (402260775/100)*85, //85%-a népességnek
-        wealth_stat: 0,
+        wealth_stat: 1614942,
         morale_stat: 100,
         food_stat: 100,
         effectives_stat: 8905000
@@ -86,7 +86,7 @@ const england = {
 const france = {
         population_stat: 80060700,
         manpower_stat: (80060700/100)*85, //85%-a népességnek
-        wealth_stat: 0,
+        wealth_stat: 862804,
         morale_stat: 100,
         food_stat: 100,
         effectives_stat: 8410000
@@ -94,7 +94,7 @@ const france = {
 const hungary = {
         population_stat: 50000000,
         manpower_stat: (50000000/100)*85, //85%-a népességnek
-        wealth_stat: 0,
+        wealth_stat: 732455,
         morale_stat: 100,
         food_stat: 100,
         effectives_stat: 7800000
@@ -102,7 +102,7 @@ const hungary = {
 const turkey = {
         population_stat: 22142000,
         manpower_stat: (22142000/100)*85, //85%-a népességnek
-        wealth_stat: 0,
+        wealth_stat: 667593,
         morale_stat: 100,
         food_stat: 100,
         effectives_stat: 2850000
@@ -110,7 +110,7 @@ const turkey = {
 const germany = {
         population_stat: 78239000,
         manpower_stat: (78239000/100)*85, //85%-a népességnek
-        wealth_stat: 0,
+        wealth_stat: 1062639,
         morale_stat: 100,
         food_stat: 100,
         effectives_stat: 11000000
@@ -118,7 +118,7 @@ const germany = {
 const italy = {
         population_stat: 35260700,
         manpower_stat: (35260700/100)*85, //85%-a népességnek
-        wealth_stat: 0,
+        wealth_stat: 767302,
         morale_stat: 100,
         food_stat: 100,
         effectives_stat: 5615000
@@ -143,10 +143,11 @@ const attack_types = document.querySelector('#attack_types');
 for (let x = 0; x < attack_types.children.length; x++) {attack_types.children[x].addEventListener("click", () => {Attack_cost = attack_types.children[x].value});};
 
 
-
-
 country.addEventListener("change", () => {
 	for (let x = 0; x < Stats.length; x++) {
+                Stats[x] == wealth ? 
+                        Object.values(StatHolders[country.value-1])[x] > 1000000 ? Stats[x].innerText = Math.round(Object.values(StatHolders[country.value-1])[x]/1000000 * 100) / 100 + " m" : 
+                        Stats[x].innerText = Math.round(Object.values(StatHolders[country.value-1])[x]/1000 * 10) / 10 + " ezer": /*end of this*/
 		Stats[x] == morale || Stats[x] == food ? 
 			Stats[x].innerText = Math.round(Object.values(StatHolders[country.value-1])[x]) + "%" : 
 			Math.round(Object.values(StatHolders[country.value-1])[x]) > 1000000 ? 
@@ -158,7 +159,10 @@ country.addEventListener("change", () => {
 
 (() => {
         for (let x = 0; x < Stats.length; x++) {
-		Stats[x] == morale || Stats[x] == food ? 
+                Stats[x] == wealth ? 
+                        Object.values(StatHolders[country.value-1])[x] > 1000000 ? Stats[x].innerText = Math.round(Object.values(StatHolders[country.value-1])[x]/1000000 * 100) / 100 + " m" : 
+                        Stats[x].innerText = Math.round(Object.values(StatHolders[country.value-1])[x]/1000 * 10) / 10 + " ezer": /*end of this*/
+		Stats[x] == morale || Stats[x] == food ?
 			Stats[x].innerText = Math.round(Object.values(StatHolders[country.value-1])[x]) + "%" : 
 			Math.round(Object.values(StatHolders[country.value-1])[x]) >= 1000000 ? 
 				Stats[x].innerText = Math.round(Object.values(StatHolders[country.value-1])[x] / 1000000) + "m" : 
