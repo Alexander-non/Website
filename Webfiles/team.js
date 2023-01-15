@@ -1,7 +1,7 @@
 dragArea = document.getElementById("bullet-board-inner")
-Divs = document.getElementsByClassName("pin");
-for (let x = 0; x < Divs.length; x++) {
-    Drag(Divs[x]);
+const notes = document.querySelectorAll('.note')
+for (let x = 0; x < notes.length; x++) {
+    Drag(notes[x]);
 }
  
 
@@ -19,6 +19,7 @@ function DragCheck(mouse) {
     OldYPos = mouse.clientY;
     document.onmouseup = StopDraging;
     document.onmousemove = StartDraging;
+    element.style.zIndex = 3;
 }
 
 function StartDraging(mouse) {
@@ -46,6 +47,7 @@ function StartDraging(mouse) {
     }
 
     function StopDraging() {
+        element.style.zIndex = 2;
         document.onmouseup = null;
         document.onmousemove = null;
     }

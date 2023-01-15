@@ -3,9 +3,10 @@
 
 body {
     overflow: hidden;
-    background-image: url(Pictures/background.jpg);
+    background-image: url("Pictures/background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
 }
 
 a:any-link {
@@ -182,21 +183,19 @@ table {
     width: 30%;
     transition-duration: 0.5s;}
 #group-picture {
-    width: 90%;
+    position: absolute;
+    width: 70%;
     height: auto;
     bottom: 5%;
-    margin-right: 5%;
-    margin-left: 5%;
-    border: 3px black solid;
-    position: absolute;}
+    left: 15%;}
 #group-work-title {
     position: relative;
+    height: auto;
+    width: 100%;
+    top: 10%;
     font-family: 'RocknRoll One', sans-serif;
     font-size: 2.3vw;
-    height: 10%;
-    width: 60%;
     text-align: center;
-    margin: 10% 20% auto 20%;
 }
 
 
