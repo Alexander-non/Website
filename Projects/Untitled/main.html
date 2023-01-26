@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <style>
+            #gameArea {
+                position: absolute;
+                width: 640px;
+                height: 640px;
+                left: calc(50% - 320px);
+                top: calc(50% - 320px);
+                background-color: black;
+                transition-duration: 0.5s;
+            }
+            #gameArea::before {
+                content: '';
+                position: absolute;
+                width: 640px;
+                height: 64px;
+                left: calc(50% - 230px);
+                top: calc(50% + 320px - 64px);
+                transform: skewX(-70deg);
+                filter: blur(5px);
+                background-color: black;
+            }
+            #player {
+                position: absolute;
+                width: 64px;
+                height: 64px;
+                left: 0;
+                top: 0;
+                background-color: black;
+                z-index: 2;
+            }
+        </style>
+        <div id="gameArea">
+            <div id="player">
+        </div>
+        <script>
+            const gameArea = document.querySelector("#gameArea");
+            const player = document.querySelector("#player");
+            widthArea = 640
+            magignum1 = 10
+            leftNum= 0
+            topNum = 0
+            rgbNum1 = rgbNum2 = rgbNum3 = 150
+            for (let x = 0; x < magignum1; x++) {
+                for (let y = 0; y < magignum1; y++) {
+                    cube = document.createElement('div');
+                    cube.style.position = "absolute"
+                    cube.style.height = widthArea/magignum1 + "px";
+                    cube.style.width = widthArea/magignum1 + "px";
+                    cube.style.left = leftNum  + "px";
+                    cube.style.top = topNum  + "px";
+                    cube.style.backgroundColor = "rgb("+rgbNum1+","+rgbNum2+","+rgbNum3+")";
+                    gameArea.appendChild(cube)
+                    topNum += widthArea/magignum1;
+                    //rgbNum1 <= 0 ? rgbNum2 <= 0 ? rgbNum3 -= 6 :rgbNum2 -= 6 : rgbNum1 -= 6
+                }
+                leftNum += widthArea/magignum1
+                topNum = 0
+            }
+            playerX_Coord = 0;
+            playerY_Coord = 0;
+            step = 64;
+            simpleBool = false
+            document.addEventListener('keydown', (event) => {
+                switch (event.keyCode) {
+                    case 87:
+                        //w
+                        playerY_Coord <= 0 ?  playerY_Coord = 0 : playerY_Coord -= 1*step
+                        break;
+                    case 83:
+                        //s
+                        playerY_Coord >= 576 ?  playerY_Coord = 576 : playerY_Coord += 1*step
+                        break;
+                    case 68:
+                        //d
+                        playerX_Coord >= 576 ?  playerX_Coord = 576 : playerX_Coord += 1*step
+                        break;
+                    case 65:
+                        //a
+                        playerX_Coord <= 0 ?  playerX_Coord = 0 : playerX_Coord -= 1*step
+                        break;
+                    case 82:
+                        simpleBool = !simpleBool
+                        simpleBool == true ? gameArea.style.transform = "scaleX(-1)" : gameArea.style.transform = "scaleX(1)";
+                        break;
+                    default:
+                        break;
+                }
+                player.style.left = playerX_Coord + "px"
+                player.style.top = playerY_Coord + "px"
+            })
+        </script>
+    </body>
+</html>
