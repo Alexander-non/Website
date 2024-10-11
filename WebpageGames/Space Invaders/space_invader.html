@@ -7,11 +7,14 @@
         <title>Space Invader</title>
     </head>
     <body>
-        <div id="score"></div>
-        <div id="high_score"></div>
-        <div id="lives">
-            <span>3</span>
-            <span>img comes here</span>
+        <canvas></canvas>
+        <div id="depth_meter">
+            <img id="depth_meter_background" src="./depthMeter.png">
+            <img id="depth_meter_middle" src="./depthMeter_middle.png">
+            <img id="depth_meter_needle" src="./depthMeter_needle.png">
+        </div>
+        <div id="submarine">
+            <img src="./submarine_side_R.png" alt="Submarine">
         </div>
         <script src="space_invader.js"></script>
     </body>

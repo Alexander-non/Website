@@ -43,9 +43,9 @@ def runGame():
         drawThings(player)
 
 gameTitle="Cat Tower Defender"
-gameIcon = pygame.image.load("WebpageGames\SpaceInvaders\Textures\icon.png") # Textures\icon
+#gameIcon = pygame.image.load("WebpageGames\SpaceInvaders\Textures\icon.png") # Textures\icon
 pygame.display.set_caption(gameTitle)
-pygame.display.set_icon(gameIcon)
+#pygame.display.set_icon(gameIcon)
 clock = pygame.time.Clock()
 
 SCREEN_SIZE = (600, 600)
@@ -54,6 +54,4 @@ SURFACE = pygame.display.set_mode(SCREEN_SIZE)
 velocity = 5
 FPS = 60
 
-
-if __name__ == "__main__":
-    runGame()
+runGame()
