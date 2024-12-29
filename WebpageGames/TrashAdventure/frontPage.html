@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../Pictures/WebpageIcons/SlimeInTrashcan.ico">
+    <title>Welcome To Trash Adventure</title>
+</head>
+<body>
+    <style>
+        #rightSide {
+            position: absolute;
+            z-index: 2;
+            top: 0;
+            left: -35%;
+            height: 100vh;
+            width: 70%;
+            background-color: rgb(0, 0, 0, 0.5);
+            transform: skewX(5deg);
+        }
+        #leftSide {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        #play {
+            position: absolute;
+            width: 20vw;
+            height: 10vh;
+            right: 10%;
+            bottom: 10%;
+            transform: skewX(-2deg);
+            background-color: #ffffff;
+            color: #000000;
+            padding-top: 3%;
+            text-align: center;
+            font-size: 2.5rem;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            transition-duration: 0.5s;
+        }
+        #play:hover {
+            transition-duration: 0.5s;
+            background-color: #008000;
+            box-shadow: 5px 5px #000000;
+            color: #ffffff;
+            cursor: pointer;
+        }
+        h1 {
+            position: relative;
+            background-color: #fff;
+            text-align: center;
+            left: 20%;
+            top: 40%;
+            width: 60%;
+            font-size: 5rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        div > img {
+            position: absolute;
+            width: 40%;
+            right: 5%;
+            top: 10%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+    <div id="rightSide">
+        <img src="../../Pictures/WebpageIcons/SlimeInTrashcan.ico" alt="">
+        <a href="/Website/WebpageGames/TrashAdventure/webpage_game.html"><div id="play">Play</div></a>
+    </div>
+    <div id="leftSide"><h1>BACKGROUND PICTURE GOES HERE</h1></div>
+</body>
+</html>

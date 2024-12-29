@@ -1,0 +1,22 @@
+.e {
+   background-color: gray;
+    color: aqua;
+    border-color: black;
+}
+
+.f {
+    border-style: double;  
+    background-color: black;
+    text-align: center;
+    color: white;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.g {
+    
+}
+
+.h {
+    background-image: url("../CSS_teszt/hipnotikus.jpg");
+}

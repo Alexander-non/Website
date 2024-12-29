@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <link rel="stylesheet" href="munkajog.css">
+        <script src="munkajog.js"></script>
+        <link rel="icon" href="../Pictures/WebpageIcons/labor-law-icon.ico">
+        <meta charset="UTF-8">
+        <base target="_blank">
+        <title>Munka jog</title>
+    </head>
+    <body>
+        <div id="file-container">
+            <a href="https://www.linkedin.com/"><button class="file-compartment">
+                <h2>LinkedIn</h2></button>
+            </a>
+            <a href="https://www.dologido.hu/munkaltatoknak"><button class="file-compartment">
+                <h2>Magyar munkaközvetítők</h2></button>
+            </a>
+            <a href="https://kginternational.hu/"><button class="file-compartment">
+                <h2>Külföldi munkaközvetítők</h2></button>
+            </a> 
+        </div>
+
+        <button class="fogalom-button">
+            <h1>Fogalmak</h1>
+            <select onchange="Fogalom(this, 'fogalmak')" id="fogalom-holder">
+                <option selected disabled hidden>Válassz egy fogalmat</option>
+                <option id="probaido" class="fogalom-dropdown">Próbaidő</option>
+                <option id="gyakornok" class="fogalom-dropdown">Gyakornok</option>
+                <option id="felmondasi-ido" class="fogalom-dropdown">Felmondási idő</option>
+                <option id="betegszabadsag" class="fogalom-dropdown">Betegszabadság</option>
+                <option id="cafeteria" class="fogalom-dropdown">Cafetéria</option>
+                <option id="kollektiv-szerzodes" class="fogalom-dropdown">Kollektív szerződés</option>
+                <option disabled class="fogalom-dropdown">-------------------------</option>
+                <option id="igenyes-munka" class="fogalom-dropdown">Igényes munka</option>
+            </select>
+        </button>
+
+        <p id="fogalmak"></p>
+    </body>
+</html>

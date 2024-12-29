@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=, initial-scale=1.0">
+        <link rel="stylesheet" href="chess.css">
+        <title>Sakk</title>
+    </head>
+    <body>
+        <div id="timer">Meccs idő: <span id="minute">0</span>:<span id="helperzero">0</span><span id="second">0</span></div>
+        <div id="chessboard"></div>
+    <script>
+        //Creating chessboard
+        const chessboard = document.getElementById("chessboard");
+        const chessboardSize = 8;
+        const Letters = ["A", "B", "C", "D", "E", "F", "G", "H"];
+        var LeftPiece = TopPiece = 0;
+        for (let y = 0; y < chessboardSize; y++) {
+            TopPiece = 0;
+            for (let x = 0; x < chessboardSize; x++) {
+                let chessboardPiece = document.createElement("div");
+                chessboardPiece.setAttribute("class", "chessboard_piece");
+                let chessPiece = document.createElement("img");
+                chessPiece.setAttribute("class", "chess_piece");
+                let customID = document.createElement("span");
+                customID.setAttribute("class", "hidden_number");
+
+                customID.innerHTML = Letters[y] + (x+1);
+                chessboardPiece.style.height = chessboard.offsetHeight / chessboardSize + "px";
+                chessboardPiece.style.width = chessboard.offsetWidth / chessboardSize + "px";
+                chessboardPiece.style.left = LeftPiece + "px";
+                chessboardPiece.style.top = TopPiece + "px";
+                
+                if (y % 2 == 0) {
+                    if (x % 2 == 0) {
+                        chessboardPiece.style.backgroundColor = "white";
+                    } else {
+                        chessboardPiece.style.backgroundColor = "black";
+                    };
+                } else {
+                    if (x % 2 == 0) {
+                        chessboardPiece.style.backgroundColor = "black";
+                    } else {
+                        chessboardPiece.style.backgroundColor = "white";
+                    };
+                };
+                //chessboardPiece.appendChild(customID);
+                chessboardPiece.appendChild(chessPiece);
+                chessboard.appendChild(chessboardPiece);
+                TopPiece += chessboard.offsetWidth / chessboardSize;
+                if (customID.innerHTML == Letters[y] + 2) {
+                    chessPiece.src = "./Textures/bp.png";
+                } else if (customID.innerHTML == Letters[y] + 7) {
+                    chessPiece.src = "./Textures/bp.png";
+                    chessPiece.style.filter  = "invert(100%)"
+                }
+                chessPiece.addEventListener("mousedown", () =>  {
+                    chessPiece.style.backgroundColor = "rgb(255, 255, 0, 1)";
+                });
+            };
+            LeftPiece += chessboard.offsetHeight / chessboardSize;
+        };
+        
+        //Match Timer
+        const sec = document.getElementById("second");
+        const min = document.getElementById("minute");
+        const helperzero = document.getElementById("helperzero");
+        setInterval(() => {
+            let previsiousTimeSec = parseInt(sec.innerHTML)
+            let previsiousTimeMin = parseInt(min.innerHTML)
+            let timerinnerHTML = timer.innerHTML
+            
+
+            if (sec.innerHTML < 9) {
+                sec.innerHTML = previsiousTimeSec += 1;
+                helperzero.style.display = "inline"
+            } else {
+                sec.innerHTML = previsiousTimeSec += 1;
+                helperzero.style.display = "none"
+            }
+            if (previsiousTimeSec == 60) {
+                min.innerHTML = previsiousTimeMin += 1;
+                sec.innerHTML = 0;
+            }
+        }, 1000);
+        
+
+    </script>
+    </body>
+</html>

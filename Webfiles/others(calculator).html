@@ -1,0 +1,171 @@
+<html>
+    <head>
+        <title>Számológép</title>
+    </head>
+    <body>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+
+            body {
+                background-color: transparent;
+            }
+
+            #calculator-body {
+                background-color: white;
+                position: relative;
+                left: 35%;
+                width: 30%;
+                height: 100%;
+            }
+            #calculator-output {
+                background-color: rgba(0, 0, 0, 0.7);
+                width: 100%;
+                height: 20%;
+            }
+            #calculator-settings {
+                background-color: rgba(0, 0, 0, 0.8);
+                width: 100%;
+                height: 10%;
+            }
+            #calculator-input {
+                background-color: rgba(0, 0, 0, 0.5);
+                height: 70%;
+                width: 100%;
+            }
+            #history {
+                user-select: none;
+                -webkit-user-drag: none;
+                position: relative;
+                background-color: rgba(255, 255, 255,);
+                transition-duration: 0.2s;
+                height: 100%;
+                width: 15%;
+                left: 85%;
+                transform: scaleX(-1) rotate(0deg);
+            }
+            #history:hover {
+                transition-duration: 0.2s;
+                background-color: rgba(255, 255, 255, 0.2);
+            }
+            img {
+                user-select: none;
+                -webkit-user-drag: none;
+                position: relative;
+                height: 60%;
+                width: auto;
+                left: 20%;
+                top: 20%;
+                filter: invert(0%);
+            }
+            table {
+                width: 100%;
+                height: 100%;
+            }
+            td {
+                color: black;
+                font-family: 'Roboto Mono', monospace;
+                font-size: 200%;
+                text-align: center;
+                user-select: none;
+                cursor: default;
+                transition-duration: 0.2s;
+            }
+            td:hover {
+                transition-duration: 0.2s;
+                background-color: rgba(0, 0, 0, 0.2);
+            }
+            tr {
+                height: 25%;
+                width: 100%;
+            }
+            input {
+                border: none;
+                outline: none;
+                color: black;
+                background-color: transparent;
+                font-family: 'Roboto Mono', monospace;
+                font-size: 300%;
+                height: 100%;
+                width: 100%;
+                font-weight: 900;
+                text-align: right;
+                padding: 5%;
+            }
+        </style>
+
+        <div id="calculator-body">
+            <!--<div id="calculator-settings">
+                <div id="history"><img src="https://static.thenounproject.com/png/7383-200.png" alt=""></div>
+            </div>-->
+            <div id="calculator-output">
+                <input>
+            </div>
+            <div id="calculator-input">
+                <table>
+                    <tr>
+                        <td onclick="Calculate(this)" colspan="3">=</td>
+                        <td onclick="Calculate(this)">+</td>
+                    </tr>
+                    <tr>
+                        <td onclick="Calculate(this)">7</td>
+                        <td onclick="Calculate(this)">8</td>
+                        <td onclick="Calculate(this)">9</td>
+                        <td onclick="Calculate(this)">-</td>
+                    </tr>
+                    <tr>
+                        <td onclick="Calculate(this)">4</td>
+                        <td onclick="Calculate(this)">5</td>
+                        <td onclick="Calculate(this)">6</td>
+                        <td onclick="Calculate(this)">*</td>
+                    </tr>
+                    <tr>
+                        <td onclick="Calculate(this)">3</td>
+                        <td onclick="Calculate(this)">2</td>
+                        <td onclick="Calculate(this)">1</td>
+                        <td onclick="Calculate(this)">/</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <script>
+            function Calculate(element) {
+                if (element.innerHTML == "=") {
+                    done = document.querySelector("input").value;
+                    list2 = [];
+                    if (done.includes("-")) {
+                        done2 = document.querySelector("input").value.split("-")
+                        for (let x = 1; x < done2.length; x++) {
+                            switch (x) {
+                                case 1:
+                                    list2 = [];
+                                    done3 = done2[x-1] - done2[x];
+                                    list2.push(done3);
+                                    break;
+                                case 2:
+                                    done3 = list2[0] - done2[x]
+                                    break;
+                            
+                                default:
+                                    done4 = list2[x] - done2[x]
+                                    break;
+                            }  
+                        }
+                        alert(done3)
+                    } else if (done.includes("+")) {
+                        done2 = document.querySelector("input").value.split("+")
+                        console.log(done2)
+                    } else if (done.includes("*")) {
+                        done2 = document.querySelector("input").value.split("*")
+                        console.log(done2)
+                    } else if (done.includes("/")) {
+                        done2 = document.querySelector("input").value.split("/")
+                        console.log(done2)
+                    }
+                } else {
+                    document.querySelector("input").value += element.innerHTML;
+                }
+            }
+        </script>
+    </body>
+</html>

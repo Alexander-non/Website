@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Galamb képcsere</title>
+    </head>
+    <body>
+        <style>
+            img {
+                width: 85%;
+                height: 85%;}
+            div {
+                position: absolute;
+                height: 80%;
+                width:  45%;
+                left: 30%;}
+        </style>
+
+        <div>
+            <input value="ÜL" type="button" id="button1" onclick="document.getElementById('pigeon').src='sitting-pigeon3.jpg';document.getElementById('button1').value = 'ÜL'">
+            <img onmouseover="document.getElementById('pigeon').src = 'flying-pigeon.jpg'" onmouseout="document.getElementById('pigeon').src = 'OIP.jpg'"       id="pigeon" src="OIP.jpg" alt="">
+            <input value="ÁLL" type="button" id="button2" onclick="document.getElementById('pigeon').src = 'OIP.jpg'; document.getElementById('button2').value = 'ÁLL'">
+        </div>
+    </body>
+</html>

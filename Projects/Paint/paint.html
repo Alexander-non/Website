@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <title>Brush</title>
+        <link rel="icon" href="Paint Icon.jpg">
+    </head>
+    <body>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+            * {
+                user-select: none;
+                -webkit-user-drag: none;
+            }
+            body,html {margin: 0;padding: 0;}
+            #settings_bar {
+                z-index: 2;
+                position: absolute;
+                width: 100vw;
+                height: 10vh;
+                top: 0;
+                right: 0;
+                background-image:linear-gradient(to top, #774a2a 0%, #774a2a 20%, #8d603c 20%, #8d603c 40%, #774a2a 40%, #774a2a 60%, #8d603c 60%, #8d603c 80%, #774a2a 80%, #774a2a 100%);
+                transition-duration: 0.5s;
+                box-shadow: 0px 5px 50px black;
+            }
+            .settings_bar_item {
+                z-index: 3;
+                transition-duration: 0.5s;
+            }
+            #color-holder {
+                position: absolute;
+                width: 30vw;
+                height: 8vh;
+                top: 1vh;
+                right: 2vw;
+                background-image:linear-gradient(to top, #9C6137 0%, #9C6137 20%, #B37A4C 20%, #B37A4C 40%, #9C6137 40%, #9C6137 60%, #B37A4C 60%, #B37A4C 80%, #9C6137 80%, #9C6137 100%);
+                box-shadow: 0px 0px 20px;
+            }
+            .color {
+                position: absolute;
+            }
+            #width-bar {
+                position: absolute;
+                width: 5vw;
+                height: 7.75vh;
+                top: 1vh;
+                right: 33vw;
+                background-image:linear-gradient(to bottom, #9C6137 0%, #9C6137 20%, #B37A4C 20%, #B37A4C 40%, #9C6137 40%, #9C6137 60%, #B37A4C 60%, #B37A4C 80%, #9C6137 80%, #9C6137 100%);
+                box-shadow: 0px 0px 20px;
+                outline: none;
+                border: none;
+                font-size: 3rem;
+                font-family: 'Pacifico', cursive;
+                text-align: center;
+            }
+            canvas {
+                z-index: 1;
+                position: absolute;
+                background-color: white;
+            }
+        </style>
+        <div id="settings_bar">
+            <div id="color-holder" class="settings_bar_item"></div>
+            <input type="number" id="width-bar" class="settings_bar_item" onkeydown="if(this.value.length == 3 && event.keyCode!=8) return false;" value="5" min="5" max="100" minlength="1" maxlength="3"></div>
+        </div>
+        <canvas id='canvas'></canvas>
+        <script>
+            
+            var brushColor = undefined;
+            
+            
+            const colorHolder = document.getElementById("color-holder");
+            const colorsClick = document.getElementsByClassName("color");
+            const colors = ["black", "grey", "darkgrey", "white", "brown", "red", "orange", "yellow", "darkgreen", "green", "lightgreen", "cyan", "lightblue", "blue", "darkblue", "purple", "magenta", "violet"]
+            let leftArrange = 3
+            let topArrange = 5;
+            const colorButtonHeight = 40;
+            const colorButtonWidth = 7.5;
+            for (let y = 0; y < colors.length; y++) {
+                color = document.createElement('button');
+                color.setAttribute('class', "color");
+                color.setAttribute('name', colors[y]);
+                color.style.backgroundColor = colors[y];
+                color.style.width = colorButtonWidth + "%";
+                color.style.height = colorButtonHeight + "%";
+                /*-------------------------------------------*/
+                color.style.left = leftArrange + "%";
+                color.style.top = topArrange + "%";
+                colorHolder.append(color);
+                //Elhelyezés
+                if (y + 1 == 10) {
+                    leftArrange = 3;
+                    topArrange += topArrange + colorButtonHeight;
+                } else {leftArrange += colorButtonWidth + 2};
+                for (let x = 0; x < colorsClick.length; x++) {color.addEventListener('click', function(event) {brushColor = colorsClick[x].name});}
+            }
+
+
+            var mouseStart = {x : undefined, y: undefined};
+            var mouseCurrent = {x : undefined, y: undefined};
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+            canvas.height = window.innerHeight;
+            canvas.width = window.innerWidth;
+            let holding = false;
+            window.addEventListener('mousedown', function(event) {
+                holding = true;
+                mouseStart.x = mouseCurrent.x;
+                mouseStart.y = mouseCurrent.y;
+                mouseCurrent.x = event.x;
+                mouseCurrent.y = event.y;
+            });
+            window.addEventListener('mouseup', function(event) {holding = false});
+            setInterval(() => {
+                if (holding == true) {
+                    const brushWidth = document.getElementById("width-bar").value;
+                    if (mouseCurrent.y > 90) {
+                        ctx.moveTo(mouseStart.x, mouseStart.y);
+                        ctx.lineTo(mouseCurrent.x, mouseCurrent.y);
+                        ctx.strokeStyle = brushColor;
+                        ctx.lineWidth = 10;
+                        ctx.stroke();
+
+
+                        ctx.beginPath();
+                        ctx.arc(mouseCurrent.x, mouseCurrent.y, brushWidth, 0, 2 * Math.PI);
+                        ctx.fillStyle = brushColor;
+                        ctx.strokeStyle = brushColor;
+                        ctx.fill();
+                        ctx.stroke();
+                    }
+                    mouseStart.x = mouseCurrent.x;
+                    mouseStart.y = mouseCurrent.y;
+                };
+            }, 1);
+            window.addEventListener('mousemove', function(event) {
+                mouseCurrent.x = event.x;
+                mouseCurrent.y = event.y;
+            });
+            document.addEventListener("keydown", function (event) {if (event.key == 'r') {canvas.width = canvas.width}});
+        </script>
+    </body>
+</html>

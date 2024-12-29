@@ -1,0 +1,215 @@
+* {
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+body {
+    background-color: skyblue;
+    overflow: hidden;
+}
+a:any-link {
+    width: 20%;
+    height: 100px;
+    text-decoration: none;
+}
+
+#assignment-container-container {
+    position: relative;
+    z-index: 10;
+    width: 90vw;
+    height: 60vh;
+    top: 1vh;
+    left: 5vw;
+    overflow-x: none;
+    overflow-y: scroll;}
+#assignment-container-container::-webkit-scrollbar {
+        width: 20px;}
+#assignment-container-container::-webkit-scrollbar-thumb {
+        background-color: sandybrown;
+        border-radius: 5px;
+        border: 3px dashed yellow;}
+.assignment-container {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    display: flex;
+    color: white;}
+
+
+.buttons {
+    text-align: center;
+    background-image: url("../Pictures/sand.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: drop-shadow(0px 0px 5px #000000);}
+.buttons>span {
+    font-size: 30px;
+    line-height: 350%;
+    font-family: sans-serif;
+    color: white;}
+
+
+#island {
+    position: absolute;
+    z-index: 1;
+    height: 40%;
+    width: 110%;
+    bottom: 0%;
+    left: -5%;
+    background-color: #e49a59;
+    filter: blur(1px) brightness(90%);
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+}
+
+#palm-tree {
+    position: relative;
+    z-index: 1;
+    height: 200%;
+    width: 30%;
+    left: 10%;
+    bottom: 180%;}
+#coconuts {
+    position: relative;
+    z-index: 1;
+    height: 50%;
+    width: 200px;
+    left: 45%;
+    top: -40%;
+}
+
+#boat {
+    position: absolute;
+    display: none;
+    z-index: 4;
+    width: 17.5vw;
+    height: 10vh;
+    right: 0;
+    bottom: 10%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    background-color: rgb(102, 28, 28);
+    animation: boatMove 15s linear infinite;}
+#boat::after {
+    content: '';
+    position: absolute;
+    z-index: 3;
+    height: 4vh;
+    width: 5vw;
+    right: 2%;
+    bottom: 100%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    background-color: rgb(128, 35, 35);}
+#boat::before {
+    content: '';
+    position: absolute;
+    z-index: 3;
+    height: 10vh;
+    width: 1vw;
+    right: 10.5vw;
+    bottom: 10vh;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    background-color: rgb(128, 35, 35);}
+#boat_parts {
+    position: absolute;
+    z-index: 4;
+    width: 7vw;
+    height: 7vh;
+    right: 7.5vw;
+    bottom: 12vh;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    background-color: whitesmoke;}
+#boat_parts::after {
+    content: '';
+    position: absolute;
+    z-index: 3;
+    height: 6vh;
+    width: 1vw;
+    right: 7.5vw;
+    bottom: -3.5vh;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 60px;
+    border-top-right-radius: 20px;
+    transform: rotate(-80deg);
+    background-color: grey;}
+#boat_parts::before {
+    content: '';
+    position: absolute;
+    z-index: 4;
+    height: 2vh;
+    width: 1vw;
+    right: 6.5vw;
+    bottom: -2.5vh;
+    border-radius: 50%;
+    background-color: darkslategrey;
+}
+
+#ocean {
+    z-index: 2;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: rotate(180deg);}
+#wave-1 {animation: wave_1 5s linear infinite;}
+#wave-2 {animation: wave_2 7s linear infinite;}
+#wave-3 {animation: wave_3 9s linear infinite;}
+@keyframes wave_1 {0% {transform: translateX(0%);} 100% {transform: translateX(100%);}}
+@keyframes wave_2 {0% {transform: scaleY(.8) translateX(0%);} 50% {transform: scaleY(1) translateX(50%);} 100% {transform: scaleY(.8) translateX(100%);}}
+@keyframes wave_3 {0% {transform: scaleY(1.2) translateX(0%);} 50% {transform: scaleY(1) translateX(50%);} 100% {transform: scaleY(1.2) translateX(100%);}}
+@keyframes boatMove {
+    0% {transform: translateX(100%) rotate(-5deg) translateY(0%)}
+    20% {transform: translateX(-50%) rotate(5deg) translateY(50%)}
+    40% {transform: translateX(-200%) rotate(-5deg) translateY(0%);}
+    60% {transform: translateX(-350%) rotate(5deg) translateY(50%)}
+    80% {transform: translateX(-450%) rotate(-5deg) translateY(0%)}
+    100% {transform: translateX(-600%); display: none;}
+}
+
+@media screen and (max-width:1000px) {
+    body {overflow: visible}
+
+    a:any-link {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 2vh;}
+    .buttons {
+        text-align: center;
+        font-size: 5rem;
+        
+        background-image: url("../Pictures/sand.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        
+        color: white;
+        font-family: sans-serif;}
+    .assignment-container {
+        flex-direction: column;
+        flex-flow: column;
+        display: flex;
+        width: 100%;
+        height: 100%;}
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    #assignment-container-container {
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        top: 0px;
+        flex-direction: column;
+        flex-flow: column;
+        display: flex;
+    }
+    #ocean{display: none}
+    #island {display: none}
+}

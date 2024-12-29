@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <title>SlideIN Menus</title>
+    </head>
+    <body>
+        <style>
+            a:any-link {
+                text-decoration: none;
+            }
+
+            #sidemenu {
+                position: relative;
+                left: -10px;
+                height: 50%;
+                width: 20%;
+                background-color: transparent;
+            }
+            .sidemenubutton {
+                margin-bottom: 10%;
+                height: 10%;
+                width: 20%;
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+                background-color: grey;
+                transition-duration: 0.5s;
+                color: transparent;
+                text-align: center;
+                line-height: 40px;
+                cursor: pointer;
+                font-family: 'Courier New', Courier, monospace ;
+            }
+            .sidemenubutton:hover {
+                transition-duration: 1s;
+                width: 100%;
+                color: black;
+            }
+
+
+            #sidemenuSLIDEIN {
+                position: relative;
+                height: 50%;
+                width: 50%;
+                background-color: transparent;
+            }
+            .sidemenubuttonSLIDEIN {
+                position: relative;
+                margin-bottom: 5%;
+                height: 10%;
+                width: 30%;
+                right: 25%;
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+                background-color: tan;
+                transition-duration: 0.5s;
+                color: black;
+                text-align: center;
+                line-height: 40px;
+                cursor: pointer;
+                font-family: 'Courier New', Courier, monospace ;
+            }
+            .sidemenubuttonSLIDEIN:hover {
+                transition-duration: 0.5s;
+                right: 5%;
+            }
+        </style>
+
+        <div id="sidemenu">
+            <a href=""><div class="sidemenubutton">Képek</div></a>
+            <div class="sidemenubutton">Szöveg</div>
+            <div class="sidemenubutton">Dokumentumok</div>
+            <div class="sidemenubutton">Adatok</div>
+            <div class="sidemenubutton">Vége</div>
+        </div>
+
+        <div id="sidemenuSLIDEIN">
+            <a href=""><div class="sidemenubuttonSLIDEIN">Képek</div></a>
+            <a href=""><div class="sidemenubuttonSLIDEIN">Szöveg</div></a>
+            <a href=""><div class="sidemenubuttonSLIDEIN">Dokumentumok</div></a>
+            <a href=""><div class="sidemenubuttonSLIDEIN">Adatok</div></a>
+            <a href=""><div class="sidemenubuttonSLIDEIN">Vége</div></a>
+        </div>
+        
+    </body>
+</html>

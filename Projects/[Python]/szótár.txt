@@ -1,0 +1,10 @@
+Petra,15,True
+István,83,False
+Pista,76,False
+Evelin,69,True
+Irma,48,True
+Imre,39,False
+Péter,56,False
+Evelin,40,True
+Viktor,11,False
+Péter,13,True

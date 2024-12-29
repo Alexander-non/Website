@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <title>Correct/Wrong</title>
+    </head>
+    <body>
+        <style>
+            img {
+                position: relative;
+                width: 10%;
+                height: 20%;
+                opacity: 70%;
+                margin-left: 17.5%;
+                border-radius: 0%;
+                transition-duration: 1s;
+            }
+
+            img:hover {
+                opacity: 100%;
+                z-index: 1;
+                border-radius: 25%;
+                transition-duration: 1s;
+                box-shadow: 5px 5px 20px black;
+            }
+            
+            img.img { 
+                width: 100%;
+                height: 100%;
+                opacity: 70%;
+                margin-left: 0%;
+                border-radius: 0%;
+                transition-duration: none;
+                box-shadow: none;
+            }
+
+            div {
+                width: 100%;
+                align-content: center;
+            }
+
+            div#correct, div#wrong {
+                width: 10%;
+                height: 20%;
+                opacity: 100%;
+                margin-top: 2%;
+            }
+            div#wrong:hover {
+                background-color: red;
+            }
+            div#correct:hover {
+                background-color: green;
+            }
+            h1 {
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                text-align: center;
+            }
+        </style>
+
+        <h1>Melyik a galamb?</h1>
+
+        <div>
+            <img onclick="CorrectWrong('WRONG', 'horse-wrong.jpg')" id="WRONG" src="horse-default.jpg" alt="" srcset="">
+            <img onclick="CorrectWrong('WRONG_2', 'goat-wrong.jpg')" id="WRONG_2" src="goat-default.jpg" alt="" srcset="">
+            <img onclick="CorrectWrong('CORRECT', 'pigoen-correct.jpg')" id="CORRECT" src="pigoen-default.jpg" alt="" srcset="">
+        </div>
+
+        <div id="wrong"><img class="img" src="horse-default.jpg" alt=""></div>
+        <div id="wrong"><img class="img" src="goat-default.jpg" alt=""></div>
+        <div id="correct"><img class="img" src="pigoen-default.jpg" alt=""></div>
+        
+        <script>
+            function CorrectWrong(currentPIC, ChangedPIC_SRC) {
+                ChangedPIC_SRC_WRONG = ChangedPIC_SRC.replace("default", "wrong");
+                ChangedPIC_SRC_CORRECT = ChangedPIC_SRC.replace("default", "correct");
+                if (currentPIC == "CORRECT") {
+                    document.getElementById(currentPIC).src = ChangedPIC_SRC_CORRECT;
+                } else {
+                    document.getElementById(currentPIC).src = ChangedPIC_SRC_WRONG;
+                    }
+                }
+        </script>
+
+    </body>
+</html>

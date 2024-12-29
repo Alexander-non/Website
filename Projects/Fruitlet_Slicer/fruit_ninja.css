@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Marker+Hatch&display=swap');
+
+* {
+    user-select: none;
+    cursor: none;
+}
+
+body {
+    overflow: hidden;
+    background-image:url("https://www.filterforge.com/filters/11978-v1.jpg");
+}
+
+#scoreboard {
+    position: absolute;
+    top: 5%;
+    left: 30%;
+    width: 40%;
+    height: 5%;
+    font-size: 1.75vw;
+    padding-top: 1%;
+    text-align: center;
+    font-family: 'Rubik Marker Hatch', cursive;
+    border-radius: 0% 0% 50px 50px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+#progress_bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 5%;
+    width: 100%;
+    border-bottom: 3px solid black;
+    background-color: grey;
+}
+#life_container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 5%;
+    width: 20%;
+    border: 10px solid black;
+    margin: 0.5%;
+    
+}
+#life_bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: red;
+    transition-duration: 0.5s;
+}
+#life_score {
+    position: absolute;
+    height: 80%;
+    width: 15%;
+    top: 10%;
+    left: 40%;
+    text-align: center;
+    font-family: 'Rubik Marker Hatch', cursive;
+    font-size: 1.75vw;
+    color: white;
+}
+
+
+#special-power_container {
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 5%;
+    width: 15%;
+    border: 10px solid black;
+    margin: 0.5%;
+}
+#special-power_bar {
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0%;
+    background-color: transparent;
+    transition-duration: 0.5s;
+}
+#special-power_time {
+    z-index: 2;
+    position: absolute;
+    height: 80%;
+    width: 15%;
+    top: 10%;
+    left: 40%;
+    text-align: center;
+    font-family: 'Rubik Marker Hatch', cursive;
+    font-size: 1.75vw;
+    color: white;
+}
+
+#menu {
+    z-index: 102;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0%;
+    left: 0;
+    background-color: rgb(0, 0, 0, 0.8);
+    transition-duration: 0.5s;
+}
+#menu > p {
+    position: absolute;
+    height: 50%;
+    width: 60%;
+    margin: 5% 0% 0% 0%;
+    top: 0%;
+    left: 20%;
+    color: green;
+    font-size: 10vw;
+    text-align: center;
+    font-family: 'Rubik Marker Hatch', cursive;
+}
+#menu > button {
+    position: absolute;
+    height: 20%;
+    width: 20%;
+    margin: 0;
+    top: 70%;
+    left: 40%;
+    color: white;
+    background-color: rgb(255, 255, 255, 0.2); /**/
+    font-size: 5vw;
+    text-align: center;
+    font-family: 'Rubik Marker Hatch', cursive;
+    transition-duration: 0.2s;
+}
+#menu > button:hover {
+    box-shadow: inset 0 0 30px 0px rgba(0, 0, 0, 0.5);
+    transition-duration: 0.2s;
+}
+
+#end_credit {
+    z-index: 104;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: none;
+    transition-duration: 0.9s;
+    pointer-events: none;
+}
+#end_credit > p:nth-child(1) {
+    position: absolute;
+    height: 30%;
+    width: 60%;
+    top: 0;
+    left: 20%;
+    color: transparent;
+    font-size: 10vw;
+    text-align: center;
+    font-family: 'Rubik Marker Hatch', cursive;
+    transition-duration: 0.9s;
+}
+#end_credit > p:nth-child(2) {
+    position: absolute;
+    height: 10%;
+    width: 50%;
+    top: 50%;
+    left: 25%;
+    color: transparent;
+    font-size: 3vw;
+    text-align: center;
+    font-family: 'Rubik Marker Hatch', cursive;
+    transition-duration: 0.9s;
+}
+#gravityFlip {
+    position: absolute;
+    height: auto;
+    width: auto;
+    left: 30%;
+    text-align: center;
+    color: transparent;
+    font-size: 5vw;
+    font-family: 'Rubik Marker Hatch', cursive;
+}
+@keyframes gravityFlip {
+    0% {top:100%;opacity:1;}
+    50% {top:30%; transform:rotate(0deg)}
+    80% {top:40%; transform:rotate(180deg)}
+    90% {opacity:1;}
+    100% {top:0%;transform:rotate(180deg);opacity:0;}
+}
+@keyframes explosion {
+    0% {transform:scale(0);}
+    100% {transform:scale(50);}
+}
+@keyframes fruitSlice {
+    0% {transform:scale(0);}
+    50% {transform:scale(2.5);}
+    100% {transform:scale(0);}
+}
+
+/*/////////////////////////////////////  SKINS  //////////////////////////////////////////////////////*/
+.L_bomb::before {
+    position: absolute;
+    content: '';
+    width: 10px;
+    height: 25px;
+    right: 0;
+    top: -25px;
+    transform: rotate(0deg);
+    background-color: white;
+}
+.R_bomb::before {
+    position: absolute;
+    content: '';
+    width: 10px;
+    height: 25px;
+    left: 0;
+    top: -25px;
+    transform: rotate(0deg);
+    background-color: white;
+}
+
+.L_apple::before {
+    position: absolute;
+    content: '';
+    width: 5px;
+    height: 10px;
+    right: 0px;
+    top: -10px;
+    border: 3px solid black;
+    transform: rotate(0deg);
+    background-color: rgb(0, 80, 0);
+}
+.L_apple::after {
+    position: absolute;
+    content: '';
+    width: 70px;
+    height: 50px;
+    left: -5px;
+    top: -25px;
+    border: 3px solid black;
+    border-radius: 50% 0px 25px 50%;
+    transform: rotate(30deg);
+    background-color: rgb(0, 100, 0);
+}
+.R_apple::before {
+    position: absolute;
+    content: '';
+    width: 5px;
+    height: 10px;
+    left: 0px;
+    top: -10px;
+    border: 3px solid black;
+    transform: rotate(0deg);
+    background-color: rgb(0, 80, 0);
+}
+
+.B_lemon::before {
+    position: absolute;
+    content: '';
+    width: 70px;
+    height: 50px;
+    left: -40px;
+    top: 0px;
+    border: 3px solid black;
+    border-radius: 50% 0px 25px 50%;
+    transform: rotate(-40deg);
+    background-color: rgb(0, 100, 0);
+}
+
+.B_orange::before {
+    position: absolute;
+    content: '';
+    width: 70px;
+    height: 50px;
+    left: 0px;
+    top: -20px;
+    border: 3px solid black;
+    border-radius: 50% 0px 25px 50%;
+    transform: rotate(30deg);
+    background-color: rgb(0, 100, 0);
+}
+
+.L_strawberry::before {
+    position: absolute;
+    content: '';
+    width: 50px;
+    height: 30px;
+    right: 0px;
+    top: -20px;
+    border: 3px solid black;
+    border-radius: 50% 0px 25px 50%;
+    transform: rotate(30deg);
+    background-color: rgb(0, 100, 0);
+}
+.R_strawberry::before {
+    position: absolute;
+    content: '';
+    width: 50px;
+    height: 30px;
+    left: 0px;
+    top: -20px;
+    border: 3px solid black;
+    border-radius: 0px 50% 50% 25px;
+    transform: rotate(-30deg);
+    background-color: rgb(0, 110, 0);
+}

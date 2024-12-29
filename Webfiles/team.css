@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@700&display=swap');
+
+body {
+    background-color: beige;
+    overflow: hidden;}
+img {
+    width: 100%;}
+
+#bullet-board-inner{
+    height: 94vh;
+    width: 100%;
+    background-image: url("https://us.123rf.com/450wm/thawats/thawats1209/thawats120900276/15456710-panneau-de-fibres-panneaux-de-bois-press%C3%A9-la-texture.jpg?ver=6");
+    filter: brightness(50%);
+}
+#bullet-board-outer{
+    border: 20px solid transparent;
+    border-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3SuC8nvdySnJpQ8Dx8-AdThM_ql1vKPlBEg&usqp=CAU") 20 round;
+}
+
+.note {
+    position: absolute;
+    width: 30%;
+    height: 60%;
+    top: 20%;
+    user-select: none;
+    -webkit-user-drag: none;
+    filter: drop-shadow(0px 5px 5px black);}
+.note:nth-of-type(2) {
+    transform: rotate(2deg);
+    left: 10%;
+    background-color: pink;}
+.note:nth-of-type(2) > div {
+    width: 60%;
+    left: 20%;}
+.note:nth-of-type(3) {
+    transform: rotate(-2deg);
+    right: 10%;
+    background-color: yellow;}
+.note:nth-of-type(3) > div {
+    width: 80%;
+    left: 10%;}
+.note:nth-of-type(4) {
+    transform: rotate(-1deg);
+    right: 35%;
+    top: 5%;
+    background-color: lightblue;}
+.note:nth-of-type(4) > div {
+    width: 60%;
+    left: 20%;
+}
+
+.team_names {
+    font-family: 'Fuzzy Bubbles', cursive;
+    position: relative;
+    width: 70%;
+    left: 15%;
+    top: 5%;
+    text-align: center;
+    /*border: 1px black solid;*/}
+#drawing-pin {
+    position: relative;
+    left: 45%;
+    top: 5%;
+    width: 10%;
+    height: 10%;
+    background-color: red;
+    filter: drop-shadow(-5px 5px 10px grey) brightness(70%);
+    border-radius: 50%;}
+#drawing-pin-top {
+    position: relative;
+    width: 60%;
+    height: 60%;
+    left: 40%;
+    box-shadow: -5px 5px red;
+    background-color: crimson;
+    filter: brightness(80%);
+    border-radius: 50%;}
+
+.team_pictures {
+    position: relative;
+    filter: drop-shadow(0px 0px 10px black);
+    top: 5%;}

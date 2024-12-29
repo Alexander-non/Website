@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>Trash Adventure</title>
+        <link rel="icon" href="../../Pictures/WebpageIcons/SlimeInTrashcan.ico">
+        <meta name="viewport" content="width=device-width, initial-scale=1.00">
+        <meta charset="UTF-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="webpage_game.css">
+        <base target="_blank">
+    </head>
+    <body> <!--oncontextmenu="return false"-->
+        <div id="mapLevel"></div>
+        <div id="mapWorld"></div>
+        <audio id="music" autoplay loop><source src="../TrashAdventure/Music/ForestPart/mainTheme1.mp3" type="audio/mpeg"></audio>
+        <div id="menu-sidepage">
+            <h1>Settings </h1>
+            <div>FPS: <span id="fps">--</span></div>
+            <div>
+                <button id="volume" class="menu-sidepage-buttons">Volume</button>
+                <input id="volume-slider" type="range" min="1" max="100" value="20">
+            </div>
+            <div>
+                <button id="display" class="menu-sidepage-buttons">Display</button>
+                <ul id="display-select-holder"></ul>
+            </div>
+            <div>
+                <button id="graphics" class="menu-sidepage-buttons">Graphics</button>
+                <div id="graphics-select-holder">
+                    <div>3840x2160</div>
+                    <div>2560x1600</div>
+                    <div>2560x1440</div>
+                    <div>1920x1200</div>
+                    <div>1920x1080</div>
+                    <div>1600x900</div>
+                    <div>1366x768</div>
+                    <div>800x600</div>
+                    <div>640x480</div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="solar-cycle">
+            <div class="solar-rods" id="moon-rod"><div id="moon"></div></div>
+            <div class="solar-rods" id="sun-rod"><div id="sun"></div></div>
+        </div>
+        <div id="ground"><div id="character"><img id="characterSkin" src="../TrashAdventure/Textures/Character/slimeIdleLeft.gif"></div></div>
+        </div>
+        <script type="module" src="webpage_game.js"></script>
+    </body>
+</html>

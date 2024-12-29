@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dualopoly</title>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <a href="cards.html" target="_self"><img id="card-menu" src="./Res/sample_event_test_card.png"></img></a>
+        <a href="rules.html" target="_self"><img id="rule-menu" src="./Res/images.png"></img></a>
+        <div id="gameboard">
+            <img src="./Res/gameboard.png" alt="">
+        </div>
+        <div id="battleboard">
+            <p>Háborús Térkép</p>
+            <div id="troop_stats">
+                <span>Adatok</span>
+                <p>Ellenség:<span></span></p>
+                <p>Létszám:<span></span></p>
+                <p>Ellátás:<span></span></p>
+                <p>Haderő:<span></span></p>
+                <button id="troop_create">Hadsereg készítés</button>
+                <button id="troop_delete">Hadsereg törlés</button>
+            </div>
+            <div id="attack_types">
+                <button value="2">Agresszív</button>
+                <button value="1">Automata</button>
+                <button value="0.5">Passzív</button>
+            </div>
+            
+            <div id="war_map"><img src=""></div>
+        </div>
+        <div id="countries">
+            <select id="country_select">
+                <option id="russia" value="1">Oroszország</option>
+                <option id="england" value="2">Brit Birodalom</option>
+                <option id="france" value="3">Franciaország</option>
+                <option selected id="hungary" value="4">Osztrák-Magyar Monarchia</option>
+                <option id="turkey" value="5">Török Birodalom</option>
+                <option id="germany" value="6">Német Birodalom</option>
+                <option id="italy" value="7">Olaszország</option>
+            </select>
+            <div>Népesség: <span id="population"></span></div>
+            <div>Dolgozók: <span id="manpower"></span></div>
+            <div>Pénz: <span id="wealth"></span></div>
+            <div>Morál: <span id="morale"></span></div>
+            <div>Élelem: <span id="food"></span></div>
+            <div>Haderő: <span id="effectives"></span></div>
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>

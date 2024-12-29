@@ -1,0 +1,58 @@
+body{
+  padding: 5px 25px;
+  background-image: url(hatter.png);
+}
+
+p{
+  text-align: justify;
+  text-indent: 2em;
+}
+
+ol li{
+  margin-left: 15px;
+}
+
+.hasab{
+  -webkit-column-count: 3; /* Chrome, Safari, Opera */
+  -moz-column-count: 3; /* Firefox */
+  column-count: 3;
+  line-height: 200%;
+}
+
+h1, h2{
+  font-variant: small-caps;
+  border-radius: 0px 25px;
+  border-left: 2px solid #7F7F7F;
+  border-bottom: 2px solid #7F7F7F;
+  border-top: 0px solid #7F7F7F;
+  border-right: 0px solid #7F7F7F;
+  padding: 10px;
+  width:500px;
+}
+
+a{
+  text-decoration: none;
+  color: #7F7F7F;
+}
+
+img{
+  border: 1px solid #0F0F0F;
+  box-shadow: 5px 5px 5px #7F7F7F;
+  padding:15px;
+  margin: 15px;
+}
+
+#vonalkazas{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fk{
+  font-weight: bold;
+}
+
+#teljes{
+  float:right;
+  width: 280px;
+}
