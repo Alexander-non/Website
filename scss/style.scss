@@ -1,0 +1,78 @@
+@import '../src/styles/animations';
+
+$frontTreeSize: 2000px;
+$backTreeSize: 75px;
+
+* {
+    -webkit-user-drag: none;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    font-family: sans-serif;
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    /*overflow-x: hidden;*/
+}
+
+body {
+    background-color: skyblue;
+}
+
+#tree {
+    z-index: 99;
+    position: absolute;
+    background-color: transparent;
+    margin: 0px;
+    padding: 0px;
+    left: calc(($frontTreeSize/2)*-1);
+    top: 0%;
+    width: $frontTreeSize;
+    height: $frontTreeSize;
+    filter: sepia(0) saturate(1) drop-shadow(5px 5px 0px black);
+}
+
+svg {
+    z-index: 105;
+    position: relative;
+    background-color: black;
+}
+
+#background-decor {
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: auto;
+    top: 70%;
+    background-color: transparent;
+
+    .tree-line {
+        z-index: 100;
+        position: relative;
+        margin: 0px;
+        padding: 0px;
+        background-color: transparent;
+
+        .bg-tree {
+            position: absolute;
+            //width: $backTreeSize; height: calc($backTreeSize*2);
+            background-color: transparent;
+
+            animation: treeAppear 0.25s linear 0s 1 reverse;
+            animation-play-state: paused;
+            //animation: treeGrow 0.25s ease 0s 1 normal forwards;
+
+            img {
+                animation: treeAppear 1s linear 0s 1 normal;
+            }
+            &:hover {
+                animation-play-state: running;
+                //animation: treeAppear 1s ease 0s 1 normal forwards;
+            }
+        }
+    }
+}

@@ -1,4 +1,0 @@
-SpaceInvaders ----
-PacMan ----
-Top-Down ship game ---- 
-Flappy Bird ---- 
