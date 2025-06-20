@@ -8,7 +8,9 @@
     <title>Weblapom</title>
 </head>
 <body>
-    <img id="tree" src="./src/svg/tree/front-tree.svg" alt="Front tree [DECOR]" srcset="">
+    <img id="tree" src="./src/svg/tree/front-tree.svg" alt="Tree" srcset="">
+    <img id="mountain" src="./src/svg/mountain.svg" alt="Mountain" srcset="">
+    <img id="mountain2" src="./src/svg/mountain.svg" alt="Mountain" srcset="">
     <div id="background-decor"></div>
     <script>
         const bgDecor = document.querySelector("#background-decor");
@@ -16,19 +18,24 @@
         const numberOfTrees = 30;
         let bgTreeLength = 5; // Need responsive rework
         for (let i = 0; i < linesOfTrees; i++) {
+            let brightness = 8.5;
+            let offsetTop = 65;
+
             let treeLine = document.createElement("div");
             $(treeLine).addClass("tree-line");
-            treeLine.style.filter = 'brightness('+ (i + 7.5) * 10 + '%)'
-            treeLine.style.top = 35*i + "px";
+            treeLine.style.filter = 'brightness(' + brightness * (i + 10) + '%)'
+            treeLine.style.top = (offsetTop * i) + "px";
             for (let o = 0; o < numberOfTrees; o++) {
                 let bgTree = document.createElement("img");
+                let offsetRight = Math.floor(Math.random() * (60 - 58)) + 58;
+                let scale = Math.random() * (1.35 - 1) + 1;
+                
                 $(bgTree).addClass("bg-tree");
                 bgTree.src = './src/svg/tree/bg-tree_' + (Math.floor(Math.random() * (bgTreeLength - 1) ) + 1) + '.svg';
-                let offset = Math.floor(Math.random() * (50 - 40)) + 40;
-                bgTree.style.left = (45 * o) + "px";
-                console.log(bgTree.style.left)
+                bgTree.style.top = (Math.sin(o / 9) * 100) + "px";
+                bgTree.style.right = (offsetRight * o) + "px";
                 bgTree.style.height = "150px";
-                bgTree.style.width = "auto";
+                bgTree.style.transform = "scale(" + scale + ")";
                 treeLine.append(bgTree);
             }
             bgDecor.append(treeLine);

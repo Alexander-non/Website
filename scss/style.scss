@@ -1,6 +1,7 @@
 @import '../src/styles/animations';
 
 $frontTreeSize: 2000px;
+$mountainSize: 1000px;
 $backTreeSize: 75px;
 
 * {
@@ -15,7 +16,7 @@ html,
 body {
     padding: 0;
     margin: 0;
-    /*overflow-x: hidden;*/
+    overflow-x: hidden;
 }
 
 body {
@@ -34,6 +35,29 @@ body {
     height: $frontTreeSize;
     filter: sepia(0) saturate(1) drop-shadow(5px 5px 0px black);
 }
+#mountain {
+    //z-index: 99;
+    position: absolute;
+    background-color: transparent;
+    margin: 0px;  padding: 0px;
+    top: 20%; right: -5%;
+    width: $mountainSize; height: auto;
+    filter: brightness(0.9);
+    transform: scale(1.2);
+    transform-origin: bottom;
+    //filter: sepia(0) saturate(1) drop-shadow(5px 5px 0px black);
+}
+#mountain2 {
+    //z-index: 99;
+    position: absolute;
+    background-color: transparent;
+    margin: 0px; padding: 0px;
+    top: 20%; right: 35%;
+    transform: scale(1);
+    transform-origin: bottom;
+    width: $mountainSize; height: auto;
+    
+}
 
 svg {
     z-index: 105;
@@ -47,30 +71,29 @@ svg {
     padding: 0px;
     width: 100%;
     height: auto;
-    top: 70%;
+    top: 85%;
     background-color: transparent;
 
     .tree-line {
-        z-index: 100;
+        //z-index: 100;
         position: relative;
         margin: 0px;
         padding: 0px;
         background-color: transparent;
 
         .bg-tree {
-            position: absolute;
             //width: $backTreeSize; height: calc($backTreeSize*2);
+            position: absolute;
+            width: auto;
+            transform-origin: bottom;
             background-color: transparent;
+            
 
-            animation: treeAppear 0.25s linear 0s 1 reverse;
-            animation-play-state: paused;
-            //animation: treeGrow 0.25s ease 0s 1 normal forwards;
+            //animation: treeMove 1s linear 0s 1 reverse;
+            //animation-play-state: paused;
+           // animation: treeGrow 0.25s ease 0s 1 normal forwards;
 
-            img {
-                animation: treeAppear 1s linear 0s 1 normal;
-            }
             &:hover {
-                animation-play-state: running;
                 //animation: treeAppear 1s ease 0s 1 normal forwards;
             }
         }

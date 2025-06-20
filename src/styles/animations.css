@@ -1,4 +1,4 @@
-@keyframes treeAppear {
+@keyframes treeMove {
     0%, 100% {
         transform: translateX(0%);
         transform-origin: 50% 50%;
